@@ -7,7 +7,6 @@
 
 import { defaultLocale, type Locale } from '~/i18n/routing';
 import { siteUrl } from '~/config/site';
-import { landingLinkEnabled } from '~/config/project';
 
 /** Build a path with the locale prefix applied (or none for default locale). */
 export function localizePath(path: string, locale: Locale): string {
@@ -37,15 +36,10 @@ export function absoluteUrl(path: string, locale: Locale): string {
 }
 
 /**
- * Home URL for a locale. Demo builds serve the English wiki homepage at
- * /demo/ (the root `/` is the storefront gateway); after apply-template
- * flips landingLinkEnabled to false, the first branch is dead code and the
- * return value is byte-identical to the historical `localizePath('/', locale)`.
- * Single source of truth for the logo, language switcher, breadcrumbs,
- * BreadcrumbList JSON-LD, and homepage hreflang clusters.
+ * Home URL for a locale. Single source of truth for the logo, language
+ * switcher, breadcrumbs, BreadcrumbList JSON-LD, and homepage hreflang.
  */
 export function homeUrl(locale: Locale): string {
-  if (landingLinkEnabled && locale === defaultLocale) return '/demo/';
   return localizePath('/', locale);
 }
 
@@ -54,7 +48,7 @@ export function listPath(category: string, locale: Locale): string {
   return localizePath(`/${category}`, locale);
 }
 
-/** Article detail URL. e.g. detailPath('bosses', 'emberfang', 'en') -> '/bosses/emberfang' */
+/** Article detail URL. e.g. detailPath('guides', 'getting-started', 'en') -> '/guides/getting-started' */
 export function detailPath(category: string, slug: string, locale: Locale): string {
   return localizePath(`/${category}/${slug}`, locale);
 }

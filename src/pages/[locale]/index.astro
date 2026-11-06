@@ -7,7 +7,7 @@
  */
 import HomePage from '~/components/home/HomePage.astro';
 import { isLocale, defaultLocale, locales, type Locale } from '~/i18n/routing';
-import { videoGameJsonLd, websiteJsonLd } from '~/lib/seo';
+import { websiteJsonLd } from '~/lib/seo';
 import { homeUrl, languageAlternates } from '~/lib/url';
 
 export function getStaticPaths() {
@@ -23,7 +23,7 @@ const { locale } = Astro.params;
 if (!isLocale(locale) || locale === defaultLocale) {
   return Astro.redirect('/');
 }
-const jsonLd = [websiteJsonLd(locale as Locale), videoGameJsonLd()];
+const jsonLd = [websiteJsonLd(locale as Locale)];
 // hreflang alternates: Home → / (en) or /<locale> for each locale.
 const alternates = languageAlternates((loc) => homeUrl(loc), locales);
 ---

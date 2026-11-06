@@ -28,10 +28,7 @@ export interface NavigationItem {
 
 /** Menu order = array order — every consumer renders by physical position. */
 export const NAVIGATION_CONFIG: NavigationItem[] = [
-  { key: 'bosses', path: '/bosses', icon: 'lucide:swords', isContentType: true },
   { key: 'guides', path: '/guides', icon: 'lucide:book-open', isContentType: true },
-  { key: 'items', path: '/items', icon: 'lucide:package', isContentType: true },
-  { key: 'codes', path: '/codes', icon: 'lucide:gift', isContentType: true },
 ];
 
 /** Derived list of content type slugs (e.g. ['bosses', 'guides', 'items', 'codes']). */
@@ -51,9 +48,7 @@ export const CONTENT_TYPES: string[] = NAVIGATION_CONFIG.map((n) => n.key);
  * schema's legal-category enum derives from LEGAL_CONTENT_TYPES below, and
  * the recipe-hub preset registry references the same keys.
  */
-export const PRESET_ONLY_CATEGORIES: NavigationItem[] = [
-  { key: 'recipes', path: '/recipes', icon: 'lucide:cake', isContentType: true },
-];
+export const PRESET_ONLY_CATEGORIES: NavigationItem[] = [];
 
 /**
  * Every legal frontmatter category = game-wiki menu keys ∪ preset-only keys.

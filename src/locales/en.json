@@ -1,24 +1,20 @@
 {
   "$schema": "../../docs/home.schema.json",
   "site": {
-    "name": "Anvil Quest Wiki",
-    "shortName": "AQ Wiki",
-    "description": "Complete Anvil Quest wiki with boss guides, tier lists, codes, item locations, and beginner tips. Every guide carries a last-verified date.",
-    "tagline": "Your forge for everything Anvil Quest",
-    "legalNotice": "Anvil Quest Wiki is a fan-made community site. Not affiliated with or endorsed by the game developer."
+    "name": "1in8b Game Guides Wiki",
+    "shortName": "1in8b",
+    "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
+    "tagline": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
+    "legalNotice": "1in8b Game Guides is an independent editorial resource and is not affiliated with game publishers or developers."
   },
   "nav": {
     "home": "Home",
-    "bosses": "Bosses",
-    "guides": "Guides",
-    "items": "Items",
-    "codes": "Codes",
-    "recipes": "Recipes",
     "toggleTheme": "Toggle theme",
     "menu": "Menu",
     "close": "Close",
     "search": "Search",
-    "language": "Language"
+    "language": "Language",
+    "guides": "Guides"
   },
   "search": {
     "placeholder": "Search the wiki...",
@@ -138,305 +134,94 @@
     "paginationAria": "Article pagination"
   },
   "overview": {
-    "bosses": {
-      "overviewTitle": "All Bosses",
-      "overviewDescription": "Complete strategy guides for every boss in Anvil Quest, including attack patterns, weaknesses, and recommended loadouts."
-    },
     "guides": {
       "overviewTitle": "All Guides",
-      "overviewDescription": "In-depth tutorials covering progression, crafting, combat mechanics, and advanced strategies for Anvil Quest."
-    },
-    "items": {
-      "overviewTitle": "All Items",
-      "overviewDescription": "Comprehensive item database with locations, stats, rarity tiers, and crafting recipes."
-    },
-    "codes": {
-      "overviewTitle": "All Codes",
-      "overviewDescription": "Active Anvil Quest codes for free coins, gems, and exclusive items. Verified daily."
-    },
-    "recipes": {
-      "overviewTitle": "All Recipes",
-      "overviewDescription": "Template demo recipes — swap in your own tested cooking."
+      "overviewDescription": "Guides content for 1in8b Game Guides. Replace this overview text in the locale JSON — it feeds the category page title and description."
     }
   },
   "home": {
     "meta": {
-      "title": "Anvil Quest Wiki - Complete Boss Guides, Codes & Tier Lists",
-      "description": "The most complete Anvil Quest wiki. Boss strategies, active codes, item locations, tier lists, and beginner guides. Every page shows when it was last verified."
-    },
-    "hero": {
-      "badge": "Fan-Made Community Wiki",
-      "title": "Anvil Quest Wiki",
-      "description": "Your complete guide to Anvil Quest. Boss strategies, active codes, item locations, tier lists, and everything you need to master the forge.",
-      "ctaPrimary": "Play Anvil Quest",
-      "ctaSecondary": "Browse Guides",
-      "videoId": ""
+      "title": "1in8b Game Guides — Development Preview",
+      "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions."
     },
     "updates": {
-      "title": "Recent Updates"
+      "title": "Development updates"
     },
-    "start": {
-      "badge": "Start Here",
-      "title": "Your Anvil Quest Journey",
-      "cards": [
+    "popular": {
+      "badge": "Preview",
+      "title": "What is available now",
+      "quickLinks": [
         {
-          "number": "1",
-          "title": "Beginner Guide",
-          "description": "New to Anvil Quest? Start here with the essential mechanics, controls, and your first hour walkthrough.",
-          "icon": "lucide:book-open",
-          "href": "/guides/beginner-guide"
-        },
-        {
-          "number": "2",
-          "title": "Active Codes",
-          "description": "Redeem the latest codes for free coins, gems, and exclusive cosmetic items.",
-          "icon": "lucide:gift",
-          "href": "/codes"
-        },
-        {
-          "number": "3",
-          "title": "Boss Strategies",
-          "description": "Complete guides for every boss with attack patterns, weaknesses, and recommended loadouts.",
-          "icon": "lucide:swords",
-          "href": "/bosses"
-        },
-        {
-          "number": "4",
-          "title": "Weapon Tier List",
-          "description": "Ranking every weapon from S to C based on DPS, utility, and synergy.",
-          "icon": "lucide:list-ordered",
-          "href": "/guides/weapon-tier-list"
+          "label": "Development placeholder",
+          "href": "/guides"
         }
       ]
     },
-    "popular": {
-      "badge": "Trending Now",
-      "title": "Most Read This Week",
-      "quickLinks": [
+    "closingCta": {
+      "title": "The multi-game guide foundation is underway",
+      "description": "Game directories, practical guides, and player decision support will arrive in later development milestones.",
+      "primary": "Browse the preview",
+      "secondary": "View the placeholder guide"
+    },
+    "hero": {
+      "badge": "Development preview — not indexed",
+      "title": "1in8b Game Guides",
+      "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
+      "ctaPrimary": "",
+      "ctaSecondary": "Explore the foundation",
+      "videoId": ""
+    },
+    "start": {
+      "badge": "Development status",
+      "title": "A clean foundation for the next phase",
+      "cards": [
         {
-          "label": "Emberfang Boss Guide",
-          "href": "/bosses/emberfang"
-        },
-        {
-          "label": "Best Weapons Tier List",
-          "href": "/guides/weapon-tier-list"
-        },
-        {
-          "label": "Beginner Guide",
-          "href": "/guides/beginner-guide"
-        },
-        {
-          "label": "All Active Codes",
-          "href": "/codes"
+          "number": "1",
+          "title": "Content model preparation",
+          "description": "This temporary page confirms the content pipeline and static routes build correctly.",
+          "icon": "lucide:book-open",
+          "href": "/guides"
         }
       ]
     },
     "explore": {
-      "title": "Explore the Wiki",
-      "description": "Everything you need, organized by category. Pick a topic and dive in.",
+      "title": "Coming next",
+      "description": "T02 will introduce the multi-game data model and generated routes.",
       "modules": [
         {
           "order": 1,
-          "name": "Anvil Quest Codes",
-          "description": "Active codes for free coins, gems, and exclusive items. Updated daily.",
-          "href": "/codes",
-          "displayType": "badge-list",
-          "highlights": [
-            {
-              "label": "HALLOWEEN-2026",
-              "detail": "+300 Gold · expires Nov 8",
-              "badge": "Active"
-            },
-            {
-              "label": "ADVENT-2026",
-              "detail": "+250 Gold · expires Dec 25",
-              "badge": "Active"
-            },
-            {
-              "label": "GRATITUDE-2026",
-              "detail": "+500 Gold · expires Nov 30",
-              "badge": "Active"
-            },
-            {
-              "label": "HEARTHFIRE-2026",
-              "detail": "+600 Gold · expires Nov 30 (extended)",
-              "badge": "Active"
-            },
-            {
-              "label": "ASHENKEEP",
-              "detail": "Ashen Keep cosmetic set",
-              "badge": "Active"
-            },
-            {
-              "label": "NEWPLAYER",
-              "detail": "Starter bundle (new accounts)",
-              "badge": "Active"
-            }
-          ]
-        },
-        {
-          "order": 2,
-          "name": "Boss Strategies",
-          "description": "Complete guides for every boss with attack patterns and weaknesses.",
-          "href": "/bosses",
-          "displayType": "labeled-cards",
-          "highlights": [
-            {
-              "label": "Emberfang",
-              "detail": "Frost warden, early-game gatekeeper"
-            },
-            {
-              "label": "Stormcaller",
-              "detail": "Fire titan, mid-game DPS check"
-            },
-            {
-              "label": "Voidking",
-              "detail": "Final boss, requires full prep"
-            }
-          ]
-        },
-        {
-          "order": 3,
-          "name": "Progression Guides",
-          "description": "Leveling routes, class builds, and endgame preparation.",
+          "name": "Development placeholder",
+          "description": "No game data or player guidance is published in this initial repository setup.",
           "href": "/guides",
           "displayType": "steps",
           "highlights": [
             {
-              "label": "1",
-              "detail": "Pick a starting class"
+              "label": "Foundation",
+              "detail": "Astro, MDX, search, SEO, and static deployment are configured.",
+              "badge": "Complete"
             },
             {
-              "label": "2",
-              "detail": "Clear the tutorial forge"
+              "label": "Next",
+              "detail": "Add multi-game data and routes in T02.",
+              "badge": "Planned"
             },
             {
-              "label": "3",
-              "detail": "Unlock the Shattered Isles"
-            },
-            {
-              "label": "4",
-              "detail": "Defeat your first world boss"
-            }
-          ]
-        },
-        {
-          "order": 4,
-          "name": "Weapon Tier List",
-          "description": "Ranking every weapon from S to C based on DPS, utility, and synergy.",
-          "href": "/guides/weapon-tier-list",
-          "displayType": "ranked-grid",
-          "highlights": [
-            {
-              "label": "S",
-              "detail": "Voidforge Blade, Stormcaller"
-            },
-            {
-              "label": "A",
-              "detail": "Emberclaw, Frostpike"
-            },
-            {
-              "label": "B",
-              "detail": "Ironwood Bow, Mace of Dawn"
-            },
-            {
-              "label": "C",
-              "detail": "Starter weapons"
-            }
-          ]
-        },
-        {
-          "order": 5,
-          "name": "Update History",
-          "description": "Major patches and events, newest first.",
-          "href": "/recent",
-          "displayType": "timeline",
-          "highlights": [
-            {
-              "label": "v2.5",
-              "detail": "New raid: Shadowforge released",
-              "badge": "Latest"
-            },
-            {
-              "label": "v2.4",
-              "detail": "Rebalanced all S-tier weapons"
-            },
-            {
-              "label": "v2.3",
-              "detail": "Added 3 new bosses"
-            },
-            {
-              "label": "v2.2",
-              "detail": "Launched season pass system"
-            }
-          ]
-        },
-        {
-          "order": 6,
-          "name": "Video Guides",
-          "description": "Watch the best Anvil Quest walkthroughs and boss fights.",
-          "href": "/guides",
-          "displayType": "video-grid",
-          "highlights": [
-            {
-              "title": "Beginner Walkthrough",
-              "youtubeId": "dQw4w9WgXcQ",
-              "duration": "12:34"
-            },
-            {
-              "title": "All Bosses Ranked",
-              "youtubeId": "aaaaaaaaaaa",
-              "duration": "18:42"
-            },
-            {
-              "title": "Speedrun Guide",
-              "youtubeId": "bbbbbbbbbbb",
-              "duration": "25:10"
-            },
-            {
-              "title": "Hidden Secrets",
-              "youtubeId": "ccccccccccc",
-              "duration": "9:15"
+              "label": "Indexing",
+              "detail": "The Preview deployment remains blocked from search engines.",
+              "badge": "Enabled"
             }
           ]
         }
       ]
     },
     "faq": {
-      "title": "Frequently Asked Questions",
-      "description": "Quick answers to the most common questions about Anvil Quest.",
-      "items": [
-        {
-          "question": "What is Anvil Quest?",
-          "answer": "Anvil Quest is a fantasy RPG on Roblox where you play as a blacksmith apprentice forging weapons and battling bosses across the Shattered Isles. It launched in January 2026 and has over 12 million visits."
-        },
-        {
-          "question": "Which class should beginners pick in Anvil Quest?",
-          "answer": "Warrior is the most beginner-friendly class thanks to high HP and simple mechanics. Once you understand the game, Rogue offers the highest damage output for experienced players."
-        },
-        {
-          "question": "How do I redeem codes in Anvil Quest?",
-          "answer": "Open the game, click the settings gear in the top-right, paste your code into the 'Redeem Code' field, and hit confirm. Codes are case-sensitive."
-        },
-        {
-          "question": "Is Anvil Quest free to play?",
-          "answer": "Yes, Anvil Quest is completely free on Roblox. There are optional cosmetic microtransactions, but they do not affect gameplay balance."
-        },
-        {
-          "question": "How often does Anvil Quest update?",
-          "answer": "Forge Studios releases major content updates roughly every two weeks, with smaller hotfixes in between. New bosses and codes are typically added with each major patch."
-        }
-      ]
-    },
-    "closingCta": {
-      "title": "Ready to Master the Forge?",
-      "description": "Bookmark this wiki and check back daily for new codes, boss guides, and tier list updates.",
-      "primary": "Play Anvil Quest",
-      "secondary": "Join Our Discord"
+      "title": "FAQ",
+      "description": "Common questions",
+      "items": []
     }
   },
   "footer": {
-    "playGame": "Play Anvil Quest",
+    "playGame": "Play 1in8b Game Guides",
     "officialDiscord": "Official Discord",
     "officialYoutube": "Official YouTube",
     "officialTwitter": "Official Twitter",
@@ -447,7 +232,7 @@
     "termsOfService": "Terms of Service",
     "copyright": "Copyright",
     "contact": "Contact",
-    "copyrightText": "© 2026 Anvil Quest Wiki. Fan-made, not affiliated with Forge Studios.",
+    "copyrightText": "© 2026 1in8b Game Guides. All rights reserved.",
     "community": "Community",
     "legal": "Legal"
   }

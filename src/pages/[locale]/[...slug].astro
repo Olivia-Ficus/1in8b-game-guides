@@ -45,7 +45,7 @@ export async function getStaticPaths() {
     }
 
     // Also generate paths for English articles so fallback works at request
-    // time (e.g. /ja/bosses/stormcaller where ja version doesn't exist).
+    // time (e.g. /fr/guides/getting-started where that version doesn't exist).
     for (const entry of published) {
       const parsed = parseEntryId(entry.id);
       if (!parsed || parsed.locale !== defaultLocale) continue;

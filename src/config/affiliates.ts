@@ -15,7 +15,7 @@
 export interface AffiliateSuggestionItem {
   /** Destination URL (absolute). Gets rel="sponsored nofollow noopener". */
   url: string;
-  /** Card headline, e.g. "Anvil Quest on Steam". */
+  /** Card headline, e.g. "Example Game on Steam". */
   title: string;
   /** One-line description under the title. */
   description?: string;

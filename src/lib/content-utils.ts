@@ -7,7 +7,7 @@
 import { isLocale, type Locale } from '~/i18n/routing';
 
 /**
- * Parse an entry id like "en/bosses/emberfang" or "ja/bosses/sub/emberfang" into parts.
+ * Parse an entry id like "en/guides/getting-started" or "fr/guides/beginner-basics" into parts.
  * Returns null if the id doesn't match `<locale>/<category>/<...slug>`.
  */
 export function parseEntryId(

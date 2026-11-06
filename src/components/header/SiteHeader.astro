@@ -12,7 +12,6 @@ import { homeUrl, localizePath } from '~/lib/url';
 import ThemeToggle from './ThemeToggle.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SearchButton from './SearchButton.astro';
-import { landingLink, landingLinkEnabled, zhLandingLink } from '~/config/project';
 
 interface Props {
   locale: Locale;
@@ -36,22 +35,16 @@ const localePrefixRe = new RegExp(`^/(${locales.filter((l) => l !== defaultLocal
 
 const samePagePathFor = (loc: Locale) => {
   // Strip existing locale prefix, then prepend the new one. Homepages go
-  // through homeUrl — in demo builds the English home lives at /demo/ and
-  // the root `/` is a redirect gateway, so switching FROM /demo/ must map to
-  // the locale's real homepage (homeUrl('ja') = '/ja/'), never a localized
-  // '/ja/demo/' (no such route). In forks landingLinkEnabled is false, so
-  // isHome only matches the plain '/' and the result stays byte-equal to the
-  // old localizePath('/', loc).
+  // through homeUrl so the default locale remains rooted at '/'.
   const stripped = currentPath.replace(localePrefixRe, '') || '/';
-  const isHome = stripped === '/' || (landingLinkEnabled && stripped === '/demo/');
+  const isHome = stripped === '/';
   return isHome ? homeUrl(loc) : localizePath(stripped, loc);
 };
 ---
 
 <header class="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur">
   <div class="mx-auto flex h-14 max-w-7xl items-center gap-4 px-4">
-    {/* Logo — homeUrl keeps demo builds pointing at /demo/ (the root is the
-        storefront gateway); forks get '/' exactly as before. */}
+    {/* Logo */}
     <a
       href={homeUrl(locale)}
       class="flex items-center gap-2 font-bold text-foreground"
@@ -89,17 +82,6 @@ const samePagePathFor = (loc: Locale) => {
 
     {/* Right actions */}
     <div class="ml-auto flex items-center gap-1">
-      {landingLinkEnabled && (
-        <a
-          href={landingLink.href}
-          class="inline-flex h-9 items-center gap-1.5 rounded-md px-2 text-xs font-medium text-muted-foreground transition hover:bg-muted hover:text-nav"
-          aria-label={landingLink.ariaLabel}
-          title={landingLink.ariaLabel}
-        >
-          <Icon name="lucide:hammer" class="h-5 w-5 shrink-0" />
-          <span class="hidden whitespace-nowrap lg:inline">{landingLink.label}</span>
-        </a>
-      )}
       <SearchButton locale={locale} />
       <ThemeToggle />
       <LanguageSwitcher locale={locale} pathFor={samePagePathFor} availableLocales={availableLocales} />
@@ -150,24 +132,7 @@ const samePagePathFor = (loc: Locale) => {
                 </a>
               ))
             }
-            {landingLinkEnabled && (
-              <a
-                href={zhLandingLink.href}
-                class="block border-t border-border px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-nav"
-              >
-                {zhLandingLink.label}
-              </a>
-            )}
           </div>
-          {landingLinkEnabled && (
-            <a
-              href={landingLink.href}
-              class="mt-1 flex items-center gap-2 border-t border-border px-3 py-2 text-sm text-muted-foreground transition hover:bg-muted hover:text-nav"
-            >
-              <Icon name="lucide:hammer" class="h-4 w-4" />
-              <span>{landingLink.label}</span>
-            </a>
-          )}
         </div>
       </details>
     </div>

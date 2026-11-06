@@ -1,16 +1,16 @@
 {
-  "name": "anvilwiki",
-  "version": "2.39.0",
+  "name": "1in8b-game-guides",
+  "version": "0.1.0",
   "type": "module",
-  "description": "Open-source game wiki site template. Astro + Cloudflare Pages. Free, fast, beginner-friendly.",
+  "description": "Game discovery, navigation, and player guide foundation for 1in8b.online.",
   "license": "MIT",
-  "homepage": "https://anvil.wiki",
+  "homepage": "https://1in8b-game-guides.pages.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/PNGTRID/AnvilWiki.git"
+    "url": "https://github.com/Olivia-Ficus/1in8b-game-guides.git"
   },
   "bugs": {
-    "url": "https://github.com/PNGTRID/AnvilWiki/issues"
+    "url": "https://github.com/Olivia-Ficus/1in8b-game-guides/issues"
   },
   "keywords": [
     "astro",
@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && tsx scripts/write-indexnow-key.ts",
+    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "typecheck": "astro check",

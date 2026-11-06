@@ -134,7 +134,7 @@ export function stripEmoji(text: string): string {
   return text.replace(/[\p{Extended_Pictographic}\u{FE0F}]/gu, '').trim();
 }
 
-/** Cover filename from a content id: "en/bosses/emberfang" → "en-bosses-emberfang.png". */
+/** Cover filename from a content id: "en/guides/getting-started" → "en-guides-getting-started.png". */
 export function coverFilename(entryId: string): string {
   return (
     entryId

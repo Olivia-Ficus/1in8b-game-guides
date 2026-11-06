@@ -136,5 +136,5 @@ export function handbookPath(locale: HandbookLocale, slug: string, isHub = false
 
 /** GitHub source URL ("Edit on GitHub" link). */
 export function handbookSourceUrl(locale: HandbookLocale, slug: string): string {
-  return `https://github.com/PNGTRID/AnvilWiki/blob/main/docs/handbook/${locale}/${slug}.md`;
+  return `https://github.com/Olivia-Ficus/1in8b-game-guides/blob/main/docs/handbook/${locale}/${slug}.md`;
 }

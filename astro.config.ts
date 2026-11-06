@@ -9,7 +9,6 @@ import * as path from 'node:path';
 import { locales, defaultLocale } from './src/i18n/routing';
 import { CONTENT_TYPES } from './src/config/navigation';
 import { fallbackDetailPaths } from './src/lib/fallback-paths';
-import { landingLinkEnabled } from './src/config/project';
 
 /**
  * Build a map of page path → lastmod ISO date, read from MDX frontmatter
@@ -195,7 +194,7 @@ function buildLastmodMap(
   return map;
 }
 
-const siteOrigin = process.env.SITE_URL || 'https://anvil.wiki';
+const siteOrigin = process.env.SITE_URL || 'https://1in8b-game-guides.pages.dev';
 
 // trailingSlash:'always' makes every generated URL end with "/", but the
 // lookup tables above (lastmodMap / noindexPaths / coverage keys) are built
@@ -278,7 +277,7 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://anvil.wiki',
+  site: process.env.SITE_URL || 'https://1in8b-game-guides.pages.dev',
   output: 'static',
   // Astro 7 flipped the default from true to 'jsx', which strips whitespace
   // between adjacent inline elements ("word" + "word" can render joined).
@@ -318,14 +317,7 @@ export default defineConfig({
       // Alternates are built per-URL in `serialize` from real MDX coverage.
       // noindex articles stay out of the sitemap (self-contradictory signal
       // otherwise — the page asks not to be indexed while the sitemap submits it).
-      // Demo builds also drop `/`: it is a jump URL (301 → /zh/landing/),
-      // not content — a redirect URL must never sit in a sitemap. The gate is
-      // load-bearing: a fork's `/` is its REAL homepage and must stay listed
-      // (landingLinkEnabled=false there). /demo/ is produced by src/pages/
-      // demo.astro and gets collected automatically.
-      filter: (url) =>
-        !noindexPaths.has(normalizePath(decodeSitemapPath(url))) &&
-        !(landingLinkEnabled && normalizePath(decodeSitemapPath(url)) === '/'),
+      filter: (url) => !noindexPaths.has(normalizePath(decodeSitemapPath(url))),
       // Inject <lastmod> from article frontmatter (see buildLastmodMap) and
       // hreflang alternates that mirror the page-level truth (see alternatesFor).
       serialize(item) {

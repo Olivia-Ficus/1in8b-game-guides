@@ -1,11 +1,11 @@
 {
-  "name": "Anvil Quest Wiki",
-  "short_name": "AQ Wiki",
-  "description": "Complete Anvil Quest wiki with boss guides, codes, and tier lists.",
+  "name": "1in8b Game Guides Wiki",
+  "short_name": "1in8b",
+  "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#f36716",
+  "theme_color": "#2463eb",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
