@@ -1,0 +1,10 @@
+{
+  "name": "Sample Frontier (Test Game)",
+  "slug": "sample-frontier",
+  "description": "A noindex test game that proves a second game can use the same article topic slugs without URL or metadata collisions.",
+  "platforms": ["Test platform"],
+  "genre": "Route fixture",
+  "updatedAt": "2026-11-06",
+  "status": "published",
+  "noindex": true
+}

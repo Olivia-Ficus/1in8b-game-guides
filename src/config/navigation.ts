@@ -27,9 +27,10 @@ export interface NavigationItem {
 }
 
 /** Menu order = array order — every consumer renders by physical position. */
-export const NAVIGATION_CONFIG: NavigationItem[] = [
-  { key: 'guides', path: '/guides', icon: 'lucide:book-open', isContentType: true },
-];
+// T02 has no global content category pages: every future category belongs to
+// a game and is derived from that game's actual guides. Keeping this empty
+// prevents phantom /guides/ style pages with no content.
+export const NAVIGATION_CONFIG: NavigationItem[] = [];
 
 /** Derived list of content type slugs (e.g. ['bosses', 'guides', 'items', 'codes']). */
 export const CONTENT_TYPES: string[] = NAVIGATION_CONFIG.map((n) => n.key);

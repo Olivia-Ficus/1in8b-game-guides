@@ -122,8 +122,8 @@ async function main() {
   const brandDeep = hslToHex(brand.h, brand.s, Math.max(brand.l - 18, 12));
   const ink = textColorOn(brand);
 
-  const initial = stripEmoji(site.game.name).trim().charAt(0).toUpperCase() || 'W';
-  const gameName = stripEmoji(site.game.name).trim() || site.name;
+  const initial = stripEmoji(site.shortName).trim().charAt(0).toUpperCase() || 'W';
+  const gameName = stripEmoji(site.shortName).trim() || site.name;
   const heroTitle = stripEmoji(site.name).trim();
 
   const manifestPath = join(root, 'node_modules/.cache/gen-assets/manifest.json');

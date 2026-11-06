@@ -9,7 +9,7 @@ interface Props {
   page: 'about' | 'privacy-policy' | 'terms-of-service' | 'copyright' | 'contact';
 }
 const { page } = Astro.props;
-const game = site.game.name;
+const game = 'the games covered by this site';
 const year = new Date().getFullYear();
 ---
 
@@ -17,8 +17,7 @@ const year = new Date().getFullYear();
   page === 'about' && (
     <>
       <p>
-        {site.name} is a fan-made community wiki dedicated to {game}, a {site.game.genre} on{' '}
-        {site.game.platform} developed by {site.game.developer}. Our mission is to provide accurate,
+        {site.name} is an independent editorial resource covering {game}. Our mission is to provide accurate,
         up-to-date guides, tips, and reference material to help players get the most out of the
         game.
       </p>
@@ -137,8 +136,8 @@ const year = new Date().getFullYear();
       <h2>Trademarks</h2>
       <p>
         {game} and all related trademarks, logos, and assets are the property of{' '}
-        {site.game.developer}. {site.name} is an independent fan project and is not affiliated with
-        or endorsed by {site.game.developer}.
+        their respective rights holders. {site.name} is an independent editorial project and is not affiliated with
+        or endorsed by any game publisher or developer.
       </p>
       <h2>Limitation of Liability</h2>
       <p>
@@ -165,7 +164,7 @@ const year = new Date().getFullYear();
       <h2>Game Assets</h2>
       <p>
         {game}, including its name, logo, characters, artwork, and other related assets, is the
-        property of {site.game.developer}. All {game} content is used on this wiki under fair use
+        property of their respective rights holders. All {game} content is used on this site under fair use
         for the purpose of providing informational guides to players. {site.name} claims no
         ownership of any {game} intellectual property.
       </p>
@@ -214,7 +213,7 @@ const year = new Date().getFullYear();
           <li>
             <strong>Reddit:</strong>{' '}
             <a href={site.social.reddit} target="_blank" rel="noopener noreferrer">
-              r/{site.game.name.replace(/\s+/g, '')}
+              relevant community channels
             </a>
           </li>
         )}

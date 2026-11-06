@@ -1,0 +1,17 @@
+---
+import LocaleLayout from '~/components/layout/LocaleLayout.astro';
+import { defaultLocale } from '~/i18n/routing';
+import { getPublishedGames, getGameGuides } from '~/lib/games';
+import { gameGuidePath, gamesPath, homeUrl } from '~/lib/url';
+import { gameBreadcrumbJsonLd, gameJsonLd } from '~/lib/seo';
+export async function getStaticPaths() {
+  return (await getPublishedGames()).map((game) => ({ params: { game: game.data.slug }, props: { game } }));
+}
+const { game } = Astro.props;
+const guides = await getGameGuides(game.data.slug, defaultLocale);
+---
+<LocaleLayout locale={defaultLocale} title={game.data.name} description={game.data.description} noindex={game.data.noindex} jsonLd={[gameJsonLd(game.data, defaultLocale), gameBreadcrumbJsonLd(game.data, undefined, undefined, defaultLocale)]}>
+  <nav class="text-sm text-muted-foreground"><a href={homeUrl(defaultLocale)}>Home</a><span class="mx-1">/</span><a href={gamesPath(defaultLocale)}>Games</a><span class="mx-1">/</span><span>{game.data.name}</span></nav>
+  <header class="mt-3"><h1 class="text-3xl font-extrabold">{game.data.name}</h1><p class="mt-2 max-w-2xl text-muted-foreground">{game.data.description}</p>{game.data.platforms.length > 0 && <p class="mt-3 text-sm">Platforms: {game.data.platforms.join(', ')}</p>}{game.data.genre && <p class="text-sm">Genre: {game.data.genre}</p>}</header>
+  {guides.length > 0 && <section class="mt-8"><h2 class="text-xl font-bold">Guides</h2><ul class="mt-3 grid gap-3 sm:grid-cols-2">{guides.map((guide) => <li><a class="card block p-4" href={gameGuidePath(game.data.slug, guide.data.topic, defaultLocale)}><h3 class="font-semibold">{guide.data.title}</h3><p class="mt-1 text-sm text-muted-foreground">{guide.data.description}</p></a></li>)}</ul></section>}
+</LocaleLayout>

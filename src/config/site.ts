@@ -1,8 +1,6 @@
 /**
- * Site configuration — the single source of truth for game-specific metadata.
- *
- * 👉 APPLY TEMPLATE: Change every field here when building a new game wiki.
- * This is part of the CONFIG LAYER — framework code reads from here, never the reverse.
+ * Site-wide brand configuration. Individual game metadata belongs in
+ * src/content/games/*.json and must never be added here.
  */
 
 export interface SiteConfig {
@@ -25,7 +23,6 @@ export interface SiteConfig {
    */
   contactEmail?: string;
   social: {
-    /** Official game website URL (the game itself, not the wiki). */
     official: string;
     discord?: string;
     youtube?: string;
@@ -38,18 +35,6 @@ export interface SiteConfig {
    * this wiki to the game's knowledge-graph entity.
    */
   sameAs?: string[];
-  game: {
-    /** Full game name. */
-    name: string;
-    /** Platform: "Roblox" | "Steam" | "Epic Games" | "Mobile" | ... */
-    platform: string;
-    /** Developer / studio name. */
-    developer: string;
-    /** Genre description. */
-    genre: string;
-    /** ISO release date (optional). */
-    releaseDate?: string;
-  };
   /**
    * Dimensions of the default OG/Twitter share image (public/images/hero.webp).
    * Emitted as og:image:width / og:image:height so social crawlers can render
@@ -81,13 +66,6 @@ export const site: SiteConfig = {
   contactEmail: '',
   social: {
     official: 'https://1in8b.online/',
-  },
-  game: {
-    name: '1in8b Game Guides',
-    platform: 'Multiple platforms',
-    developer: 'Not applicable',
-    genre: 'Game discovery and player guides',
-    releaseDate: '',
   },
   // og:image dims of the SHIPPED hero.webp — if you replace public/images/hero.webp,
   // update these in src/config/site.ts to match (wrong dims mis-crop share cards).

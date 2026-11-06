@@ -9,6 +9,28 @@ import { siteUrl } from '~/config/site';
 import { site } from '~/config/site';
 import { defaultLocale, type Locale } from '~/i18n/routing';
 import { detailPath, homeUrl, listPath } from './url';
+import { gameGuidePath, gamePath, gamesPath } from './url';
+
+export function gameJsonLd(game: { name: string; slug: string; description: string; officialUrl?: string; platforms: string[]; genre?: string; updatedAt: Date }, locale: Locale) {
+  return {
+    '@context': 'https://schema.org', '@type': 'VideoGame', name: game.name,
+    description: game.description, url: `${siteUrl}${gamePath(game.slug, locale)}`,
+    dateModified: game.updatedAt.toISOString(),
+    ...(game.genre ? { genre: game.genre } : {}),
+    ...(game.platforms.length ? { gamePlatform: game.platforms } : {}),
+    ...(game.officialUrl ? { sameAs: [game.officialUrl] } : {}),
+  };
+}
+
+export function gameBreadcrumbJsonLd(game: { name: string; slug: string }, title?: string, topic?: string, locale: Locale = defaultLocale) {
+  const items = [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}${homeUrl(locale)}` },
+    { '@type': 'ListItem', position: 2, name: 'Games', item: `${siteUrl}${gamesPath(locale)}` },
+    { '@type': 'ListItem', position: 3, name: game.name, item: `${siteUrl}${gamePath(game.slug, locale)}` },
+  ];
+  if (title && topic) items.push({ '@type': 'ListItem', position: 4, name: title, item: `${siteUrl}${gameGuidePath(game.slug, topic, locale)}` });
+  return { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items };
+}
 
 /** Organization JSON-LD — injected globally in BaseLayout. */
 export function organizationJsonLd() {
@@ -278,7 +300,7 @@ export function videoObjectJsonLd(opts: {
  * pass either a raw title or pageTitle() output without double suffixing.
  */
 export function pageTitle(title: string): string {
-  if (title.includes(site.game.name)) return title;
+  if (title.includes(site.name) || title.includes(site.shortName)) return title;
   const suffix = title.length > 50 ? site.shortName : site.name;
   return `${title} — ${suffix}`;
 }

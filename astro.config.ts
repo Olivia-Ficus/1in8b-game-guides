@@ -231,6 +231,46 @@ const detailCoverage = new Map<string, Set<string>>();
 const categoryCoverage = new Map<string, Set<string>>();
 const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage, detailCoverage, categoryCoverage);
 
+/** T02 game routes are intentionally scanned without importing astro:content
+ * (this config executes before the content layer). The collection schema is
+ * still the authoritative shape gate; this scan supplies sitemap lastmod and
+ * keeps drafts/noindex fixtures out of it. */
+function addGameRouteMetadata() {
+  const gamesDir = path.resolve('./src/content/games');
+  const gameBySlug = new Map<string, { updatedAt: string; status: string; noindex: boolean }>();
+  if (fs.existsSync(gamesDir)) for (const file of fs.readdirSync(gamesDir)) {
+    if (!file.endsWith('.json')) continue;
+    const data = JSON.parse(fs.readFileSync(path.join(gamesDir, file), 'utf8')) as Record<string, unknown>;
+    if (typeof data.slug !== 'string') continue;
+    gameBySlug.set(data.slug, { updatedAt: String(data.updatedAt ?? ''), status: String(data.status ?? ''), noindex: data.noindex === true });
+  }
+  const guidesDir = path.resolve('./src/content/game-guides');
+  if (!fs.existsSync(guidesDir)) return;
+  const walk = (dir: string) => { for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) { walk(full); continue; }
+    if (!entry.name.endsWith('.mdx')) continue;
+    const rel = path.relative(guidesDir, full).replace(/\.mdx$/, '').split(path.sep);
+    if (rel.length !== 3) continue;
+    const [loc, gameSlug, topic] = rel;
+    const game = gameBySlug.get(gameSlug);
+    const fm = extractFrontmatter(fs.readFileSync(full, 'utf8'));
+    const draft = /^draft:\s*(?:true|True|TRUE)(?:[ \t]+#.*)?\s*$/m.test(fm);
+    const noindex = /^noindex:\s*(?:true|True|TRUE)(?:[ \t]+#.*)?\s*$/m.test(fm) || game?.noindex || game?.status !== 'published' || draft;
+    const prefix = loc === defaultLocale ? '' : `/${loc}`;
+    const gamePath = `${prefix}/games/${gameSlug}`;
+    const guidePath = `${gamePath}/${topic}`;
+    const modified = fm.match(/^lastModified:\s*(.+)$/m)?.[1]?.trim().replace(/['"]/g, '') ?? fm.match(/^date:\s*(.+)$/m)?.[1]?.trim().replace(/['"]/g, '') ?? game?.updatedAt;
+    if (modified && !Number.isNaN(new Date(modified).getTime())) lastmodMap.set(guidePath, new Date(modified).toISOString());
+    if (game?.updatedAt && !Number.isNaN(new Date(game.updatedAt).getTime())) lastmodMap.set(gamePath, new Date(game.updatedAt).toISOString());
+    if (noindex) { noindexPaths.add(guidePath); noindexPaths.add(gamePath); }
+  }};
+  walk(guidesDir);
+  const published = [...gameBySlug.entries()].filter(([, game]) => game.status === 'published');
+  if (published.length === 0 || published.every(([, game]) => game.noindex)) noindexPaths.add('/games');
+}
+addGameRouteMetadata();
+
 /**
  * Article/list hreflang alternates that match the page-level <head> truth.
  * Returns sitemap `links` items ({ lang, url }); undefined = no alternates.

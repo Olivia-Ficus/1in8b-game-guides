@@ -1,0 +1,10 @@
+{
+  "name": "DirtBound",
+  "slug": "dirtbound",
+  "description": "A noindex architecture fixture used to verify that game metadata and player-guide routes remain isolated by game.",
+  "platforms": ["Test platform"],
+  "genre": "Route fixture",
+  "updatedAt": "2026-11-06",
+  "status": "published",
+  "noindex": true
+}

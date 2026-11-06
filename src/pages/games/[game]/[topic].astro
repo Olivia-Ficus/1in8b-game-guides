@@ -1,0 +1,26 @@
+---
+import { render } from 'astro:content';
+import LocaleLayout from '~/components/layout/LocaleLayout.astro';
+import TableOfContents from '~/components/article/TableOfContents.astro';
+import { defaultLocale } from '~/i18n/routing';
+import { getPublishedGames, getGameGuides, getRelatedGameGuides } from '~/lib/games';
+import { gameGuidePath, gamePath, gamesPath, homeUrl } from '~/lib/url';
+import { gameBreadcrumbJsonLd } from '~/lib/seo';
+import { site, siteUrl } from '~/config/site';
+export async function getStaticPaths() {
+  const paths = [];
+  for (const game of await getPublishedGames()) for (const guide of await getGameGuides(game.data.slug, defaultLocale)) paths.push({ params: { game: game.data.slug, topic: guide.data.topic }, props: { game, guide } });
+  return paths;
+}
+const { game, guide } = Astro.props;
+const { Content, headings } = await render(guide);
+const related = await getRelatedGameGuides(guide, defaultLocale);
+const url = `${siteUrl}${gameGuidePath(game.data.slug, guide.data.topic, defaultLocale)}`;
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: guide.data.title, description: guide.data.description, datePublished: guide.data.date.toISOString(), dateModified: (guide.data.lastModified ?? guide.data.date).toISOString(), mainEntityOfPage: { '@type': 'WebPage', '@id': url }, about: { '@type': 'VideoGame', name: game.data.name }, publisher: { '@type': 'Organization', name: site.name } },
+  gameBreadcrumbJsonLd(game.data, guide.data.title, guide.data.topic, defaultLocale),
+];
+---
+<LocaleLayout locale={defaultLocale} title={guide.data.title} description={guide.data.description} article noindex={game.data.noindex || guide.data.noindex} articlePublished={guide.data.date} articleModified={guide.data.lastModified} jsonLd={jsonLd}>
+  <div class="flex gap-8"><article class="min-w-0 max-w-3xl flex-1"><nav class="text-sm text-muted-foreground"><a href={homeUrl(defaultLocale)}>Home</a><span class="mx-1">/</span><a href={gamesPath(defaultLocale)}>Games</a><span class="mx-1">/</span><a href={gamePath(game.data.slug, defaultLocale)}>{game.data.name}</a><span class="mx-1">/</span><span>{guide.data.title}</span></nav><header class="mt-3"><p class="text-sm font-medium text-nav">{game.data.name} · {guide.data.type}</p><h1 class="mt-2 text-3xl font-extrabold">{guide.data.title}</h1><p class="mt-3 text-muted-foreground">{guide.data.description}</p></header><div class="prose mt-8 max-w-none"><Content /></div>{related.length > 0 && <section class="mt-10"><h2 class="text-xl font-bold">More from {game.data.name}</h2><ul class="mt-3 space-y-2">{related.map((entry) => <li><a class="text-nav hover:underline" href={gameGuidePath(game.data.slug, entry.data.topic, defaultLocale)}>{entry.data.title}</a></li>)}</ul></section>}</article>{headings.length > 0 && <aside class="hidden w-56 lg:block"><TableOfContents headings={headings} /></aside>}</div>
+</LocaleLayout>

@@ -1,0 +1,15 @@
+---
+import LocaleLayout from '~/components/layout/LocaleLayout.astro';
+import { defaultLocale } from '~/i18n/routing';
+import { getPublishedGames } from '~/lib/games';
+import { gamesPath, gamePath } from '~/lib/url';
+import { simpleBreadcrumbJsonLd } from '~/lib/seo';
+const games = await getPublishedGames();
+const noindex = games.length === 0 || games.every((game) => game.data.noindex);
+---
+<LocaleLayout locale={defaultLocale} title="Games" description="A development-stage directory of game guide collections." noindex={noindex} jsonLd={[simpleBreadcrumbJsonLd({ pageLabel: 'Games', path: gamesPath(defaultLocale), locale: defaultLocale })]}>
+  <header><h1 class="text-3xl font-extrabold">Games</h1><p class="mt-2 text-muted-foreground">Development route directory. T03 will provide the player-facing discovery experience.</p></header>
+  <ul class="mt-8 grid gap-4 sm:grid-cols-2">
+    {games.map((game) => <li><a class="card block p-5" href={gamePath(game.data.slug, defaultLocale)}><h2 class="font-semibold">{game.data.name}</h2><p class="mt-2 text-sm text-muted-foreground">{game.data.description}</p></a></li>)}
+  </ul>
+</LocaleLayout>

@@ -153,7 +153,7 @@
       "quickLinks": [
         {
           "label": "Development placeholder",
-          "href": "/guides"
+          "href": "/games/"
         }
       ]
     },
@@ -180,7 +180,7 @@
           "title": "Content model preparation",
           "description": "This temporary page confirms the content pipeline and static routes build correctly.",
           "icon": "lucide:book-open",
-          "href": "/guides"
+          "href": "/games/"
         }
       ]
     },
@@ -192,7 +192,7 @@
           "order": 1,
           "name": "Development placeholder",
           "description": "No game data or player guidance is published in this initial repository setup.",
-          "href": "/guides",
+          "href": "/games/",
           "displayType": "steps",
           "highlights": [
             {
