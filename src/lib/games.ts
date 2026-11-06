@@ -16,13 +16,20 @@ export function parseGameGuideId(id: string): { locale: Locale; game: string; to
 /** Throws during static generation instead of allowing invalid references or
  * duplicate public URLs to silently produce arbitrary pages. */
 export async function getPublishedGames(): Promise<GameEntry[]> {
-  const games = (await getCollection('games')).filter(published);
+  const allGames = await getCollection('games');
   const seen = new Set<string>();
-  for (const game of games) {
+  for (const game of allGames) {
     if (seen.has(game.data.slug)) throw new Error(`Duplicate game slug: "${game.data.slug}"`);
     seen.add(game.data.slug);
   }
-  return games.sort((a, b) => a.data.name.localeCompare(b.data.name));
+  for (const guide of await getCollection('gameGuides')) {
+    const parsed = parseGameGuideId(guide.id);
+    if (!parsed) throw new Error(`Invalid game guide path: ${guide.id}`);
+    if (parsed.game !== guide.data.game) throw new Error(`Guide game mismatch in ${guide.id}`);
+    if (parsed.topic !== guide.data.topic) throw new Error(`Guide topic mismatch in ${guide.id}`);
+    if (!seen.has(guide.data.game)) throw new Error(`Guide ${guide.id} references missing game: "${guide.data.game}"`);
+  }
+  return allGames.filter(published).sort((a, b) => a.data.name.localeCompare(b.data.name));
 }
 
 export async function getGameBySlug(slug: string): Promise<GameEntry | null> {
