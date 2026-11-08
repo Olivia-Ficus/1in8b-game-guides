@@ -3,9 +3,10 @@ import { defaultLocale, type Locale } from '~/i18n/routing';
 
 export type GameEntry = CollectionEntry<'games'>;
 export type GameGuideEntry = CollectionEntry<'gameGuides'>;
-const isDev = import.meta.env.DEV;
-const published = (game: GameEntry) => game.data.status === 'published' || isDev;
-const publishedGuide = (guide: GameGuideEntry) => !guide.data.draft || isDev;
+// Public discovery routes never reveal drafts, including in a local browser
+// preview. Draft authoring can still inspect MDX directly in the editor.
+const published = (game: GameEntry) => game.data.status === 'published';
+const publishedGuide = (guide: GameGuideEntry) => !guide.data.draft;
 
 export function parseGameGuideId(id: string): { locale: Locale; game: string; topic: string } | null {
   const parts = id.replace(/\.mdx$/, '').split('/');

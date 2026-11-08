@@ -6,5 +6,7 @@
   "genre": "Route fixture",
   "updatedAt": "2026-11-06",
   "status": "published",
+  "featured": true,
+  "featuredOrder": 1,
   "noindex": true
 }

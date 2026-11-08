@@ -4,11 +4,10 @@
  * Mobile menu uses native <details> (zero JS).
  */
 import { Icon } from 'astro-icon/components';
-import { NAVIGATION_CONFIG } from '~/config/navigation';
 import { site } from '~/config/site';
 import { type Locale, defaultLocale, locales, LOCALE_LABELS } from '~/i18n/routing';
 import { getUi } from '~/i18n/ui';
-import { homeUrl, localizePath } from '~/lib/url';
+import { homeUrl, localizePath, gamesPath } from '~/lib/url';
 import ThemeToggle from './ThemeToggle.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import SearchButton from './SearchButton.astro';
@@ -28,6 +27,8 @@ const ui = getUi(locale);
 const nav: Record<string, string> = ui.nav as Record<string, string>;
 
 const headerLocales = availableLocales ?? locales;
+const gamesHref = gamesPath(locale);
+const gamesActive = currentPath === gamesHref || currentPath.startsWith(`${gamesHref}`);
 
 // Build the strip regex from `locales` — a hardcoded "en|ja" list would
 // silently break for forks that add languages (same rationale as BaseLayout).
@@ -56,28 +57,7 @@ const samePagePathFor = (loc: Locale) => {
 
     {/* Desktop nav */}
     <nav class="hidden flex-1 items-center gap-1 md:flex">
-      {
-        NAVIGATION_CONFIG.map((item) => {
-          const path = localizePath(item.path, locale);
-          // `path` ends with "/" (trailingSlash:'always') — appending again
-          // would produce "//" and silently break child-page highlighting.
-          const activePrefix = path.endsWith('/') ? path : path + '/';
-          const isActive = currentPath === path || currentPath.startsWith(activePrefix);
-          return (
-            <a
-              href={path}
-              class:list={[
-                'rounded-md px-3 py-1.5 text-sm font-medium transition',
-                isActive
-                  ? 'bg-muted text-nav'
-                  : 'text-foreground/70 hover:bg-muted hover:text-foreground',
-              ]}
-            >
-              {nav[item.key] ?? item.key}
-            </a>
-          );
-        })
-      }
+      <a href={gamesHref} class:list={['rounded-md px-3 py-1.5 text-sm font-medium transition', gamesActive ? 'bg-muted text-nav' : 'text-foreground/70 hover:bg-muted hover:text-foreground']}>Games</a>
     </nav>
 
     {/* Right actions */}
@@ -103,16 +83,7 @@ const samePagePathFor = (loc: Locale) => {
             <Icon name="lucide:search" class="h-4 w-4" />
             <span>{nav.search ?? 'Search'}</span>
           </button>
-          {
-            NAVIGATION_CONFIG.map((item) => (
-              <a
-                href={localizePath(item.path, locale)}
-                class="block px-3 py-2 text-sm transition hover:bg-muted"
-              >
-                {nav[item.key] ?? item.key}
-              </a>
-            ))
-          }
+          <a href={gamesHref} class="block px-3 py-2 text-sm transition hover:bg-muted">Games</a>
           {/* Language switcher for mobile — flat list, not nested dropdown */}
           <div class="border-t border-border pt-1">
             <div class="flex items-center gap-1 px-3 pb-1 text-xs text-muted-foreground">

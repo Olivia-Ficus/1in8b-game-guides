@@ -2,14 +2,16 @@
 import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import { defaultLocale } from '~/i18n/routing';
 import { getPublishedGames } from '~/lib/games';
-import { gamesPath, gamePath } from '~/lib/url';
+import { gamesPath } from '~/lib/url';
 import { simpleBreadcrumbJsonLd } from '~/lib/seo';
+import GameCard from '~/components/game/GameCard.astro';
+import GameSearch from '~/components/game/GameSearch.astro';
 const games = await getPublishedGames();
 const noindex = games.length === 0 || games.every((game) => game.data.noindex);
+const genres = [...new Set(games.map((game) => game.data.genre).filter(Boolean))];
+const platforms = [...new Set(games.flatMap((game) => game.data.platforms))];
 ---
-<LocaleLayout locale={defaultLocale} title="Games" description="A development-stage directory of game guide collections." noindex={noindex} jsonLd={[simpleBreadcrumbJsonLd({ pageLabel: 'Games', path: gamesPath(defaultLocale), locale: defaultLocale })]}>
-  <header><h1 class="text-3xl font-extrabold">Games</h1><p class="mt-2 text-muted-foreground">Development route directory. T03 will provide the player-facing discovery experience.</p></header>
-  <ul class="mt-8 grid gap-4 sm:grid-cols-2">
-    {games.map((game) => <li><a class="card block p-5" href={gamePath(game.data.slug, defaultLocale)}><h2 class="font-semibold">{game.data.name}</h2><p class="mt-2 text-sm text-muted-foreground">{game.data.description}</p></a></li>)}
-  </ul>
+<LocaleLayout locale={defaultLocale} title="Browse Games" description="Browse game-specific player guides and navigation hubs." noindex={noindex} jsonLd={[simpleBreadcrumbJsonLd({ pageLabel: 'Games', path: gamesPath(defaultLocale), locale: defaultLocale })]}>
+  <header class="max-w-3xl"><p class="text-sm font-semibold text-nav">Game directory</p><h1 class="mt-1 text-4xl font-black tracking-tight">Browse games</h1><p class="mt-3 text-muted-foreground">Choose a game to find its verified entry point and the player help that is actually available.</p></header>
+  {games.length ? <><div class="mt-8"><GameSearch games={games} locale={defaultLocale} /></div><div class="mt-10 flex flex-wrap gap-2 text-xs text-muted-foreground">{genres.map((genre) => <span class="rounded-full border px-3 py-1">{genre}</span>)}{platforms.map((platform) => <span class="rounded-full border px-3 py-1">{platform}</span>)}</div><div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{games.map((game) => <GameCard game={game} locale={defaultLocale} />)}</div></> : <div class="mt-8 rounded-xl border border-dashed p-10 text-center text-muted-foreground">No published games are available yet.</div>}
 </LocaleLayout>

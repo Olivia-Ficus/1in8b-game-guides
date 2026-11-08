@@ -184,6 +184,8 @@ const games = defineCollection({
     cover: z.string().min(1).optional(),
     updatedAt: z.coerce.date(),
     status: z.enum(['draft', 'published']),
+    featured: z.boolean().default(false),
+    featuredOrder: z.number().int().nonnegative().optional(),
     /** Test fixtures may render in Preview without entering sitemap/Pagefind. */
     noindex: z.boolean().default(false),
   }),
