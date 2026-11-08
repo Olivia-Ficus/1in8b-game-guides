@@ -1,14 +1,40 @@
 ---
-title: "DirtBound controls route fixture"
-description: "A noindex architecture fixture that verifies DirtBound content is generated under its own game URL and associated only with DirtBound."
+title: "DirtBound controls: desktop and mobile"
+description: "Learn DirtBound keyboard controls, reset and camera keys, plus the touch-and-drag steering used on mobile."
 game: "dirtbound"
 topic: "controls"
-type: "guide"
-date: 2026-11-06
-noindex: true
-tags: ["route-fixture"]
+type: "controls"
+date: 2026-11-08
+tags: ["controls", "mobile", "getting-started"]
 ---
 
-## Development fixture
+import ControlGuide from '~/components/games/dirtbound/ControlGuide.astro';
+import Callout from '~/components/mdx/Callout.astro';
 
-This is not player guidance. It verifies the multi-game MDX route and is intentionally excluded from search.
+Use the controls that match your device, then open the official game when you are ready to drive.
+
+<ControlGuide />
+
+## Desktop keyboard controls
+
+| Key | What it does |
+| --- | --- |
+| <kbd>W</kbd> or <kbd>↑</kbd> | Accelerate |
+| <kbd>S</kbd> or <kbd>↓</kbd> | Brake or reverse |
+| <kbd>A</kbd> / <kbd>D</kbd> | Steer |
+| <kbd>Space</kbd> | Handbrake |
+| <kbd>C</kbd> | Change camera |
+| <kbd>R</kbd> | Reset the car; adds a five-second penalty |
+| <kbd>Esc</kbd> | Pause |
+
+<Callout type="warn" title="Reset deliberately">
+  Resetting is useful when you are stuck, but it adds five seconds to your time. See the modes and penalties guide for what can also trigger a reset.
+</Callout>
+
+## Mobile controls
+
+On mobile, touch and drag left or right to steer. DirtBound accelerates the car automatically, so there is no separate accelerator button to find. Use short, gentle drags before a corner rather than waiting until the car is already wide.
+
+## Next step
+
+If you are learning a route, start with a generated Stage. If you want a lap-time target or multiplayer options, continue to the modes and penalties guide.

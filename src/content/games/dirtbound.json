@@ -1,12 +1,13 @@
 {
   "name": "DirtBound",
   "slug": "dirtbound",
-  "description": "A noindex architecture fixture used to verify that game metadata and player-guide routes remain isolated by game.",
-  "platforms": ["Test platform"],
-  "genre": "Route fixture",
-  "updatedAt": "2026-11-06",
+  "description": "A free browser rally game with generated stages, time challenges, multiplayer racing, and a circuit editor.",
+  "officialUrl": "https://dirtbound.fr/",
+  "platforms": ["Web browser", "Desktop", "Mobile"],
+  "genre": "Rally racing",
+  "cover": "/images/games/dirtbound/rally-stage.jpg",
+  "updatedAt": "2026-11-08",
   "status": "published",
   "featured": true,
-  "featuredOrder": 1,
-  "noindex": true
+  "featuredOrder": 1
 }

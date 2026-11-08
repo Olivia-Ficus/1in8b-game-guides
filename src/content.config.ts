@@ -208,6 +208,14 @@ const gameGuides = defineCollection({
       image: image().optional(),
       noindex: z.boolean().default(false),
       draft: z.boolean().default(false),
+      faq: z
+        .array(
+          z.object({
+            question: z.string().min(1),
+            answer: z.string().min(1),
+          }),
+        )
+        .optional(),
     }),
 });
 
