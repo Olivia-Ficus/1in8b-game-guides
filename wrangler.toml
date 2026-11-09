@@ -17,7 +17,7 @@ pages_build_output_dir = "dist"
 
 [vars]
 # Site (must include https:// protocol — Astro validates this as a URL)
-SITE_URL = "https://1in8b-game-guides.pages.dev"
+SITE_URL = "https://1in8b.online"
 # Legacy IndexNow override — new forks generate .indexnow-key automatically.
 # Leave blank unless migrating an existing env-backed deployment.
 #INDEXNOW_KEY = ""

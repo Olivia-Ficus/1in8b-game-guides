@@ -101,8 +101,7 @@ const suffix = titleSuffix !== undefined ? titleSuffix : site.name;
 const hasIdentity =
   title.includes(suffix) ||
   title.includes(site.name) ||
-  title.includes(site.shortName) ||
-  title.includes(site.game.name);
+  title.includes(site.shortName);
 const fullTitle = suffix && !hasIdentity ? `${title} — ${suffix}` : title;
 const orgJsonLd = organizationJsonLd();
 
@@ -349,7 +348,7 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
       })();
     </script>
   </head>
-  <body class="min-h-screen bg-background text-foreground antialiased">
+  <body class="min-h-screen bg-background text-foreground antialiased" data-pagefind-ignore={noindex ? true : undefined}>
     <slot />
     {/* Consent banner — only rendered when tracking env vars are set. */}
     {(gaId || adsenseClient) && (

@@ -33,7 +33,9 @@ const wiki = defineCollection({
        * otherwise build a soft-404 page that sitemap/RSS/llms.txt still
        * publish — the enum fails the build instead.
        */
-      category: z.enum(LEGAL_CONTENT_TYPES as [string, ...string[]]),
+      // Kept only for backwards-compatible legacy wiki imports. New content
+      // uses `gameGuides` and never receives a global category route.
+      category: z.enum((LEGAL_CONTENT_TYPES.length ? LEGAL_CONTENT_TYPES : ['legacy']) as [string, ...string[]]),
       date: z.coerce.date(),
       lastModified: z.coerce.date().optional(),
       image: image().optional(),
@@ -168,6 +170,57 @@ const wiki = defineCollection({
     }),
 });
 
+/** One JSON record per game. The filename is deliberately not the URL source:
+ * `slug` is validated explicitly and is the only public identifier. */
+const games = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/games' }),
+  schema: z.object({
+    name: z.string().min(1).max(100),
+    slug: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'lowercase URL slug required'),
+    description: z.string().min(40).max(165),
+    officialUrl: z.url().optional(),
+    platforms: z.array(z.string().min(1)).default([]),
+    genre: z.string().max(80).optional(),
+    cover: z.string().min(1).optional(),
+    updatedAt: z.coerce.date(),
+    status: z.enum(['draft', 'published']),
+    featured: z.boolean().default(false),
+    featuredOrder: z.number().int().nonnegative().optional(),
+    presentation: z.enum(['standard', 'single-page']).default('standard'),
+    faq: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
+    /** Test fixtures may render in Preview without entering sitemap/Pagefind. */
+    noindex: z.boolean().default(false),
+  }),
+});
+
+/** MDX articles belong to exactly one game. Directory, frontmatter, and
+ * route are cross-validated in lib/games.ts and scripts/check-games.ts. */
+const gameGuides = defineCollection({
+  loader: glob({ pattern: '**/*.mdx', base: './src/content/game-guides' }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string().min(1).max(100),
+      description: z.string().min(40).max(165),
+      game: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      topic: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      type: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).default('guide'),
+      date: z.coerce.date(),
+      lastModified: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]),
+      image: image().optional(),
+      noindex: z.boolean().default(false),
+      draft: z.boolean().default(false),
+      faq: z
+        .array(
+          z.object({
+            question: z.string().min(1),
+            answer: z.string().min(1),
+          }),
+        )
+        .optional(),
+    }),
+});
+
 /**
  * Handbook collection — the in-site documentation center at /landing/docs
  * (+ /zh/landing/docs). Chapters live OUTSIDE src/content on purpose: the
@@ -219,4 +272,4 @@ const handbook = defineCollection({
   }),
 });
 
-export const collections = { wiki, handbook };
+export const collections = { wiki, games, gameGuides, handbook };

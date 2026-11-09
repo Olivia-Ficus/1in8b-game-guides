@@ -279,7 +279,7 @@ function coverElement(opts: {
           el(
             'div',
             { fontSize: '26px', color: '#8b95a8', letterSpacing: '1px' },
-            `${site.game.name}  ·  ${site.domain}`,
+            `${site.shortName}  ·  ${site.domain}`,
           ),
         ],
       ),
@@ -296,7 +296,7 @@ async function renderCover(article: Article, brandHex: string, brandDeepHex: str
   let fontFamily = 'Lato';
   let lang = 'en';
   if (script) {
-    const glyphs = subsetText(title, site.shortName, site.game.name);
+    const glyphs = subsetText(title, site.shortName, site.name);
     fonts.push(...(await subsetNoto(script, glyphs)));
     fontFamily = `Lato, ${NOTO_VARIANTS[script].family}`;
     lang = script === 'ja' ? 'ja-JP' : 'zh-CN';
@@ -364,7 +364,7 @@ async function main(): Promise<void> {
 
     const file = coverFilename(article.id);
     const key = stableHash(
-      `${article.title}|${site.shortName}|${site.game.name}|${brandHex}|${W}x${H}|v${MANIFEST_VERSION}`,
+      `${article.title}|${site.shortName}|${site.name}|${brandHex}|${W}x${H}|v${MANIFEST_VERSION}`,
     );
     if (!FORCE && manifest.entries[file] === key && existsSync(join(OUT_DIR, file))) {
       skipped++;

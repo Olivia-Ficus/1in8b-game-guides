@@ -1,247 +1,87 @@
 ---
-/**
- * LegalContent — the shared body for each legal page.
- * Renders different content based on the `page` prop. English only (per PRD).
- */
+/** Public English content for 1in8b: game discovery and player help, not a single-game wiki. */
 import { site } from '~/config/site';
-
 interface Props {
   page: 'about' | 'privacy-policy' | 'terms-of-service' | 'copyright' | 'contact';
 }
 const { page } = Astro.props;
-const game = site.game.name;
 const year = new Date().getFullYear();
 ---
 
-{
-  page === 'about' && (
-    <>
-      <p>
-        {site.name} is a fan-made community wiki dedicated to {game}, a {site.game.genre} on{' '}
-        {site.game.platform} developed by {site.game.developer}. Our mission is to provide accurate,
-        up-to-date guides, tips, and reference material to help players get the most out of the
-        game.
-      </p>
-      <h2>What We Cover</h2>
-      <ul>
-        <li>Boss strategies and attack patterns</li>
-        <li>Item locations, stats, and crafting recipes</li>
-        <li>Active redeemable codes (updated daily)</li>
-        <li>Tier lists and build recommendations</li>
-        <li>Progression guides for new and returning players</li>
-      </ul>
-      <h2>Community-Driven</h2>
-      <p>
-        This wiki is maintained by volunteers. If you spot an error or have content to contribute,
-        join our Discord and let us know. All content is freely accessible — no account required.
-      </p>
-      <h2>Contact</h2>
-      <p>
-        Reach us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        or{' '}
-        <a href={site.social.official} target="_blank" rel="noopener noreferrer">
-          the game's official channels
-        </a>
-        .
-      </p>
-    </>
-  )
-}
+{page === 'about' && (
+  <>
+    <p>1in8b helps players discover games, find where to play, and get the information they need to start playing. We bring game links, controls, gameplay explanations, and answers to common questions together in one place, so you can spend less time searching and more time playing.</p>
+    <h2>What You'll Find</h2>
+    <ul>
+      <li><strong>Discover games.</strong> Browse games that have caught players' attention and see what's available to play.</li>
+      <li><strong>Find where to play.</strong> Follow links to official game websites when a verified link is available.</li>
+      <li><strong>Learn how to play.</strong> Find controls, game modes, beginner tips, and useful explanations.</li>
+      <li><strong>Get answers.</strong> Find help for confusing mechanics and common questions.</li>
+    </ul>
+    <h2>How We Choose What to Cover</h2>
+    <p>We focus on games attracting player interest and questions players want answered. Coverage varies by game and may expand when useful information becomes available. Inclusion is not a verified popularity ranking or endorsement.</p>
+    <h2>Independent Game Guides</h2>
+    <p>1in8b is an independent game discovery and information website. Unless explicitly stated, we are not affiliated with or endorsed by the developers or publishers of the games we cover.</p>
+    <h2>Corrections &amp; Feedback</h2>
+    <p>Game information can change. If you find an incorrect link, outdated explanation, or missing detail, please <a href="/contact/">contact us</a>.</p>
+  </>
+)}
 
-{
-  page === 'privacy-policy' && (
-    <>
-      <p>
-        This privacy policy describes how {site.name} ("we", "us", or "our") handles information
-        when you visit this website.
-      </p>
-      <h2>Information We Collect</h2>
-      <p>
-        {site.name} is a static website. We do not require you to create an account or submit
-        personal information. We do not directly collect or store personal data.
-      </p>
-      <h2>Third-Party Services</h2>
-      <p>
-        We use third-party services that may collect information as described in their respective
-        privacy policies:
-      </p>
-      <ul>
-        <li>
-          <strong>Advertising partners</strong> (e.g. Google AdSense, Adsterra) — may use cookies to
-          serve relevant ads. You can opt out of personalized advertising via your browser settings.
-        </li>
-        <li>
-          <strong>Analytics</strong> (e.g. Google Analytics, Cloudflare Web Analytics, VibeCafé) —
-          GA may collect anonymized usage data such as page views and approximate location
-          (cookie-based, loaded only after you accept the consent banner); Cloudflare Web Analytics
-          is cookieless and collects aggregate page-view data. VibeCafé (optional product
-          telemetry, loaded only when the site owner enables it) collects page-visit data.
-        </li>
-        <li>
-          <strong>Cloudflare</strong> — our hosting provider, which may process basic request data
-          for security and performance (and serve Web Analytics when enabled, see above).
-        </li>
-        <li>
-          <strong>Comments</strong> (giscus, opt-in) — when the comment section is enabled,
-          giscus.app loads an embedded GitHub view; viewing it exposes your IP address and browser
-          info to that service, and signing in to comment is handled by GitHub under its own
-          privacy policy.
-        </li>
-        <li>
-          <strong>Embedded videos</strong> (YouTube) — pages with videos load thumbnail images
-          from i.ytimg.com and, after you press play, the YouTube player from youtube-nocookie.com.
-          Until you interact, no YouTube cookies are set.
-        </li>
-      </ul>
-      <h2>Cookies</h2>
-      <p>
-        Some third-party services set cookies. You can control cookies through your browser
-        settings. Disabling cookies may affect ad personalization but will not prevent you from
-        accessing site content.
-      </p>
-      <h2>Children's Privacy</h2>
-      <p>
-        {site.name} is not directed at children under 13, and we do not knowingly collect
-        information from children.
-      </p>
-      <h2>Changes to This Policy</h2>
-      <p>We may update this policy from time to time. Changes will be posted on this page.</p>
-    </>
-  )
-}
+{page === 'contact' && (
+  <>
+    <p>Questions, corrections, or feedback about 1in8b? You can contact us about incorrect game information, broken links, missing guide details, copyright concerns, or general website feedback.</p>
+    <h2>Email</h2>
+    {site.contactEmail ? <p><a href={'mailto:' + site.contactEmail}>{site.contactEmail}</a></p> : <p>Our contact email is temporarily unavailable.</p>}
+    <p>Please include the page URL and a short description of what needs attention.</p>
+    <h2>Game Support</h2>
+    <p>1in8b is an independent information website. For game accounts, purchases, or problems with a game itself, contact the relevant developer or official game support service.</p>
+    <h2>Copyright Requests</h2>
+    <p>For concerns about materials published here, see our <a href="/copyright/">Copyright page</a> and use the email address above.</p>
+  </>
+)}
 
-{
-  page === 'terms-of-service' && (
-    <>
-      <p>By accessing {site.name}, you agree to the following terms of service.</p>
-      <h2>Use of Content</h2>
-      <p>
-        All guides, articles, and reference material on this site are provided for personal,
-        non-commercial use. You may not copy, republish, or redistribute our content without
-        attribution and a link back to the original page.
-      </p>
-      <h2>Accuracy</h2>
-      <p>
-        We strive for accuracy but make no warranties regarding the completeness or correctness of
-        any content. {game} is frequently updated, and information may become outdated. Always
-        verify critical information in-game.
-      </p>
-      <h2>Third-Party Links</h2>
-      <p>
-        This site links to external websites (official game channels, video tutorials, etc.) that we
-        do not control. We are not responsible for the content or practices of third-party sites.
-      </p>
-      <h2>Trademarks</h2>
-      <p>
-        {game} and all related trademarks, logos, and assets are the property of{' '}
-        {site.game.developer}. {site.name} is an independent fan project and is not affiliated with
-        or endorsed by {site.game.developer}.
-      </p>
-      <h2>Limitation of Liability</h2>
-      <p>
-        Use of this site is at your own risk. We are not liable for any damages arising from your
-        use of the site or reliance on its content.
-      </p>
-      <h2>Changes to These Terms</h2>
-      <p>
-        We may revise these terms at any time. Continued use of the site after changes constitutes
-        acceptance of the updated terms.
-      </p>
-    </>
-  )
-}
+{page === 'privacy-policy' && (
+  <>
+    <p>This privacy policy describes how {site.name} handles information when you visit this website. External games and websites linked from 1in8b have their own privacy practices.</p>
+    <h2>Browsing the Site</h2>
+    <p>You can browse game pages and guides without creating an account. 1in8b does not currently offer user accounts or ask you to submit personal information to read our content.</p>
+    <h2>Hosting and Request Data</h2>
+    <p>The website is hosted by Cloudflare. To serve and protect the site, Cloudflare may process basic request data, including IP address, browser or device information, and security events, according to its own policies.</p>
+    <h2>Analytics and Advertising</h2>
+    <p>The current game-guide deployment is not configured to load third-party analytics or advertising scripts. If these services are introduced, this policy and any applicable consent controls will be updated.</p>
+    <h2>Browser Storage and Cookies</h2>
+    <p>We save your selected display theme (light or dark) in your browser's local storage. Cloudflare may use cookies or similar technologies for security and service delivery. Other cookies or consent preferences may apply if optional services are enabled in the future.</p>
+    <h2>External Game Links</h2>
+    <p>When you follow a link to a third-party game, that website controls its own accounts, cookies, and data collection. Please review its policies before using its services.</p>
+    <h2>Questions and Changes</h2>
+    <p>For privacy questions, please <a href="/contact/">contact us</a>. We may update this policy as the website changes; the revision date appears at the top of this page.</p>
+  </>
+)}
 
-{
-  page === 'copyright' && (
-    <>
-      <h2>Copyright Notice</h2>
-      <p>
-        © {year} {site.name}. All original articles, guides, and written content on this site are
-        the intellectual property of {site.name} and its contributors.
-      </p>
-      <h2>Game Assets</h2>
-      <p>
-        {game}, including its name, logo, characters, artwork, and other related assets, is the
-        property of {site.game.developer}. All {game} content is used on this wiki under fair use
-        for the purpose of providing informational guides to players. {site.name} claims no
-        ownership of any {game} intellectual property.
-      </p>
-      <h2>DMCA / Takedown</h2>
-      <p>
-        If you believe any content on this site infringes your copyright, please contact us via our{' '}
-        <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-          Discord server
-        </a>{' '}
-        with a detailed description of the allegedly infringing material. We will review and respond
-        to valid requests promptly.
-      </p>
-      <h2>Fan-Made Notice</h2>
-      <p>{site.legalNotice}</p>
-    </>
-  )
-}
+{page === 'terms-of-service' && (
+  <>
+    <p>1in8b provides game discovery links and independently written, informational guides. These terms describe the conditions for using our website.</p>
+    <h2>Information and Accuracy</h2>
+    <p>We aim to keep our descriptions, links, controls, and tips accurate, but games change. We do not guarantee that all information is complete or current. Check official game sources when accuracy is important.</p>
+    <h2>External Games and Websites</h2>
+    <p>External games, accounts, purchases, and support services are operated by their respective providers. We do not control those services or their terms. Review the policies of the websites you choose to visit.</p>
+    <h2>Content and Rights</h2>
+    <p>Original 1in8b writing and design may be protected by copyright. Game names, trademarks, screenshots, and other third-party materials belong to their respective rights holders. Their use here does not imply affiliation or endorsement. Please ask before republishing substantial original 1in8b material.</p>
+    <h2>Availability and Responsibility</h2>
+    <p>Pages and links may change or become unavailable. To the extent permitted by applicable law, we are not responsible for losses caused by relying on inaccurate guides or by using external services.</p>
+    <h2>Changes and Contact</h2>
+    <p>These terms may be updated. For questions or corrections, please use our <a href="/contact/">contact page</a>.</p>
+  </>
+)}
 
-{
-  page === 'contact' && (
-    <>
-      {/* h2, not h1 — LegalPage already renders the page H1 (single-H1 rule). */}
-      <h2>Contact {site.name}</h2>
-      <p>
-        {site.name} is a fan-made wiki. Reach us or contribute through any of the channels below.
-      </p>
-      <h2>Community</h2>
-      <ul>
-        {site.social.official && (
-          <li>
-            <strong>Official game website:</strong>{' '}
-            <a href={site.social.official} target="_blank" rel="noopener noreferrer">
-              {site.social.official}
-            </a>
-          </li>
-        )}
-        {site.social.discord && (
-          <li>
-            <strong>Discord:</strong>{' '}
-            <a href={site.social.discord} target="_blank" rel="noopener noreferrer">
-              Join our server
-            </a>
-          </li>
-        )}
-        {site.social.reddit && (
-          <li>
-            <strong>Reddit:</strong>{' '}
-            <a href={site.social.reddit} target="_blank" rel="noopener noreferrer">
-              r/{site.game.name.replace(/\s+/g, '')}
-            </a>
-          </li>
-        )}
-        {site.social.youtube && (
-          <li>
-            <strong>YouTube:</strong>{' '}
-            <a href={site.social.youtube} target="_blank" rel="noopener noreferrer">
-              {site.name} channel
-            </a>
-          </li>
-        )}
-        {site.contactEmail && (
-          <li>
-            <strong>Email:</strong> <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>
-          </li>
-        )}
-      </ul>
-      <h2>Contributing</h2>
-      <p>
-        Found a typo or outdated info? Want to add a guide? This wiki is open source — submit changes
-        via pull requests or through any channel listed above.
-      </p>
-      <h2>Reporting Issues</h2>
-      <p>
-        For copyright or takedown requests, see our{' '}
-        <a href="/copyright/">Copyright page</a>.
-      </p>
-    </>
-  )
-}
+{page === 'copyright' && (
+  <>
+    <h2>Original Material</h2>
+    <p>© {year} {site.name}. Original writing and website design created for 1in8b may be protected by copyright, subject to applicable third-party rights and licenses.</p>
+    <h2>Games and Third-Party Assets</h2>
+    <p>Game names, trademarks, screenshots, artwork, and other game assets belong to their respective rights holders. 1in8b does not claim ownership of these assets or endorsement by game developers or publishers.</p>
+    <p>The appearance of game material here is not a blanket claim of permission or fair use. If you have concerns about specific material, please use the contact details below.</p>
+    <h2>Copyright and Removal Requests</h2>
+    <p>If you believe content on 1in8b infringes your rights, please <a href="/contact/">contact us</a>{site.contactEmail && (<> at <a href={'mailto:' + site.contactEmail}>{site.contactEmail}</a></>)}. Include the page URL, the material in question, the basis of your rights or authorization, and a way to reach you so the request can be reviewed.</p>
+  </>
+)}

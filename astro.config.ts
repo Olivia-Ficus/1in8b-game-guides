@@ -194,7 +194,7 @@ function buildLastmodMap(
   return map;
 }
 
-const siteOrigin = process.env.SITE_URL || 'https://1in8b-game-guides.pages.dev';
+const siteOrigin = process.env.SITE_URL || 'https://1in8b.online';
 
 // trailingSlash:'always' makes every generated URL end with "/", but the
 // lookup tables above (lastmodMap / noindexPaths / coverage keys) are built
@@ -230,6 +230,86 @@ const localeCoverage = new Map<string, Set<string>>();
 const detailCoverage = new Map<string, Set<string>>();
 const categoryCoverage = new Map<string, Set<string>>();
 const lastmodMap = buildLastmodMap(noindexPaths, localeCoverage, detailCoverage, categoryCoverage);
+
+/** T02 game routes are intentionally scanned without importing astro:content
+ * (this config executes before the content layer). The collection schema is
+ * still the authoritative shape gate; this scan supplies sitemap lastmod and
+ * keeps drafts/noindex fixtures out of it. */
+function addGameRouteMetadata() {
+  const gamesDir = path.resolve('./src/content/games');
+  const gameBySlug = new Map<string, { updatedAt: string; status: string; noindex: boolean }>();
+  let indexableGameCount = 0;
+  if (fs.existsSync(gamesDir)) {
+    for (const file of fs.readdirSync(gamesDir)) {
+      if (!file.endsWith('.json')) continue;
+      const data = JSON.parse(fs.readFileSync(path.join(gamesDir, file), 'utf8')) as Record<string, unknown>;
+      if (typeof data.slug !== 'string') continue;
+      const game = {
+        updatedAt: String(data.updatedAt ?? ''),
+        status: String(data.status ?? ''),
+        noindex: data.noindex === true,
+      };
+      gameBySlug.set(data.slug, game);
+      const gamePath = `/games/${data.slug}`;
+      if (game.status !== 'published' || game.noindex) {
+        noindexPaths.add(gamePath);
+      } else {
+        indexableGameCount++;
+      }
+      if (game.updatedAt && !Number.isNaN(new Date(game.updatedAt).getTime())) {
+        lastmodMap.set(gamePath, new Date(game.updatedAt).toISOString());
+      }
+    }
+  }
+  if (indexableGameCount === 0) {
+    noindexPaths.add('/games');
+    noindexPaths.add('/recent');
+  }
+
+  const guidesDir = path.resolve('./src/content/game-guides');
+  if (!fs.existsSync(guidesDir)) return;
+  const walk = (dir: string) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(full);
+        continue;
+      }
+      if (!entry.name.endsWith('.mdx')) continue;
+      const rel = path.relative(guidesDir, full).replace(/\.mdx$/, '').split(path.sep);
+      if (rel.length !== 3) continue;
+      const [loc, gameSlug, topic] = rel;
+      const game = gameBySlug.get(gameSlug);
+      const fm = extractFrontmatter(fs.readFileSync(full, 'utf8'));
+      const draft = /^draft:\s*(?:true|True|TRUE)(?:[ \t]+#.*)?\s*$/m.test(fm);
+      const guideNoindex =
+        /^noindex:\s*(?:true|True|TRUE)(?:[ \t]+#.*)?\s*$/m.test(fm) ||
+        game?.noindex ||
+        game?.status !== 'published' ||
+        draft;
+      const prefix = loc === defaultLocale ? '' : `/${loc}`;
+      const guidePath = `${prefix}/games/${gameSlug}/${topic}`;
+      const modified =
+        fm.match(/^lastModified:\s*(.+)$/m)?.[1]?.trim().replace(/['"]/g, '') ??
+        fm.match(/^date:\s*(.+)$/m)?.[1]?.trim().replace(/['"]/g, '') ??
+        game?.updatedAt;
+      if (modified && !Number.isNaN(new Date(modified).getTime())) {
+        lastmodMap.set(guidePath, new Date(modified).toISOString());
+      }
+      // A noindex guide does not make its parent game's landing page noindex.
+      if (guideNoindex) noindexPaths.add(guidePath);
+    }
+  };
+  walk(guidesDir);
+}
+addGameRouteMetadata();
+
+// Legacy wiki routes with no published wiki articles are thin/empty pages.
+// Keep them out of sitemap while retaining route compatibility.
+if (localeCoverage.size === 0) {
+  noindexPaths.add('/tags');
+}
+noindexPaths.add('/404');
 
 /**
  * Article/list hreflang alternates that match the page-level <head> truth.
@@ -277,7 +357,7 @@ function alternatesFor(pagePath: string): Array<{ lang: string; url: string }> |
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE_URL || 'https://1in8b-game-guides.pages.dev',
+  site: process.env.SITE_URL || 'https://1in8b.online',
   output: 'static',
   // Astro 7 flipped the default from true to 'jsx', which strips whitespace
   // between adjacent inline elements ("word" + "word" can render joined).

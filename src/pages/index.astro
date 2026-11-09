@@ -5,20 +5,11 @@
  * With `prefixDefaultLocale: false`, the root URL `/` maps directly to the
  * English homepage. Non-default locales use the `[locale]` route.
  */
-import HomePage from '~/components/home/HomePage.astro';
-import { defaultLocale, locales } from '~/i18n/routing';
-import { websiteJsonLd } from '~/lib/seo';
-import { homeUrl, languageAlternates } from '~/lib/url';
+import PortalHome from '~/components/game/PortalHome.astro';
+import { defaultLocale } from '~/i18n/routing';
 
 const locale = defaultLocale;
-// This is a multi-game navigation service, not a single-game site. Keep the
-// generic WebSite schema but do not emit the template's VideoGame schema.
-const jsonLd = [websiteJsonLd(locale)];
-// hreflang alternates: Home → / (en) or /<locale> for each locale. In fork
-// builds homeUrl('en') is '/' — identical to the historical output; in demo
-// builds the gateway branch below wins and these are never rendered.
-const alternates = languageAlternates((loc) => homeUrl(loc), locales);
 
 ---
 
-<HomePage locale={locale} jsonLd={jsonLd} alternates={alternates} />
+<PortalHome locale={locale} />

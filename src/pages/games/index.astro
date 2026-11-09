@@ -1,0 +1,82 @@
+---
+import LocaleLayout from '~/components/layout/LocaleLayout.astro';
+import { defaultLocale } from '~/i18n/routing';
+import { getPublishedGames } from '~/lib/games';
+import { gamesPath } from '~/lib/url';
+import { simpleBreadcrumbJsonLd } from '~/lib/seo';
+import GameCard from '~/components/game/GameCard.astro';
+import GameSearch from '~/components/game/GameSearch.astro';
+const games = (await getPublishedGames()).filter((game) => !game.data.noindex);
+const noindex = games.length === 0;
+const genres = [...new Set(games.map((game) => game.data.genre).filter(Boolean))];
+const platforms = [...new Set(games.flatMap((game) => game.data.platforms))];
+---
+
+<LocaleLayout
+  locale={defaultLocale}
+  title="All Games"
+  description="Browse games and find official places to play, controls, tips, and practical player help."
+  noindex={noindex}
+  jsonLd={[
+    simpleBreadcrumbJsonLd({
+      pageLabel: 'Games',
+      path: gamesPath(defaultLocale),
+      locale: defaultLocale,
+    }),
+  ]}
+>
+  <header class="border-b border-border pb-10 pt-5 md:pb-14 md:pt-9">
+    <p class="archive-kicker">Games</p><h1
+      class="mt-4 text-5xl font-black uppercase leading-none tracking-[-.06em] sm:text-6xl lg:text-7xl"
+    >
+      All Games
+    </h1><p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+      Browse the current collection and open a game to find where to play, how it works, and help
+      for common questions.
+    </p>
+  </header>
+  {
+    games.length ? (
+      <>
+        <>
+          <section class="py-10">
+            <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+              <>
+                <GameSearch games={games} locale={defaultLocale} />
+                <div class="flex flex-wrap gap-2 text-xs font-bold text-muted-foreground">
+                  {genres.map((genre) => (
+                    <span class="rounded-sm border px-3 py-1.5">{genre}</span>
+                  ))}
+                  {platforms.map((platform) => (
+                    <span class="rounded-sm border px-3 py-1.5">{platform}</span>
+                  ))}
+                </div>
+              </>
+            </div>
+          </section>
+          <section class="archive-rule py-10">
+            <>
+              <div class="archive-section-head">
+                <>
+                  <h2 class="text-2xl font-black uppercase">Browse Games</h2>
+                  <span class="text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                    {games.length} {games.length === 1 ? 'game' : 'games'}
+                  </span>
+                </>
+              </div>
+              <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {games.map((game) => (
+                  <GameCard game={game} locale={defaultLocale} />
+                ))}
+              </div>
+            </>
+          </section>
+        </>
+      </>
+    ) : (
+      <div class="mt-8 border border-dashed border-border p-10 text-center text-muted-foreground">
+        No published games are available yet.
+      </div>
+    )
+  }
+</LocaleLayout>

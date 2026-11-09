@@ -1,10 +1,10 @@
 {
   "$schema": "../../docs/home.schema.json",
   "site": {
-    "name": "1in8b Game Guides Wiki",
+    "name": "1in8b Game Guides",
     "shortName": "1in8b",
-    "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
-    "tagline": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
+    "description": "Discover trending games, find where to play, and get practical guides to help you play better.",
+    "tagline": "Discover trending games, find where to play, and get practical guides to help you play better.",
     "legalNotice": "1in8b Game Guides is an independent editorial resource and is not affiliated with game publishers or developers."
   },
   "nav": {
@@ -24,8 +24,8 @@
   "shared": {
     "lastUpdated": "Last updated",
     "publishedOn": "Published",
-    "noArticles": "No articles yet. Check back soon!",
-    "defaultListDescription": "Browse every {title} article — walkthroughs, tips, tier lists and up-to-date reference tables, all in one place.",
+    "noArticles": "No game guides are available here yet.",
+    "defaultListDescription": "Browse guides and practical tips for {title}.",
     "relatedArticles": "Related Articles",
     "onThisPage": "On this page",
     "browseAll": "Browse all",
@@ -96,11 +96,11 @@
     "tagsIndexDescription": "Browse all articles by topic.",
     "articlesCount": "articles",
     "recentTitle": "Recent Updates",
-    "recentDescription": "The latest articles and updates across the wiki, newest first.",
+    "recentDescription": "Recently updated games and player guides, newest first.",
     "sponsorTitle": "Support this wiki",
     "sponsorText": "If these guides helped you, consider supporting the site.",
     "sponsorButton": "Support us",
-    "notFoundSearchHint": "Try searching the wiki instead.",
+    "notFoundSearchHint": "Try searching for a game instead.",
     "notFoundPopular": "Popular pages",
     "notFoundTitle": "404 - Page Not Found",
     "notFoundDescription": "The page you are looking for does not exist.",
@@ -130,7 +130,7 @@
     "feedbackYes": "Yes",
     "feedbackNo": "No",
     "breadcrumbAria": "Breadcrumb",
-    "wikiNavAria": "Wiki navigation",
+    "wikiNavAria": "Game guide navigation",
     "paginationAria": "Article pagination"
   },
   "overview": {
@@ -141,87 +141,112 @@
   },
   "home": {
     "meta": {
-      "title": "1in8b Game Guides — Development Preview",
-      "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions."
+      "title": "Discover Games — 1in8b",
+      "description": "Discover trending games, find where to play, and get practical guides to help you play better."
     },
     "updates": {
-      "title": "Development updates"
+      "title": "Recently Updated"
     },
     "popular": {
-      "badge": "Preview",
-      "title": "What is available now",
+      "badge": "Games",
+      "title": "Browse Games",
       "quickLinks": [
         {
-          "label": "Development placeholder",
-          "href": "/guides"
+          "label": "Browse Games",
+          "href": "/games/"
         }
       ]
     },
     "closingCta": {
-      "title": "The multi-game guide foundation is underway",
-      "description": "Game directories, practical guides, and player decision support will arrive in later development milestones.",
-      "primary": "Browse the preview",
-      "secondary": "View the placeholder guide"
+      "title": "Looking for something to play?",
+      "description": "Browse games and find where to play and how to get started.",
+      "primary": "Browse Games",
+      "secondary": "Find a Guide"
     },
     "hero": {
-      "badge": "Development preview — not indexed",
-      "title": "1in8b Game Guides",
-      "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
-      "ctaPrimary": "",
-      "ctaSecondary": "Explore the foundation",
+      "badge": "Games and player guides",
+      "title": "Discover Games",
+      "description": "Find something new to play and get help when you need it.",
+      "ctaPrimary": "Browse Games",
+      "ctaSecondary": "Explore Guides",
       "videoId": ""
     },
     "start": {
-      "badge": "Development status",
-      "title": "A clean foundation for the next phase",
+      "badge": "Start here",
+      "title": "Find a game",
       "cards": [
         {
           "number": "1",
-          "title": "Content model preparation",
-          "description": "This temporary page confirms the content pipeline and static routes build correctly.",
-          "icon": "lucide:book-open",
-          "href": "/guides"
+          "title": "Browse Games",
+          "description": "Explore games and find out where to play.",
+          "icon": "lucide:gamepad-2",
+          "href": "/games/"
         }
       ]
     },
     "explore": {
-      "title": "Coming next",
-      "description": "T02 will introduce the multi-game data model and generated routes.",
+      "title": "Game Guides",
+      "description": "Find practical help for games we cover.",
       "modules": [
         {
           "order": 1,
-          "name": "Development placeholder",
-          "description": "No game data or player guidance is published in this initial repository setup.",
-          "href": "/guides",
+          "name": "Find a game guide",
+          "description": "Choose a game to see controls, game modes, tips and answers.",
+          "href": "/games/",
           "displayType": "steps",
           "highlights": [
             {
-              "label": "Foundation",
-              "detail": "Astro, MDX, search, SEO, and static deployment are configured.",
-              "badge": "Complete"
+              "label": "Choose",
+              "detail": "Browse games and select one you want to play.",
+              "badge": "1"
             },
             {
-              "label": "Next",
-              "detail": "Add multi-game data and routes in T02.",
-              "badge": "Planned"
+              "label": "Learn",
+              "detail": "Find controls and gameplay details where available.",
+              "badge": "2"
             },
             {
-              "label": "Indexing",
-              "detail": "The Preview deployment remains blocked from search engines.",
-              "badge": "Enabled"
+              "label": "Play",
+              "detail": "Follow the official link when available.",
+              "badge": "3"
             }
           ]
         }
       ]
     },
     "faq": {
-      "title": "FAQ",
-      "description": "Common questions",
-      "items": []
+      "title": "Frequently Asked Questions",
+      "description": "Answers about using 1in8b and finding game help.",
+      "items": [
+        {
+          "question": "What is 1in8b?",
+          "answer": "1in8b is an independent website for discovering games and finding practical information about how to play them. We bring together official game links, controls, gameplay guides, and answers to common questions."
+        },
+        {
+          "question": "Can I play games directly on 1in8b?",
+          "answer": "Game pages provide links to official places to play when available. Some games can be played directly in your browser on their official websites."
+        },
+        {
+          "question": "Are your game guides official?",
+          "answer": "No. Our guides are independently written and are not official documentation from the game developers unless clearly stated otherwise."
+        },
+        {
+          "question": "How can I find help for a specific game?",
+          "answer": "Search for the game or open it from the game directory. Each game page brings together the information currently available, such as controls, game modes, tips, and frequently asked questions."
+        },
+        {
+          "question": "Why isn't a particular game listed?",
+          "answer": "Our collection grows over time. We focus on games with player interest and useful information to share, rather than trying to list every game."
+        },
+        {
+          "question": "What if a guide is outdated or incorrect?",
+          "answer": "Please contact us with the page URL and the information that needs updating. Game features can change, and corrections help keep our guides useful."
+        }
+      ]
     }
   },
   "footer": {
-    "playGame": "Play 1in8b Game Guides",
+    "playGame": "Browse Games",
     "officialDiscord": "Official Discord",
     "officialYoutube": "Official YouTube",
     "officialTwitter": "Official Twitter",

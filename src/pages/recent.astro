@@ -1,16 +1,35 @@
 ---
-/**
- * Recent updates — default locale (English): /recent
- */
-import RecentPage from '~/components/article/RecentPage.astro';
-import { defaultLocale, locales } from '~/i18n/routing';
-import { languageAlternates, recentPath } from '~/lib/url';
-import { getRecentEntries } from '~/lib/content';
+/** Game-centric updates: the legacy wiki-article index is not the 1in8b content source. */
+import LocaleLayout from '~/components/layout/LocaleLayout.astro';
+import GameCard from '~/components/game/GameCard.astro';
+import { getPublishedGames } from '~/lib/games';
+import { defaultLocale } from '~/i18n/routing';
+import { simpleBreadcrumbJsonLd } from '~/lib/seo';
+import { recentPath } from '~/lib/url';
 
-const alternates = languageAlternates((loc) => recentPath(loc), locales);
-// Zero published articles = thin empty state — noindex, same treatment as
-// ListPage's empty category lists.
-const noindex = (await getRecentEntries(defaultLocale, 1)).length === 0;
+const games = (await getPublishedGames())
+  .filter((game) => !game.data.noindex)
+  .sort((a, b) => b.data.updatedAt.getTime() - a.data.updatedAt.getTime());
+const noindex = games.length === 0;
 ---
 
-<RecentPage locale={defaultLocale} alternates={alternates} noindex={noindex} />
+<LocaleLayout
+  locale={defaultLocale}
+  title="Recently Updated Games"
+  description="Recently updated games and player guides, newest first."
+  noindex={noindex}
+  jsonLd={[simpleBreadcrumbJsonLd({ pageLabel: 'Recently Updated', path: recentPath(defaultLocale), locale: defaultLocale })]}
+>
+  <header class="border-b border-border pb-10 pt-5 md:pb-14 md:pt-9">
+    <p class="archive-kicker">Game guides</p>
+    <h1 class="mt-4 text-4xl font-black uppercase leading-tight md:text-5xl">Recently Updated</h1>
+    <p class="mt-4 max-w-2xl text-muted-foreground">Find games with recently updated information, controls and tips.</p>
+  </header>
+  {games.length > 0 ? (
+    <div class="grid gap-5 py-10 sm:grid-cols-2 lg:grid-cols-3">
+      {games.map((game) => <GameCard game={game} locale={defaultLocale} />)}
+    </div>
+  ) : (
+    <p class="py-10 text-muted-foreground">There are no published game updates yet.</p>
+  )}
+</LocaleLayout>

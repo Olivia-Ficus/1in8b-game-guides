@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components';
+import GameCard from './GameCard.astro';
+import { type GameEntry } from '~/lib/games';
+import { type Locale } from '~/i18n/routing';
+interface Props {
+  games: GameEntry[];
+  locale: Locale;
+}
+const { games, locale } = Astro.props;
+---
+
+<section class="game-search" data-game-search aria-label="Find a game">
+  <label for="game-search-input" class="sr-only">Search games</label><div class="relative">
+    <Icon
+      name="lucide:search"
+      class="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground"
+    /><input
+      id="game-search-input"
+      type="search"
+      placeholder="Search games..."
+      class="h-12 w-full rounded-sm border border-border bg-card pl-12 pr-4 text-base outline-none transition focus:border-nav"
+      autocomplete="off"
+    />
+  </div><p
+    id="game-search-empty"
+    class="mt-4 hidden border-l-2 border-nav pl-3 text-sm text-muted-foreground"
+  >
+    No published game matches that search.
+  </p><div id="game-search-results" class="mt-4 grid hidden gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {games.map((game) => <GameCard game={game} locale={locale} compact />)}
+  </div>
+</section>
+<script>
+  const searchRoot = document.querySelector<HTMLElement>('[data-game-search]');
+  const input = searchRoot?.querySelector<HTMLInputElement>('#game-search-input');
+  const cards = [...(searchRoot?.querySelectorAll<HTMLElement>('[data-game-card]') ?? [])];
+  const empty = searchRoot?.querySelector<HTMLElement>('#game-search-empty');
+  const results = searchRoot?.querySelector<HTMLElement>('#game-search-results');
+  input?.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const match = !!q && `${card.dataset.gameName} ${card.dataset.gamePlatforms}`.includes(q);
+      card.toggleAttribute('hidden', !match);
+      if (match) visible++;
+    });
+    results?.classList.toggle('hidden', !q);
+    empty?.classList.toggle('hidden', !q || visible !== 0);
+  });
+</script>

@@ -24,12 +24,11 @@ import QuickStart from '~/components/home/QuickStart.astro';
 import ExploreModules from '~/components/home/ExploreModules.astro';
 import DealsOverview from '~/components/article/DealsOverview.astro';
 import { site } from '~/config/site';
-import { NAVIGATION_CONFIG } from '~/config/navigation';
 import { type Locale } from '~/i18n/routing';
 import { getUi, type HomeUi } from '~/i18n/ui';
 import { getEntriesByCategory, getRecentEntries, parseEntryId } from '~/lib/content';
 import { toDealMerchants } from '~/lib/content-utils';
-import { localizePath, listPath, detailPath } from '~/lib/url';
+import { localizePath, detailPath, gamesPath } from '~/lib/url';
 
 interface Props {
   locale: Locale;
@@ -120,7 +119,7 @@ function trendingLabel(link: QuickLink): string {
       aria-hidden="true"
       class="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 select-none text-center text-[18vw] font-black leading-none text-foreground/[0.03] md:text-[14vw]"
     >
-      {site.game.name}
+      {site.shortName}
     </span>
 
     <div class="relative mx-auto w-full max-w-7xl px-4 py-16 md:py-24">
@@ -147,7 +146,7 @@ function trendingLabel(link: QuickLink): string {
         }
         {
           hero.ctaSecondary && (
-            <a href={listPath(NAVIGATION_CONFIG[1]?.key ?? 'guides', locale)} class="btn-outline">
+            <a href={gamesPath(locale)} class="btn-outline">
               {hero.ctaSecondary}
             </a>
           )
@@ -158,7 +157,7 @@ function trendingLabel(link: QuickLink): string {
 
   {/* Trailer — only renders when a videoId is configured. */}
   {hero.videoId && (
-    <VideoSection videoId={hero.videoId} title={`${site.game.name} ${shared.gameTrailer}`} />
+    <VideoSection videoId={hero.videoId} title={`${site.shortName} ${shared.gameTrailer}`} />
   )}
 
   {/* ───────────────────────────── Quick Start ────────────────────────── */}
@@ -175,7 +174,7 @@ function trendingLabel(link: QuickLink): string {
       <section class="section border-t border-border">
         <div class="flex items-baseline justify-between">
           <h2 class="text-2xl font-bold">{couponDeals.title}</h2>
-          <a href={listPath('codes', locale)} class="text-sm text-foreground hover:text-nav hover:underline">
+          <a href={gamesPath(locale)} class="text-sm text-foreground hover:text-nav hover:underline">
             {shared.browseAll}
           </a>
         </div>
@@ -198,7 +197,7 @@ function trendingLabel(link: QuickLink): string {
       <div class="lg:col-span-2">
         <div class="flex items-baseline justify-between">
           <h2 class="text-2xl font-bold">{updates.title}</h2>
-          <a href={listPath(NAVIGATION_CONFIG[1]?.key ?? 'guides', locale)} class="text-sm text-foreground hover:text-nav hover:underline"
+          <a href={gamesPath(locale)} class="text-sm text-foreground hover:text-nav hover:underline"
             >{shared.browseAll}</a
           >
         </div>

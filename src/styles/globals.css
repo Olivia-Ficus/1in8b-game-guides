@@ -11,48 +11,47 @@
  */
 @layer base {
   :root {
-    /* Light mode theme color — Anvil orange (forge fire). */
-    --brand: 221 83% 53%;
-    --brand-light: 221 83% 63%;
-    /* Split H/S for derived shades (e.g. darker button backgrounds). */
-    --brand-h: 221;
-    --brand-s: 83%;
+    /* Archive Shelf: terracotta ink on warm paper. */
+    --brand: 15 64% 45%;
+    --brand-light: 25 73% 62%;
+    --brand-h: 15;
+    --brand-s: 64%;
     /* Text-safe shade of the brand: --brand at 52% lightness is only 3.1:1
        on white (WCAG AA needs 4.5:1 for text). Derived from the H/S splits,
        so fork themes that only edit --brand/--brand-light stay consistent. */
-    --brand-text: var(--brand-h) var(--brand-s) 40%;
+    --brand-text: var(--brand-h) var(--brand-s) 39%;
   }
 
   .dark {
-    /* Dark mode theme color — slightly deeper. */
-    --brand: 221 78% 49%;
-    --brand-light: 221 78% 59%;
-    --brand-h: 221;
-    --brand-s: 78%;
-    --brand-text: var(--brand-h) var(--brand-s) 52%;
+    /* Deliberate dark palette: ink-blue shelves, warm type, amber action. */
+    --brand: 29 74% 55%;
+    --brand-light: 34 84% 66%;
+    --brand-h: 29;
+    --brand-s: 74%;
+    --brand-text: var(--brand-h) var(--brand-s) 58%;
   }
 }
 
 /* Other design tokens — these reference --brand, so they auto-follow theme changes. */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
-    --border: 214 32% 91%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --background: 38 38% 94%;
+    --foreground: 194 31% 13%;
+    --muted: 36 30% 88%;
+    --muted-foreground: 188 9% 37%;
+    --border: 187 10% 42%;
+    --card: 38 42% 96%;
+    --card-foreground: 194 31% 13%;
   }
 
   .dark {
-    --background: 222 47% 7%;
-    --foreground: 210 40% 98%;
-    --muted: 217 33% 14%;
-    --muted-foreground: 215 20% 65%;
-    --border: 217 33% 18%;
-    --card: 222 47% 10%;
-    --card-foreground: 210 40% 98%;
+    --background: 207 38% 9%;
+    --foreground: 37 46% 90%;
+    --muted: 204 27% 15%;
+    --muted-foreground: 37 14% 68%;
+    --border: 194 13% 42%;
+    --card: 205 32% 12%;
+    --card-foreground: 37 46% 90%;
   }
 
   /* AMOLED black (html.dark.black) — pure-black surfaces for OLED phones:
@@ -74,6 +73,20 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    background-image:
+      radial-gradient(circle at 12% 0%, hsl(var(--brand) / 0.035), transparent 28rem),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.018) 1px, transparent 1px);
+    background-size:
+      auto,
+      5rem 100%;
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
     font-feature-settings:
       'rlig' 1,
       'calt' 1;
@@ -86,16 +99,25 @@
   html.dark {
     color-scheme: dark;
   }
+
+  h1,
+  h2,
+  h3,
+  .archive-display {
+    font-family: 'Arial Black', 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.04em;
+  }
 }
 
 /* Utility classes referencing the theme token. */
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+    @apply inline-flex items-center justify-center rounded-sm border px-4 py-2 text-sm font-bold text-white transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
     /* Button background needs white text contrast ≥ 4.5:1 (WCAG AA).
        --brand (52% lightness) gives only 3.1:1, so we darken it
        to ~40% for button backgrounds. This does NOT change --brand
        itself — it's a derived value for buttons only. */
+    border-color: hsl(var(--brand-h) var(--brand-s) 32%);
     background-color: hsl(var(--brand-h) var(--brand-s) 40%);
   }
   .btn-primary:hover {
@@ -113,11 +135,11 @@
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center rounded-md border border-border bg-background px-4 py-2 text-sm font-medium transition hover:bg-muted;
+    @apply inline-flex items-center justify-center rounded-sm border border-border bg-background px-4 py-2 text-sm font-bold transition hover:bg-muted;
   }
 
   .card {
-    @apply rounded-lg border bg-card text-card-foreground transition hover:border-nav/50 hover:shadow-md;
+    @apply rounded-sm border bg-card text-card-foreground transition hover:border-nav;
   }
 
   /* Unified section vertical rhythm — use on all homepage sections. */
@@ -148,6 +170,20 @@
     object-fit: contain;
     border-radius: 0.5rem;
     background-color: hsl(var(--muted));
+  }
+}
+
+@layer components {
+  .archive-kicker {
+    @apply text-xs font-extrabold uppercase tracking-[0.14em] text-nav;
+  }
+
+  .archive-rule {
+    @apply border-t-2 border-foreground;
+  }
+
+  .archive-section-head {
+    @apply flex items-end justify-between gap-4 border-b border-border pb-3;
   }
 }
 

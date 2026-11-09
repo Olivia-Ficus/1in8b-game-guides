@@ -1,0 +1,8 @@
+{
+  "name": "Draft Lab (Validation Fixture)",
+  "slug": "draft-lab",
+  "description": "A draft-only validation fixture that proves unpublished games never receive production pages or sitemap entries.",
+  "updatedAt": "2026-11-06",
+  "status": "draft",
+  "noindex": true
+}

@@ -53,6 +53,20 @@ export function detailPath(category: string, slug: string, locale: Locale): stri
   return localizePath(`/${category}/${slug}`, locale);
 }
 
+/** Game hub and game-scoped article URLs. Game/topic are validated by their
+ * collections, so no caller may compose an unscoped article path. */
+export function gamesPath(locale: Locale): string {
+  return localizePath('/games', locale);
+}
+
+export function gamePath(gameSlug: string, locale: Locale): string {
+  return localizePath(`/games/${gameSlug}`, locale);
+}
+
+export function gameGuidePath(gameSlug: string, topic: string, locale: Locale): string {
+  return localizePath(`/games/${gameSlug}/${topic}`, locale);
+}
+
 /** Tag index URL for a locale. e.g. tagsPath('en') -> '/tags' */
 export function tagsPath(locale: Locale): string {
   return localizePath('/tags', locale);

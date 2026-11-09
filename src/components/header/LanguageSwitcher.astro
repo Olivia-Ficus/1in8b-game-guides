@@ -23,13 +23,13 @@ const switchLocales = availableLocales ?? locales;
 
 <details class="relative">
   <summary
-    class="inline-flex cursor-pointer list-none items-center gap-1 rounded-md px-3 py-1.5 text-sm font-medium text-foreground transition hover:bg-muted"
+    class="inline-flex cursor-pointer list-none items-center gap-1 rounded-sm border border-transparent px-3 py-1.5 text-sm font-medium text-foreground transition hover:border-border hover:bg-muted"
   >
     <Icon name="lucide:globe" class="h-4 w-4" />
     <span>{LOCALE_LABELS[locale]}</span>
     <Icon name="lucide:chevron-down" class="h-3 w-3" />
   </summary>
-  <div class="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-md border bg-card shadow-lg">
+  <div class="absolute right-0 z-50 mt-2 w-40 overflow-hidden rounded-sm border bg-card">
     {
       switchLocales.map((loc) => (
         <a

@@ -14,7 +14,7 @@
  *   2. Locale consistency (AGENTS.md rule #5):
  *        routing.ts locales
  *      = src/locales/*.json files
- *      = src/content/wiki/<locale>/ directories
+ *      = src/content/wiki/<locale>/ directories (legacy wiki sites only)
  *   3. Homepage displayType enum:
  *        every locales/<loc>.json home.explore.modules[].displayType
  *      must be one of the 6 supported values.
@@ -57,13 +57,9 @@ const navSrc = read('src/config/navigation.ts');
 const navKeys = Array.from(
   navSrc.matchAll(/(?<=[{,\s])(?<!\/\/\s*)key:\s*['"]([^'"]+)['"]/g),
 ).map((m) => m[1]);
-if (navKeys.length === 0) {
-  // Same bargain as the routing.ts readers in lib/routing-flags.ts: a parse
-  // failure must be loud — gating nothing while printing green is worse than
-  // stopping.
-  err('could not parse any nav keys from src/config/navigation.ts — expected `key: \'category\'` entries in NAVIGATION_CONFIG');
-  process.exit(1);
-}
+// A multi-game portal intentionally has no site-wide content categories.
+// Game pages derive their topics from scoped MDX, so an empty navigation is a
+// valid T02 configuration rather than a parser failure.
 
 // ---------------------------------------------------------------------------
 // 2. Parse routing.ts locales (shared reader in scripts/lib/routing-flags.ts)
@@ -86,6 +82,7 @@ console.log('━'.repeat(60));
 
 // --- Check 1: nav key → en.json nav.<key> → content dir -------------------
 console.log('\n1. Nav key consistency (navigation.ts ↔ en.json ↔ content dirs)');
+if (navKeys.length === 0) console.log('  ℹ️  no global categories; game-scoped routes derive their topics from content');
 for (const key of navKeys) {
   if (!enJson.nav || !(key in enJson.nav)) {
     err(`en.json is missing nav.${key} (header will show the raw key)`);
@@ -111,10 +108,14 @@ for (const loc of routingLocales) {
     err(`src/locales/${loc}.json missing (declared in routing.ts)`);
     localeErrors++;
   }
-  const contentDir = path.resolve(ROOT, 'src/content/wiki', loc);
-  if (!fs.existsSync(contentDir)) {
-    err(`content directory src/content/wiki/${loc}/ missing (declared in routing.ts)`);
-    localeErrors++;
+  // The multi-game portal has no legacy wiki category routes, so it does
+  // not need the old src/content/wiki/<locale>/ tree at all.
+  if (navKeys.length > 0) {
+    const contentDir = path.resolve(ROOT, 'src/content/wiki', loc);
+    if (!fs.existsSync(contentDir)) {
+      err(`content directory src/content/wiki/${loc}/ missing (declared in routing.ts)`);
+      localeErrors++;
+    }
   }
 }
 const localesDir = path.resolve(ROOT, 'src/locales');
@@ -133,6 +134,10 @@ if (fs.existsSync(localesDir)) {
   err(
     `src/locales/ directory not found — the template ships it (routing.ts declares: ${routingLocales.join(', ')}). Restore it from upstream or create the JSON files.`,
   );
+}
+if (navKeys.length === 0 && !fs.existsSync(path.resolve(ROOT, 'src/content/games'))) {
+  err('multi-game portal is missing src/content/games/');
+  localeErrors++;
 }
 if (localeErrors === 0) console.log('  ✅ all locales consistent');
 
