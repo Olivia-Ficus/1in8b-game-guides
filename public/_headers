@@ -18,9 +18,8 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  # The pages.dev deployment is an isolated development preview. Remove this
-  # line only when a separately approved production launch is ready.
-  X-Robots-Tag: noindex, nofollow
+  # Cloudflare Pages automatically adds X-Robots-Tag: noindex to preview
+  # deployments. A global rule here would also suppress the custom domain.
 
 # Hashed build assets (CSS/JS/fonts) never change — cache immutably for a year.
 # Returning visitors get instant repeat loads (helps LCP on revisit).

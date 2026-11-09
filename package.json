@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Game discovery, navigation, and player guide foundation for 1in8b.online.",
   "license": "MIT",
-  "homepage": "https://1in8b-game-guides.pages.dev",
+  "homepage": "https://1in8b.online",
   "repository": {
     "type": "git",
     "url": "https://github.com/Olivia-Ficus/1in8b-game-guides.git"
@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs",
+    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && node scripts/check-seo-migration.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "typecheck": "astro check",
@@ -60,7 +60,8 @@
     "check-links": "tsx scripts/check-links.ts",
     "check-versions": "tsx scripts/check-versions.ts",
     "check-content": "tsx scripts/check-content.ts",
-    "refresh-audit": "tsx scripts/refresh-audit.ts"
+    "refresh-audit": "tsx scripts/refresh-audit.ts",
+    "check:seo-migration": "node scripts/check-seo-migration.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.1",

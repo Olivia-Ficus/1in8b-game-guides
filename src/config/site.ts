@@ -59,7 +59,7 @@ export const site: SiteConfig = {
   shortName: '1in8b',
   description:
     'Discover trending games, find where to play, and get practical guides to help you play better.',
-  domain: '1in8b-game-guides.pages.dev',
+  domain: '1in8b.online',
   tagline:
     'Discover trending games, find where to play, and get practical guides to help you play better.',
   legalNotice:
