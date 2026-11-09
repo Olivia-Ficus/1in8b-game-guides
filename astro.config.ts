@@ -261,7 +261,10 @@ function addGameRouteMetadata() {
       }
     }
   }
-  if (indexableGameCount === 0) noindexPaths.add('/games');
+  if (indexableGameCount === 0) {
+    noindexPaths.add('/games');
+    noindexPaths.add('/recent');
+  }
 
   const guidesDir = path.resolve('./src/content/game-guides');
   if (!fs.existsSync(guidesDir)) return;
@@ -304,7 +307,6 @@ addGameRouteMetadata();
 // Legacy wiki routes with no published wiki articles are thin/empty pages.
 // Keep them out of sitemap while retaining route compatibility.
 if (localeCoverage.size === 0) {
-  noindexPaths.add('/recent');
   noindexPaths.add('/tags');
 }
 noindexPaths.add('/404');
