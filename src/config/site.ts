@@ -66,7 +66,7 @@ export const site: SiteConfig = {
     '1in8b Game Guides is an independent editorial resource and is not affiliated with game publishers or developers.',
   // Set a real address if you run no social channels — the contact page
   // renders it as a mailto link.
-  contactEmail: '',
+  contactEmail: 'contact@1in8b.online',
   social: {
     official: 'https://1in8b.online/',
   },
