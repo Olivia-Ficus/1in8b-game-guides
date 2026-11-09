@@ -9,5 +9,16 @@
   "updatedAt": "2026-11-08",
   "status": "published",
   "featured": true,
-  "featuredOrder": 1
+  "featuredOrder": 1,
+  "presentation": "single-page",
+  "faq": [
+    {"question": "Why did pressing R add 5 seconds?", "answer": "R resets your car and adds five seconds to the stage time."},
+    {"question": "I barely left the road. Why was my car reset?", "answer": "If no wheel stays on the dirt for about three seconds, the game can reset the car and add five seconds. Falling off the route or getting stuck can also trigger a reset."},
+    {"question": "Can my friend race the exact same random stage?", "answer": "Yes. Copy the generated stage URL and send it to your friend so you can both try the same road."},
+    {"question": "Where can I race against the record holder's ghost?", "answer": "Try Circuit mode for timed laps and the record holder's ghost."},
+    {"question": "Why is there no accelerator button on mobile?", "answer": "On mobile, touch and drag to steer; the car accelerates automatically."},
+    {"question": "Why do I need to sign in for multiplayer?", "answer": "Solo stages work without an account. The official game uses Google sign-in for multiplayer lobbies, leaderboards, and circuit publishing."},
+    {"question": "My game is stuttering. What should I change first?", "answer": "Try the Low graphics preset in Settings to reduce scenery, shadows, and smoke on a slower device."},
+    {"question": "Can I add trees or decorations to my custom track?", "answer": "The editor supports creating and publishing circuits, but custom scenery placement was not verified during this content review."}
+  ]
 }

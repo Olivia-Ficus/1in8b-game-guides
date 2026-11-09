@@ -186,6 +186,8 @@ const games = defineCollection({
     status: z.enum(['draft', 'published']),
     featured: z.boolean().default(false),
     featuredOrder: z.number().int().nonnegative().optional(),
+    presentation: z.enum(['standard', 'single-page']).default('standard'),
+    faq: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
     /** Test fixtures may render in Preview without entering sitemap/Pagefind. */
     noindex: z.boolean().default(false),
   }),
