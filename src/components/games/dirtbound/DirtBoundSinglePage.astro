@@ -1,29 +1,862 @@
 ---
 import { type GameEntry } from '~/lib/games';
 
-interface Props { game: GameEntry; }
+interface Props {
+  game: GameEntry;
+}
 const { game } = Astro.props;
 const officialUrl = game.data.officialUrl!;
 ---
 
 <div class="dirtbound-page -mx-4 -my-8">
-  <section class="db-hero"><div class="db-shell db-hero-grid"><div class="db-hero-copy"><nav class="db-crumbs" aria-label="Breadcrumb"><a href="/games/">Game Guides</a><span>/</span><span>DirtBound</span></nav><p class="db-eyebrow">THE PLAYER COMPANION <span>01 / 01</span></p><p class="db-tag">FREE BROWSER RALLY</p><h1>DirtBound <small>– Play Online, Controls &amp; Tips</small></h1><p class="db-intro">A free browser rally game with winding dirt roads, timed challenges, multiplayer racing and a track editor. Find the game, learn the controls and start chasing a faster time.</p><ul class="db-perks"><li>Free to play</li><li>No download</li><li>Desktop &amp; mobile</li></ul><div class="db-actions"><a class="db-button" href={officialUrl} target="_blank" rel="noopener noreferrer">Play on Official Site <span>↗</span></a><a class="db-text-link" href="#controls">See Controls ↓</a></div><p class="db-note">Unofficial player guide. The official game opens in a new tab.</p></div><figure class="db-hero-art"><img src="/images/games/dirtbound/rally-stage.jpg" width="659" height="664" alt="Official DirtBound gameplay showing a rally car waiting at the start of a generated stage" fetchpriority="high" /><figcaption>Official DirtBound gameplay · generated stage start</figcaption></figure></div></section>
+  <section class="db-hero">
+    <div class="db-shell db-hero-grid">
+      <div class="db-hero-copy">
+        <nav class="db-crumbs" aria-label="Breadcrumb">
+          <a href="/games/">Games</a><span>/</span><span>DirtBound</span>
+        </nav><p class="db-eyebrow">Browser rally game</p><h1>DirtBound</h1><p class="db-deck">
+          Play online, learn the controls, and find practical tips.
+        </p><p class="db-intro">
+          A free browser rally game with winding dirt roads, timed challenges, multiplayer racing
+          and a track editor. Find the game, learn the controls and start chasing a faster time.
+        </p><ul class="db-perks">
+          <li>Free to play</li><li>No download</li><li>Desktop &amp; mobile</li>
+        </ul><div class="db-actions">
+          <a class="db-button" href={officialUrl} target="_blank" rel="noopener noreferrer"
+            >Play Game <span>↗</span></a
+          ><a class="db-text-link" href="#controls">How to Play ↓</a>
+        </div><p class="db-note">
+          Official site · opens in a new tab. 1in8b is an independent player guide.
+        </p>
+      </div><figure class="db-hero-art">
+        <img
+          src="/images/games/dirtbound/rally-stage.jpg"
+          width="659"
+          height="664"
+          alt="Official DirtBound gameplay showing a rally car waiting at the start of a generated stage"
+          fetchpriority="high"
+        /><figcaption>Official DirtBound gameplay · generated stage start</figcaption>
+      </figure>
+    </div>
+  </section>
 
-  <div class="db-shell db-quick-wrap"><nav class="db-quick-nav" aria-label="On this page"><span>JUMP TO</span><a href="#controls">Controls</a><a href="#modes">Game Modes</a><a href="#penalties">Penalties</a><a href="#tips">Drive Faster</a><a href="#editor">Track Editor</a><a href="#faq">FAQ</a></nav></div>
+  <div class="db-shell db-quick-wrap">
+    <nav class="db-quick-nav" aria-label="On this page">
+      <span>On this page</span><a href="#controls">Controls</a><a href="#modes">Modes</a><a
+        href="#penalties">Penalties</a
+      ><a href="#tips">Tips</a><a href="#editor">Track Editor</a><a href="#faq">FAQ</a>
+    </nav>
+  </div>
 
-  <section id="controls" class="db-section db-shell"><header class="db-heading"><p>01 / GET MOVING</p><h2>DirtBound Controls</h2><span>New to the game? Here are the controls you’ll actually need.</span></header><div class="db-control-grid"><article class="db-panel"><div class="db-panel-title"><h3>Desktop</h3><span>KEYBOARD</span></div><div class="db-keyboard" role="img" aria-label="Keyboard layout highlighting W, A, S and D"><div><kbd>W</kbd></div><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div><div><kbd class="db-space">SPACE</kbd></div></div><dl class="db-key-list"><div><dt>W / ↑</dt><dd>Accelerate</dd></div><div><dt>S / ↓</dt><dd>Brake / Reverse</dd></div><div><dt>A / D</dt><dd>Steer</dd></div><div><dt>Space</dt><dd>Handbrake</dd></div><div><dt>C</dt><dd>Change camera</dd></div><div><dt>R</dt><dd>Reset (+5s)</dd></div><div><dt>Esc</dt><dd>Pause</dd></div></dl></article><article class="db-panel"><div class="db-panel-title"><h3>Mobile</h3><span>TOUCH</span></div><div class="db-phone" role="img" aria-label="Phone diagram showing a finger dragging left and right to steer a rally car"><i></i><b></b><em>☝</em></div><p class="db-mobile-copy">Touch and drag to steer.<br /><strong>The car accelerates automatically.</strong></p></article></div></section>
+  <section id="controls" class="db-section db-shell">
+    <header class="db-heading">
+      <p>How to play</p><h2>DirtBound Controls</h2><span
+        >New to the game? Here are the controls you’ll actually need.</span
+      >
+    </header><div class="db-control-grid">
+      <article class="db-panel">
+        <div class="db-panel-title"><h3>Desktop</h3><span>KEYBOARD</span></div><div
+          class="db-keyboard"
+          role="img"
+          aria-label="Keyboard layout highlighting W, A, S and D"
+        >
+          <div><kbd>W</kbd></div><div><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></div><div>
+            <kbd class="db-space">SPACE</kbd>
+          </div>
+        </div><dl class="db-key-list">
+          <div><dt>W / ↑</dt><dd>Accelerate</dd></div><div>
+            <dt>S / ↓</dt><dd>Brake / Reverse</dd>
+          </div><div><dt>A / D</dt><dd>Steer</dd></div><div>
+            <dt>Space</dt><dd>Handbrake</dd>
+          </div><div><dt>C</dt><dd>Change camera</dd></div><div>
+            <dt>R</dt><dd>Reset (+5s)</dd>
+          </div><div><dt>Esc</dt><dd>Pause</dd></div>
+        </dl>
+      </article><article class="db-panel">
+        <div class="db-panel-title"><h3>Mobile</h3><span>TOUCH</span></div><div
+          class="db-phone"
+          role="img"
+          aria-label="Phone diagram showing a finger dragging left and right to steer a rally car"
+        >
+          <i></i><b></b><em>☝</em>
+        </div><p class="db-mobile-copy">
+          Touch and drag to steer.<br /><strong>The car accelerates automatically.</strong>
+        </p>
+      </article>
+    </div>
+  </section>
 
-  <section id="modes" class="db-section db-shell"><header class="db-heading"><p>02 / PICK YOUR ROUTE</p><h2>Which DirtBound Mode Should You Play?</h2><span>Start with the experience you want.</span></header><div class="db-mode-grid"><article><img src="/images/games/dirtbound/stage-menu.jpg" width="659" height="664" loading="lazy" alt="Official DirtBound Stage setup screen with distance, landscape and theme choices" /><div><small>01 / SOLO RALLY</small><h3>Stage</h3><b>Just want to drive?</b><p>Take on a newly generated rally road. Pick a distance, landscape and season.</p></div></article><article><img src="/images/games/dirtbound/circuit-menu.jpg" width="659" height="664" loading="lazy" alt="Official DirtBound Circuit screen showing selectable tracks and leaderboard" /><div><small>02 / LAP TIME</small><h3>Circuit</h3><b>Want to beat a record?</b><p>Race timed laps, chase the record holder’s ghost and improve your best run.</p></div></article><article><img src="/images/games/dirtbound/daily-menu.jpg" width="659" height="664" loading="lazy" alt="Official DirtBound Daily Challenge screen with a shared stage and leaderboard" /><div><small>03 / SHARED STAGE</small><h3>Daily Challenge</h3><b>Same road, new challenge</b><p>Drive the day’s shared stage and see how your time compares.</p></div></article><article><img src="/images/games/dirtbound/multiplayer-menu.jpg" width="659" height="664" loading="lazy" alt="Official DirtBound Multiplayer screen with Classic and Experimental choices" /><div><small>04 / TOGETHER</small><h3>Multiplayer</h3><b>Race with friends</b><p>Join a public lobby or create a private room to race together.</p></div></article></div><p class="db-extra"><strong>Also in the game:</strong> Experimental adds power-ups to multiplayer. The Track Editor lets you create and share circuits.</p></section>
+  <section id="modes" class="db-section db-shell">
+    <header class="db-heading">
+      <p>Game modes</p><h2>Which DirtBound Mode Should You Play?</h2><span
+        >Start with the experience you want.</span
+      >
+    </header><div class="db-mode-grid">
+      <article>
+        <img
+          src="/images/games/dirtbound/stage-menu.jpg"
+          width="659"
+          height="664"
+          loading="lazy"
+          alt="Official DirtBound Stage setup screen with distance, landscape and theme choices"
+        /><div>
+          <small>Solo rally</small><h3>Stage</h3><b>Just want to drive?</b><p>
+            Take on a newly generated rally road. Pick a distance, landscape and season.
+          </p>
+        </div>
+      </article><article>
+        <img
+          src="/images/games/dirtbound/circuit-menu.jpg"
+          width="659"
+          height="664"
+          loading="lazy"
+          alt="Official DirtBound Circuit screen showing selectable tracks and leaderboard"
+        /><div>
+          <small>Lap time</small><h3>Circuit</h3><b>Want to beat a record?</b><p>
+            Race timed laps, chase the record holder’s ghost and improve your best run.
+          </p>
+        </div>
+      </article><article>
+        <img
+          src="/images/games/dirtbound/daily-menu.jpg"
+          width="659"
+          height="664"
+          loading="lazy"
+          alt="Official DirtBound Daily Challenge screen with a shared stage and leaderboard"
+        /><div>
+          <small>Shared stage</small><h3>Daily Challenge</h3><b>Same road, new challenge</b><p>
+            Drive the day’s shared stage and see how your time compares.
+          </p>
+        </div>
+      </article><article>
+        <img
+          src="/images/games/dirtbound/multiplayer-menu.jpg"
+          width="659"
+          height="664"
+          loading="lazy"
+          alt="Official DirtBound Multiplayer screen with Classic and Experimental choices"
+        /><div>
+          <small>Play together</small><h3>Multiplayer</h3><b>Race with friends</b><p>
+            Join a public lobby or create a private room to race together.
+          </p>
+        </div>
+      </article>
+    </div><p class="db-extra">
+      <strong>Also in the game:</strong> Experimental adds power-ups to multiplayer. The Track Editor
+      lets you create and share circuits.
+    </p>
+  </section>
 
-  <section id="penalties" class="db-section db-shell"><header class="db-heading"><p>03 / WATCH THE CLOCK</p><h2>Why Did I Get a Time Penalty?</h2><span>Two mistakes can change a run quickly.</span></header><div class="db-penalty-grid"><article><div class="db-penalty-art"><span>OFF THE DIRT</span></div><div><b>+5s</b><h3>Off Track or Reset</h3><p>Go off the road, get stuck or press R to reset your car, and five seconds are added to your time.</p></div></article><article><div class="db-penalty-art db-crowd"><span>CROWD ZONE</span></div><div><b>+10s</b><h3>Spectator Hit</h3><p>Hit a spectator and ten seconds are added to your time.</p></div></article></div><p class="db-callout">Clean driving matters. A small mistake can cost more time than you gained by pushing harder.</p></section>
+  <section id="penalties" class="db-section db-shell">
+    <header class="db-heading">
+      <p>Time penalties</p><h2>Why Did I Get a Time Penalty?</h2><span
+        >Two mistakes can change a run quickly.</span
+      >
+    </header><div class="db-penalty-grid">
+      <article>
+        <div class="db-penalty-art"><span>OFF THE DIRT</span></div><div>
+          <b>+5s</b><h3>Off Track or Reset</h3><p>
+            Go off the road, get stuck or press R to reset your car, and five seconds are added to
+            your time.
+          </p>
+        </div>
+      </article><article>
+        <div class="db-penalty-art db-crowd"><span>CROWD ZONE</span></div><div>
+          <b>+10s</b><h3>Spectator Hit</h3><p>
+            Hit a spectator and ten seconds are added to your time.
+          </p>
+        </div>
+      </article>
+    </div><p class="db-callout">
+      Clean driving matters. A small mistake can cost more time than you gained by pushing harder.
+    </p>
+  </section>
 
-  <section id="tips" class="db-section db-shell"><header class="db-heading"><p>04 / FIND YOUR PACE</p><h2>Trying to Beat Your Best Time?</h2><span>Three practical things to try on your next run.</span></header><div class="db-tips-grid"><article><div class="db-tip-art">BRAKE <span>EXIT ↗</span></div><div><small>01</small><h3>Keep sliding wide?</h3><p>Brake before the bend, then accelerate as you exit.</p></div></article><article><div class="db-tip-art db-grass">DIRT ✓ <span>GRASS SLOWS</span></div><div><small>02</small><h3>Losing time off-road?</h3><p>Stay on the dirt. Grass slows you down, and a reset costs five seconds.</p></div></article><article><div class="db-tip-art db-url">COPY STAGE URL <span>↻ REPLAY</span></div><div><small>03</small><h3>Want to retry the same stage?</h3><p>Save the stage URL and reopen it to drive the same generated road again.</p></div></article></div><p class="db-subnote">Driving tips are general rally advice, not tested DirtBound lap-time claims.</p></section>
+  <section id="tips" class="db-section db-shell">
+    <header class="db-heading">
+      <p>Driving tips</p><h2>Trying to Beat Your Best Time?</h2><span
+        >Three practical things to try on your next run.</span
+      >
+    </header><div class="db-tips-grid">
+      <article>
+        <div class="db-tip-art">BRAKE <span>EXIT ↗</span></div><div>
+          <h3>Keep sliding wide?</h3><p>Brake before the bend, then accelerate as you exit.</p>
+        </div>
+      </article><article>
+        <div class="db-tip-art db-grass">DIRT ✓ <span>GRASS SLOWS</span></div><div>
+          <h3>Losing time off-road?</h3><p>
+            Stay on the dirt. Grass slows you down, and a reset costs five seconds.
+          </p>
+        </div>
+      </article><article>
+        <div class="db-tip-art db-url">COPY STAGE URL <span>↻ REPLAY</span></div><div>
+          <h3>Want to retry the same stage?</h3><p>
+            Save the stage URL and reopen it to drive the same generated road again.
+          </p>
+        </div>
+      </article>
+    </div><p class="db-subnote">
+      Driving tips are general rally advice, not tested DirtBound lap-time claims.
+    </p>
+  </section>
 
-  <section id="editor" class="db-section db-shell"><header class="db-heading"><p>05 / MAKE A ROUTE</p><h2>Want to Build Your Own DirtBound Track?</h2><span>Create a rally circuit, test your route and publish it for other players.</span></header><div class="db-editor"><img src="/images/games/dirtbound/editor-route.jpg" width="659" height="664" loading="lazy" alt="Official DirtBound Circuit Editor showing a route drawn with editable track points" /><div><b>CREATE → TEST → PUBLISH</b><p>Shape a circuit in DirtBound’s editor, try it in the game, then publish it for other players. Publishing uses an account.</p><a class="db-outline" href={officialUrl} target="_blank" rel="noopener noreferrer">Open DirtBound ↗</a></div></div></section>
+  <section id="editor" class="db-section db-shell">
+    <header class="db-heading">
+      <p>Track editor</p><h2>Want to Build Your Own DirtBound Track?</h2><span
+        >Create a rally circuit, test your route and publish it for other players.</span
+      >
+    </header><div class="db-editor">
+      <img
+        src="/images/games/dirtbound/editor-route.jpg"
+        width="659"
+        height="664"
+        loading="lazy"
+        alt="Official DirtBound Circuit Editor showing a route drawn with editable track points"
+      /><div>
+        <b>CREATE → TEST → PUBLISH</b><p>
+          Shape a circuit in DirtBound’s editor, try it in the game, then publish it for other
+          players. Publishing uses an account.
+        </p><a class="db-outline" href={officialUrl} target="_blank" rel="noopener noreferrer"
+          >Open DirtBound ↗</a
+        >
+      </div>
+    </div>
+  </section>
 
-  <section id="faq" class="db-section db-shell db-faq"><header class="db-heading"><p>06 / QUICK ANSWERS</p><h2>Questions You Might Have While Playing</h2><span>Open the question that matches what just happened.</span></header><div class="db-faq-list">{game.data.faq?.map((item) => <details><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></section>
+  <section id="faq" class="db-section db-shell db-faq">
+    <header class="db-heading">
+      <p>FAQ</p><h2>Questions You Might Have While Playing</h2><span
+        >Open the question that matches what just happened.</span
+      >
+    </header><div class="db-faq-list">
+      {
+        game.data.faq?.map((item) => (
+          <details>
+            <>
+              <summary>{item.question}</summary>
+              <p>{item.answer}</p>
+            </>
+          </details>
+        ))
+      }
+    </div>
+  </section>
 </div>
 
 <style>
-  .dirtbound-page{--db-paper:#fbf7f2;--db-card:#fffdf9;--db-ink:#181c20;--db-muted:#646b68;--db-line:#e8ddd0;--db-orange:#df5b13;--db-dark:#ad3e09;--db-soft:#fff0e3;background:var(--db-paper);color:var(--db-ink);font:16px/1.55 system-ui,sans-serif;padding-bottom:5rem}.dirtbound-page *{box-sizing:border-box}.dirtbound-page img{display:block;max-width:100%}.db-shell{width:min(1240px,calc(100% - 48px));margin-inline:auto}.db-hero{background:radial-gradient(circle at 78% 28%,#f6e0cd 0,transparent 36%);border-bottom:1px solid var(--db-line)}.db-hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;align-items:center;gap:42px;min-height:580px;padding-block:32px 40px}.db-crumbs{display:flex;gap:12px;margin-bottom:32px;font-size:12px;color:#6c716e}.db-crumbs a{color:inherit}.db-eyebrow,.db-heading>p,.db-mode-grid small{margin:0 0 11px;color:var(--db-dark);font-size:10px;font-weight:800;letter-spacing:.16em}.db-eyebrow span{float:right;color:#a8a29b}.db-tag{display:inline-block;margin:0 0 14px;padding:5px 9px;border-radius:5px;background:var(--db-orange);color:#fff;font-size:11px;font-weight:800}.db-hero h1{margin:0 0 21px;font-size:clamp(44px,5.15vw,75px);line-height:.99;letter-spacing:-.065em}.db-hero h1 small{display:block;margin-top:13px;font-size:clamp(23px,2.3vw,36px);line-height:1.13}.db-intro{max-width:550px;color:#424b4b;line-height:1.75}.db-perks{display:flex;flex-wrap:wrap;gap:8px 18px;padding:0;margin:0 0 28px;list-style:none;font-size:13px;font-weight:650}.db-perks li:before{content:'✓';margin-right:8px;color:#426646}.db-actions{display:flex;align-items:center;gap:24px}.db-button,.db-outline{display:inline-flex;padding:12px 22px;border-radius:10px;text-decoration:none;font-size:14px;font-weight:800}.db-button{background:var(--db-orange);color:#fff;box-shadow:0 4px 0 #a84712}.db-text-link{color:var(--db-ink);font-size:13px;font-weight:750}.db-note{color:#81817e;font-size:11px}.db-hero-art{position:relative;margin:0}.db-hero-art img{width:100%;max-height:520px;object-fit:cover;border-radius:18px;box-shadow:0 20px 50px #71583c25}.db-hero-art figcaption{position:absolute;bottom:18px;left:17px;padding:5px 9px;border-radius:5px;background:#1b2d2c9c;color:#fff;font-size:10px}.db-quick-wrap{position:relative;margin-top:-19px}.db-quick-nav{display:flex;overflow:auto;border:1px solid var(--db-line);border-radius:12px;background:var(--db-card);box-shadow:0 10px 30px #514d4212;white-space:nowrap}.db-quick-nav>*{flex:0 0 auto;padding:15px 23px;border-right:1px solid var(--db-line);font-size:12px;text-decoration:none;color:inherit}.db-quick-nav span{color:var(--db-orange);font-size:10px;font-weight:800;letter-spacing:.16em}.db-section{padding-top:76px}.db-heading{margin-bottom:27px}.db-heading h2{margin:0 0 9px;font-size:clamp(29px,3vw,43px);line-height:1.1;letter-spacing:-.052em}.db-heading>span{color:var(--db-muted);font-size:14px}.db-control-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}.db-panel,.db-mode-grid article,.db-penalty-grid article,.db-tips-grid article,.db-editor,.db-faq-list details{overflow:hidden;border:1px solid var(--db-line);border-radius:15px;background:var(--db-card)}.db-panel{padding:24px 26px}.db-panel-title{display:flex;justify-content:space-between;align-items:center}.db-panel-title h3{margin:0;font-size:17px}.db-panel-title span{font-size:10px;font-weight:800;letter-spacing:.16em;color:#92928b}.db-keyboard{display:grid;justify-content:center;gap:4px;padding:22px 8px 15px}.db-keyboard div{display:flex;gap:5px;justify-content:center}.db-keyboard kbd{display:grid;width:44px;height:42px;place-items:center;border:1px solid #e96d22;border-bottom:3px solid #bb4b0a;border-radius:7px;background:#fff2e6;color:var(--db-dark);font-weight:800}.db-keyboard .db-space{width:191px;height:29px;font-size:10px;letter-spacing:.1em}.db-key-list{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin:0}.db-key-list div{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid #eee8e0;font-size:12px}.db-key-list dd{margin:0;color:#4d5553;text-align:right}.db-phone{position:relative;width:128px;height:198px;margin:20px auto;border:7px solid #424a4d;border-radius:25px;overflow:hidden;background:linear-gradient(#d6e7e8 45%,#8da970 46%)}.db-phone i{position:absolute;left:20px;bottom:-37px;width:75px;height:130px;background:#d9a573;transform:rotate(16deg)}.db-phone b{position:absolute;bottom:30px;left:45px;width:24px;height:35px;border:3px solid #474b48;border-radius:7px;background:#f8f5eb}.db-phone em{position:absolute;right:7px;bottom:23px;font-size:33px}.db-mobile-copy{text-align:center;color:#4c5451;font-size:13px}.db-mode-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.db-mode-grid img{width:100%;height:175px;object-fit:cover}.db-mode-grid article>div{padding:18px 18px 21px}.db-mode-grid h3{margin:8px 0 3px;font-size:22px}.db-mode-grid b,.db-mode-grid p{font-size:12px}.db-mode-grid p{margin-bottom:0;color:#59615d}.db-extra,.db-callout{padding:12px 18px;border-radius:9px;background:#f2ede5;border:1px solid #e6dfd4;color:#565d59;font-size:12px}.db-penalty-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.db-penalty-grid article{display:grid;grid-template-columns:45% 55%;min-height:215px}.db-penalty-art{position:relative;background:linear-gradient(145deg,#c5c994,#6d915e)}.db-penalty-art:before{position:absolute;content:'';top:32%;left:-25%;width:140%;height:92px;background:#c89262;transform:rotate(-18deg);border-block:7px solid #e8bd83}.db-penalty-art span{position:absolute;bottom:15px;left:15px;z-index:1;padding:5px 8px;border-radius:4px;background:#263a30a8;color:#fff;font-size:9px;font-weight:800;letter-spacing:.13em}.db-crowd:before{transform:rotate(15deg)}.db-penalty-grid article>div:last-child{padding:24px}.db-penalty-grid b{color:var(--db-orange);font-size:46px;letter-spacing:-.06em}.db-penalty-grid h3{margin:10px 0 6px;font-size:18px}.db-penalty-grid p{margin:0;color:#58615b;font-size:12px}.db-callout{margin-top:16px;background:#fff4e9;border-left:3px solid var(--db-orange)}.db-tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.db-tip-art{display:flex;align-items:flex-end;justify-content:space-between;height:180px;padding:16px;background:linear-gradient(145deg,#c8ce9a,#90ac7b);color:#fff;font-size:10px;font-weight:900;letter-spacing:.08em}.db-tip-art span{align-self:flex-start}.db-grass{background:linear-gradient(145deg,#c8ce9a,#7d997e)}.db-url{background:linear-gradient(#c6dce5,#d8c29c)}.db-tips-grid article>div:last-child{padding:20px 22px 24px}.db-tips-grid small{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--db-orange);color:#fff;font-weight:850}.db-tips-grid h3{margin:10px 0 7px;font-size:17px}.db-tips-grid p{margin:0;color:#5a625c;font-size:12px}.db-subnote{color:#898982;font-size:11px}.db-editor{display:grid;grid-template-columns:1.22fr .78fr;min-height:310px}.db-editor img{width:100%;height:100%;min-height:310px;object-fit:cover}.db-editor>div{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:40px 38px}.db-editor>div>b{font-size:16px;letter-spacing:.035em}.db-editor p{color:#606761;line-height:1.75}.db-outline{border:1px solid var(--db-orange);color:var(--db-dark);background:#fff8ef}.db-faq{padding-bottom:0}.db-faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;align-items:start}.db-faq-list summary{position:relative;padding:15px 47px 15px 17px;cursor:pointer;font-size:13px;font-weight:750}.db-faq-list summary:after{position:absolute;right:17px;content:'+';color:var(--db-orange);font-size:24px}.db-faq-list details[open] summary:after{content:'−'}.db-faq-list p{padding:0 17px 17px;margin:0;color:#58615b;font-size:12px;line-height:1.65}@media(max-width:980px){.db-hero-grid{grid-template-columns:1fr 1fr;gap:25px}.db-mode-grid{grid-template-columns:repeat(2,1fr)}.db-penalty-grid article{grid-template-columns:1fr}.db-penalty-art{height:165px}.db-editor{grid-template-columns:1fr 1fr}}@media(max-width:700px){.db-shell{width:min(100% - 32px,540px)}.db-hero-grid{display:flex;flex-direction:column;gap:27px;min-height:0;padding-block:22px 38px}.db-hero h1{font-size:clamp(45px,12vw,65px)}.db-hero-art{width:100%}.db-hero-art img{aspect-ratio:1.34;object-fit:cover}.db-quick-wrap{width:100%;margin-top:0}.db-quick-nav{border-radius:0;border-inline:0}.db-section{padding-top:59px}.db-control-grid,.db-editor,.db-faq-list{grid-template-columns:1fr}.db-penalty-grid{grid-template-columns:1fr}.db-penalty-grid article{grid-template-columns:40% 60%;min-height:175px}.db-tips-grid{grid-template-columns:1fr}.db-tips-grid article{display:grid;grid-template-columns:42% 58%}.db-tip-art{height:100%;min-height:170px}.db-editor img{min-height:260px}.db-mode-grid img{height:140px}}@media(max-width:420px){.db-mode-grid{grid-template-columns:1fr}.db-mode-grid article{display:grid;grid-template-columns:42% 58%}.db-mode-grid img{height:100%;min-height:160px}.db-penalty-grid article{grid-template-columns:1fr}.db-penalty-art{height:145px}.db-tips-grid article{grid-template-columns:1fr}.db-tip-art{height:145px}}
+  .dirtbound-page {
+    --db-paper: hsl(var(--background));
+    --db-card: hsl(var(--card));
+    --db-ink: hsl(var(--foreground));
+    --db-muted: hsl(var(--muted-foreground));
+    --db-line: hsl(var(--border));
+    --db-orange: hsl(var(--brand-text));
+    --db-dark: hsl(var(--brand-text));
+    --db-soft: hsl(var(--muted));
+    background: var(--db-paper);
+    color: var(--db-ink);
+    font:
+      16px/1.55 Inter,
+      ui-sans-serif,
+      system-ui,
+      sans-serif;
+    padding-bottom: 5rem;
+  }
+  .dirtbound-page * {
+    box-sizing: border-box;
+  }
+  .dirtbound-page img {
+    display: block;
+    max-width: 100%;
+  }
+  .db-shell {
+    width: min(1240px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+  .db-hero {
+    background: transparent;
+    border-bottom: 1px solid var(--db-line);
+  }
+  .db-hero-grid {
+    display: grid;
+    grid-template-columns: 0.88fr 1.12fr;
+    align-items: center;
+    gap: 42px;
+    min-height: 540px;
+    padding-block: 36px 48px;
+  }
+  .db-crumbs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    font-size: 12px;
+    color: var(--db-muted);
+  }
+  .db-crumbs a {
+    color: inherit;
+  }
+  .db-eyebrow,
+  .db-heading > p,
+  .db-mode-grid small {
+    margin: 0 0 11px;
+    color: var(--db-dark);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+  }
+  .db-hero h1 {
+    margin: 0;
+    font-size: clamp(50px, 6vw, 86px);
+    line-height: 0.92;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+  }
+  .db-deck {
+    margin: 13px 0 22px;
+    font-size: clamp(20px, 2vw, 28px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+  }
+  .db-intro {
+    max-width: 550px;
+    color: var(--db-muted);
+    line-height: 1.75;
+  }
+  .db-perks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    padding: 0;
+    margin: 0 0 28px;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 650;
+  }
+  .db-perks li:before {
+    content: '✓';
+    margin-right: 8px;
+    color: var(--db-orange);
+  }
+  .db-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .db-button,
+  .db-outline {
+    display: inline-flex;
+    padding: 12px 22px;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .db-button {
+    background: var(--db-orange);
+    color: #fff;
+    border: 1px solid var(--db-dark);
+  }
+  .db-text-link {
+    color: var(--db-ink);
+    font-size: 13px;
+    font-weight: 750;
+  }
+  .db-note {
+    color: var(--db-muted);
+    font-size: 11px;
+  }
+  .db-hero-art {
+    position: relative;
+    margin: 0;
+  }
+  .db-hero-art img {
+    width: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    border: 1px solid var(--db-line);
+    border-radius: 2px;
+  }
+  .db-hero-art figcaption {
+    position: absolute;
+    bottom: 18px;
+    left: 17px;
+    padding: 5px 9px;
+    border-radius: 2px;
+    background: #1b2d2c9c;
+    color: #fff;
+    font-size: 10px;
+  }
+  .db-quick-wrap {
+    position: relative;
+    margin-top: 0;
+  }
+  .db-quick-nav {
+    display: flex;
+    overflow: auto;
+    border: 1px solid var(--db-line);
+    border-radius: 0;
+    background: var(--db-card);
+    border-top-width: 0;
+    white-space: nowrap;
+  }
+  .db-quick-nav > * {
+    flex: 0 0 auto;
+    padding: 15px 23px;
+    border-right: 1px solid var(--db-line);
+    font-size: 12px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .db-quick-nav span {
+    color: var(--db-orange);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+  }
+  .db-section {
+    padding-top: 76px;
+  }
+  .db-heading {
+    margin-bottom: 27px;
+  }
+  .db-heading h2 {
+    margin: 0 0 9px;
+    font-size: clamp(29px, 3vw, 43px);
+    line-height: 1.1;
+    letter-spacing: -0.052em;
+  }
+  .db-heading > span {
+    color: var(--db-muted);
+    font-size: 14px;
+  }
+  .db-control-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+  }
+  .db-panel,
+  .db-mode-grid article,
+  .db-penalty-grid article,
+  .db-tips-grid article,
+  .db-editor,
+  .db-faq-list details {
+    overflow: hidden;
+    border: 1px solid var(--db-line);
+    border-radius: 2px;
+    background: var(--db-card);
+  }
+  .db-panel {
+    padding: 24px 26px;
+  }
+  .db-panel-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .db-panel-title h3 {
+    margin: 0;
+    font-size: 17px;
+  }
+  .db-panel-title span {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--db-muted);
+  }
+  .db-keyboard {
+    display: grid;
+    justify-content: center;
+    gap: 4px;
+    padding: 22px 8px 15px;
+  }
+  .db-keyboard div {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+  }
+  .db-keyboard kbd {
+    display: grid;
+    width: 44px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #e96d22;
+    border-bottom: 3px solid #bb4b0a;
+    border-radius: 2px;
+    background: var(--db-soft);
+    color: var(--db-dark);
+    font-weight: 800;
+  }
+  .db-keyboard .db-space {
+    width: 191px;
+    height: 29px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+  .db-key-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    margin: 0;
+  }
+  .db-key-list div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid var(--db-line);
+    font-size: 12px;
+  }
+  .db-key-list dd {
+    margin: 0;
+    color: var(--db-muted);
+    text-align: right;
+  }
+  .db-phone {
+    position: relative;
+    width: 128px;
+    height: 198px;
+    margin: 20px auto;
+    border: 7px solid #424a4d;
+    border-radius: 25px;
+    overflow: hidden;
+    background: linear-gradient(#d6e7e8 45%, #8da970 46%);
+  }
+  .db-phone i {
+    position: absolute;
+    left: 20px;
+    bottom: -37px;
+    width: 75px;
+    height: 130px;
+    background: #d9a573;
+    transform: rotate(16deg);
+  }
+  .db-phone b {
+    position: absolute;
+    bottom: 30px;
+    left: 45px;
+    width: 24px;
+    height: 35px;
+    border: 3px solid #474b48;
+    border-radius: 7px;
+    background: #f8f5eb;
+  }
+  .db-phone em {
+    position: absolute;
+    right: 7px;
+    bottom: 23px;
+    font-size: 33px;
+  }
+  .db-mobile-copy {
+    text-align: center;
+    color: var(--db-muted);
+    font-size: 13px;
+  }
+  .db-mode-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+  }
+  .db-mode-grid img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+  }
+  .db-mode-grid article > div {
+    padding: 18px 18px 21px;
+  }
+  .db-mode-grid h3 {
+    margin: 8px 0 3px;
+    font-size: 22px;
+  }
+  .db-mode-grid b,
+  .db-mode-grid p {
+    font-size: 12px;
+  }
+  .db-mode-grid p {
+    margin-bottom: 0;
+    color: var(--db-muted);
+  }
+  .db-extra,
+  .db-callout {
+    padding: 12px 18px;
+    border-radius: 2px;
+    background: var(--db-soft);
+    border: 1px solid var(--db-line);
+    color: var(--db-muted);
+    font-size: 12px;
+  }
+  .db-penalty-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .db-penalty-grid article {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    min-height: 215px;
+  }
+  .db-penalty-art {
+    position: relative;
+    background: linear-gradient(145deg, #c5c994, #6d915e);
+  }
+  .db-penalty-art:before {
+    position: absolute;
+    content: '';
+    top: 32%;
+    left: -25%;
+    width: 140%;
+    height: 92px;
+    background: #c89262;
+    transform: rotate(-18deg);
+    border-block: 7px solid #e8bd83;
+  }
+  .db-penalty-art span {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1;
+    padding: 5px 8px;
+    border-radius: 4px;
+    background: #263a30a8;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+  }
+  .db-crowd:before {
+    transform: rotate(15deg);
+  }
+  .db-penalty-grid article > div:last-child {
+    padding: 24px;
+  }
+  .db-penalty-grid b {
+    color: var(--db-orange);
+    font-size: 46px;
+    letter-spacing: -0.06em;
+  }
+  .db-penalty-grid h3 {
+    margin: 10px 0 6px;
+    font-size: 18px;
+  }
+  .db-penalty-grid p {
+    margin: 0;
+    color: var(--db-muted);
+    font-size: 12px;
+  }
+  .db-callout {
+    margin-top: 16px;
+    background: var(--db-soft);
+    border-left: 3px solid var(--db-orange);
+  }
+  .db-tips-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+  }
+  .db-tip-art {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 180px;
+    padding: 16px;
+    background: linear-gradient(145deg, #c8ce9a, #90ac7b);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+  .db-tip-art span {
+    align-self: flex-start;
+  }
+  .db-grass {
+    background: linear-gradient(145deg, #c8ce9a, #7d997e);
+  }
+  .db-url {
+    background: linear-gradient(#c6dce5, #d8c29c);
+  }
+  .db-tips-grid article > div:last-child {
+    padding: 20px 22px 24px;
+  }
+  .db-tips-grid h3 {
+    margin: 10px 0 7px;
+    font-size: 17px;
+  }
+  .db-tips-grid p {
+    margin: 0;
+    color: var(--db-muted);
+    font-size: 12px;
+  }
+  .db-subnote {
+    color: var(--db-muted);
+    font-size: 11px;
+  }
+  .db-editor {
+    display: grid;
+    grid-template-columns: 1.22fr 0.78fr;
+    min-height: 310px;
+  }
+  .db-editor img {
+    width: 100%;
+    height: 100%;
+    min-height: 310px;
+    object-fit: cover;
+  }
+  .db-editor > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 38px;
+  }
+  .db-editor > div > b {
+    font-size: 16px;
+    letter-spacing: 0.035em;
+  }
+  .db-editor p {
+    color: var(--db-muted);
+    line-height: 1.75;
+  }
+  .db-outline {
+    border: 1px solid var(--db-orange);
+    color: var(--db-dark);
+    background: var(--db-card);
+  }
+  .db-faq {
+    padding-bottom: 0;
+  }
+  .db-faq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    align-items: start;
+  }
+  .db-faq-list summary {
+    position: relative;
+    padding: 15px 47px 15px 17px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 750;
+  }
+  .db-faq-list summary:after {
+    position: absolute;
+    right: 17px;
+    content: '+';
+    color: var(--db-orange);
+    font-size: 24px;
+  }
+  .db-faq-list details[open] summary:after {
+    content: '−';
+  }
+  .db-faq-list p {
+    padding: 0 17px 17px;
+    margin: 0;
+    color: var(--db-muted);
+    font-size: 12px;
+    line-height: 1.65;
+  }
+  @media (max-width: 980px) {
+    .db-hero-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    .db-mode-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .db-penalty-grid article {
+      grid-template-columns: 1fr;
+    }
+    .db-penalty-art {
+      height: 165px;
+    }
+    .db-editor {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  @media (max-width: 700px) {
+    .db-shell {
+      width: min(100% - 32px, 540px);
+    }
+    .db-hero-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 27px;
+      min-height: 0;
+      padding-block: 22px 38px;
+    }
+    .db-hero h1 {
+      font-size: clamp(45px, 12vw, 65px);
+    }
+    .db-hero-art {
+      width: 100%;
+    }
+    .db-hero-art img {
+      aspect-ratio: 1.34;
+      object-fit: cover;
+    }
+    .db-quick-wrap {
+      width: 100%;
+      margin-top: 0;
+    }
+    .db-quick-nav {
+      border-radius: 0;
+      border-inline: 0;
+    }
+    .db-section {
+      padding-top: 59px;
+    }
+    .db-control-grid,
+    .db-editor,
+    .db-faq-list {
+      grid-template-columns: 1fr;
+    }
+    .db-penalty-grid {
+      grid-template-columns: 1fr;
+    }
+    .db-penalty-grid article {
+      grid-template-columns: 40% 60%;
+      min-height: 175px;
+    }
+    .db-tips-grid {
+      grid-template-columns: 1fr;
+    }
+    .db-tips-grid article {
+      display: grid;
+      grid-template-columns: 42% 58%;
+    }
+    .db-tip-art {
+      height: 100%;
+      min-height: 170px;
+    }
+    .db-editor img {
+      min-height: 260px;
+    }
+    .db-mode-grid img {
+      height: 140px;
+    }
+  }
+  @media (max-width: 420px) {
+    .db-mode-grid {
+      grid-template-columns: 1fr;
+    }
+    .db-mode-grid article {
+      display: grid;
+      grid-template-columns: 42% 58%;
+    }
+    .db-mode-grid img {
+      height: 100%;
+      min-height: 160px;
+    }
+    .db-penalty-grid article {
+      grid-template-columns: 1fr;
+    }
+    .db-penalty-art {
+      height: 145px;
+    }
+    .db-tips-grid article {
+      grid-template-columns: 1fr;
+    }
+    .db-tip-art {
+      height: 145px;
+    }
+  }
 </style>

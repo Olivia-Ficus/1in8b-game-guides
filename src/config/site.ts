@@ -57,10 +57,13 @@ export interface SiteConfig {
 export const site: SiteConfig = {
   name: '1in8b Game Guides',
   shortName: '1in8b',
-  description: 'Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.',
+  description:
+    'Discover trending games, find where to play, and get practical guides to help you play better.',
   domain: '1in8b-game-guides.pages.dev',
-  tagline: 'Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.',
-  legalNotice: '1in8b Game Guides is an independent editorial resource and is not affiliated with game publishers or developers.',
+  tagline:
+    'Discover trending games, find where to play, and get practical guides to help you play better.',
+  legalNotice:
+    '1in8b Game Guides is an independent editorial resource and is not affiliated with game publishers or developers.',
   // Set a real address if you run no social channels — the contact page
   // renders it as a mailto link.
   contactEmail: '',

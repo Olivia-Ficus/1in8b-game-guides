@@ -51,11 +51,14 @@ const btnLabel = labels?.trigger ?? nav.search ?? 'Search';
 const noResults = labels?.noResults ?? search.noResults ?? 'No matches found';
 const placeholder = labels?.placeholder ?? search.placeholder ?? 'Search...';
 const closeLabel = labels?.close ?? nav.close ?? 'Close';
-const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to load — refresh and try again.';
+const loadError =
+  labels?.loadError ?? search.loadError ?? 'Search failed to load — refresh and try again.';
 ---
 
-{/* Trigger button — icon variant matches the wiki SiteHeader look;
-    field variant is the docs-center search pill. */}
+{
+  /* Trigger button — icon variant matches the wiki SiteHeader look;
+    field variant is the docs-center search pill. */
+}
 <button
   id="search-trigger"
   type="button"
@@ -63,8 +66,8 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
   title={btnLabel}
   class:list={[
     variant === 'field'
-      ? 'hidden h-9 items-center justify-center gap-2 rounded-md border border-border bg-muted/40 text-muted-foreground transition hover:border-nav/40 hover:text-nav sm:inline-flex sm:w-auto sm:min-w-0 sm:flex-1 sm:justify-start sm:px-3 sm:max-w-xs'
-      : 'inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition hover:bg-muted',
+      ? 'hidden h-9 items-center justify-center gap-2 rounded-sm border border-border bg-card text-muted-foreground transition hover:border-nav hover:text-nav sm:inline-flex sm:w-auto sm:min-w-0 sm:max-w-xs sm:flex-1 sm:justify-start sm:px-3'
+      : 'inline-flex h-9 w-9 items-center justify-center rounded-sm text-foreground transition hover:bg-muted',
   ]}
 >
   <Icon name="lucide:search" class="h-5 w-5 shrink-0" />
@@ -85,16 +88,19 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
 {/* Command palette modal */}
 <dialog id="search-modal" aria-label={btnLabel}>
   <div class="search-shell">
-    {/* Pagefind mounts its UI inside this container; if that ever fails
+    {
+      /* Pagefind mounts its UI inside this container; if that ever fails
         (very old kernel) the inline script writes the load-error text here
-        instead of leaving a mysteriously empty dialog. */}
+        instead of leaving a mysteriously empty dialog. */
+    }
     <div
       id="search-modal-inner"
       data-pagefind-ui
       data-no-results={noResults}
       data-placeholder={placeholder}
       data-load-error={loadError}
-    ></div>
+    >
+    </div>
 
     {/* Footer hint bar — keyboard shortcuts + branding */}
     <footer class="search-footer">
@@ -137,12 +143,9 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
     padding: 0;
     margin: 10vh auto auto;
     border: none;
-    border-radius: 16px;
+    border-radius: 2px;
     background: transparent;
-    box-shadow:
-      0 0 0 1px hsl(var(--border)),
-      0 24px 48px -12px hsl(0 0% 0% / 0.25),
-      0 8px 24px -8px hsl(0 0% 0% / 0.15);
+    box-shadow: 0 0 0 1px hsl(var(--border));
     overflow: hidden;
   }
   /* When the dialog is open, lock body scroll so wheel events inside the
@@ -161,7 +164,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
     flex-direction: column;
     max-height: 75vh;
     background: hsl(var(--card));
-    border-radius: 16px;
+    border-radius: 2px;
     overflow: hidden;
   }
 
@@ -273,7 +276,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
   :global(#search-modal .pagefind-ui__search-clear) {
     background: transparent !important;
     border: none !important;
-    border-radius: 6px !important;
+    border-radius: 2px !important;
     padding: 6px 10px !important;
     margin: 0 !important;
     font-size: 12px !important;
@@ -336,7 +339,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
     padding: 10px 12px !important;
     margin: 0 0 2px 0 !important;
     border: none !important;
-    border-radius: 8px !important;
+    border-radius: 2px !important;
     transition: background 0.12s ease !important;
   }
   :global(#search-modal .pagefind-ui__result:hover) {
@@ -510,8 +513,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
        dialog off-screen — the user taps the field themselves instead. */
     const focusInput = () => {
       const fine =
-        window.matchMedia &&
-        window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       if (!fine) return;
       setTimeout(() => {
         const input = modal.querySelector('input');
@@ -538,9 +540,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
           await import('/pagefind/pagefind-ui.js');
           const PFUI = window.PagefindUI;
           const target = document.getElementById('search-modal-inner');
-          const noResults = target
-            ? target.getAttribute('data-no-results')
-            : 'No matches found';
+          const noResults = target ? target.getAttribute('data-no-results') : 'No matches found';
           const placeholder = target ? target.getAttribute('data-placeholder') : 'Search';
           if (target && typeof PFUI === 'function') {
             new PFUI({
@@ -554,12 +554,7 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
               // anchors — appending "/" after the hash breaks the jump).
               processResult: (result) => {
                 const url = result && result.url;
-                if (
-                  url &&
-                  url !== '/' &&
-                  !url.endsWith('/') &&
-                  url.indexOf('#') === -1
-                ) {
+                if (url && url !== '/' && !url.endsWith('/') && url.indexOf('#') === -1) {
                   result.url = url + '/';
                 }
                 const meta = result && result.meta;
@@ -589,7 +584,9 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
           console.warn('[search] Pagefind failed to load — run `pnpm build` first.', err);
           /* Never leave a silently empty dialog: surface the failure. */
           const inner = document.getElementById('search-modal-inner');
-          const msg = (inner && inner.getAttribute('data-load-error')) || 'Search failed to load — refresh and try again.';
+          const msg =
+            (inner && inner.getAttribute('data-load-error')) ||
+            'Search failed to load — refresh and try again.';
           if (inner) {
             inner.innerHTML = '';
             const p = document.createElement('p');
@@ -652,22 +649,34 @@ const loadError = labels?.loadError ?? search.loadError ?? 'Search failed to loa
     // also hook the open/close calls directly.
     const origShow = typeof modal.showModal === 'function' ? modal.showModal.bind(modal) : null;
     const origClose = typeof modal.close === 'function' ? modal.close.bind(modal) : null;
-    if (origShow) modal.showModal = () => { origShow(); setBodyLock(true); };
-    if (origClose) modal.close = (rv) => { origClose(rv); setBodyLock(false); };
+    if (origShow)
+      modal.showModal = () => {
+        origShow();
+        setBodyLock(true);
+      };
+    if (origClose)
+      modal.close = (rv) => {
+        origClose(rv);
+        setBodyLock(false);
+      };
 
     // Prevent scroll-through: when wheeling inside the results area and
     // hitting the top/bottom boundary, stop the event so the background
     // page doesn't start scrolling.
-    modal.addEventListener('wheel', (e) => {
-      const scroller = modal.querySelector('.pagefind-ui__results-area');
-      if (!scroller) return;
-      const atTop = scroller.scrollTop === 0;
-      const atBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight;
-      const goingUp = e.deltaY < 0;
-      const goingDown = e.deltaY > 0;
-      if ((atTop && goingUp) || (atBottom && goingDown)) {
-        e.preventDefault();
-      }
-    }, { passive: false });
+    modal.addEventListener(
+      'wheel',
+      (e) => {
+        const scroller = modal.querySelector('.pagefind-ui__results-area');
+        if (!scroller) return;
+        const atTop = scroller.scrollTop === 0;
+        const atBottom = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight;
+        const goingUp = e.deltaY < 0;
+        const goingDown = e.deltaY > 0;
+        if ((atTop && goingUp) || (atBottom && goingDown)) {
+          e.preventDefault();
+        }
+      },
+      { passive: false },
+    );
   })();
 </script>
