@@ -14,7 +14,7 @@
  *   2. Locale consistency (AGENTS.md rule #5):
  *        routing.ts locales
  *      = src/locales/*.json files
- *      = src/content/wiki/<locale>/ directories
+ *      = src/content/wiki/<locale>/ directories (legacy wiki sites only)
  *   3. Homepage displayType enum:
  *        every locales/<loc>.json home.explore.modules[].displayType
  *      must be one of the 6 supported values.
@@ -108,10 +108,14 @@ for (const loc of routingLocales) {
     err(`src/locales/${loc}.json missing (declared in routing.ts)`);
     localeErrors++;
   }
-  const contentDir = path.resolve(ROOT, 'src/content/wiki', loc);
-  if (!fs.existsSync(contentDir)) {
-    err(`content directory src/content/wiki/${loc}/ missing (declared in routing.ts)`);
-    localeErrors++;
+  // The multi-game portal has no legacy wiki category routes, so it does
+  // not need the old src/content/wiki/<locale>/ tree at all.
+  if (navKeys.length > 0) {
+    const contentDir = path.resolve(ROOT, 'src/content/wiki', loc);
+    if (!fs.existsSync(contentDir)) {
+      err(`content directory src/content/wiki/${loc}/ missing (declared in routing.ts)`);
+      localeErrors++;
+    }
   }
 }
 const localesDir = path.resolve(ROOT, 'src/locales');
@@ -130,6 +134,10 @@ if (fs.existsSync(localesDir)) {
   err(
     `src/locales/ directory not found — the template ships it (routing.ts declares: ${routingLocales.join(', ')}). Restore it from upstream or create the JSON files.`,
   );
+}
+if (navKeys.length === 0 && !fs.existsSync(path.resolve(ROOT, 'src/content/games'))) {
+  err('multi-game portal is missing src/content/games/');
+  localeErrors++;
 }
 if (localeErrors === 0) console.log('  ✅ all locales consistent');
 
