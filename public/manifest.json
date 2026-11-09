@@ -1,11 +1,11 @@
 {
-  "name": "1in8b Game Guides Wiki",
+  "name": "1in8b Game Guides",
   "short_name": "1in8b",
-  "description": "Discover trending games, find where to play, and get practical guides, tips, and answers to common player questions.",
+  "description": "Discover trending games, find where to play, and get practical guides to help you play better.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#2463eb",
+  "background_color": "#F4F0E7",
+  "theme_color": "#F4F0E7",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

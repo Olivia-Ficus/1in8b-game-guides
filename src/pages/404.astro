@@ -10,10 +10,9 @@
 import BaseLayout from '~/components/layout/BaseLayout.astro';
 import SearchButton from '~/components/header/SearchButton.astro';
 import { Icon } from 'astro-icon/components';
-import { NAVIGATION_CONFIG } from '~/config/navigation';
 import { defaultLocale } from '~/i18n/routing';
 import { getUi } from '~/i18n/ui';
-import { listPath, homeUrl } from '~/lib/url';
+import { gamesPath, homeUrl } from '~/lib/url';
 
 const ui = getUi(defaultLocale);
 const nav = ui.nav as Record<string, string>;
@@ -51,21 +50,10 @@ const shared = ui.shared;
     <p class="mt-3 text-xs text-muted-foreground">{shared.notFoundSearchHint}</p>
 
     <div class="mt-10 w-full">
-      <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-        {shared.notFoundPopular}
-      </p>
-      <div class="mt-3 flex flex-wrap justify-center gap-2">
-        {
-          NAVIGATION_CONFIG.map((item) => (
-            <a href={listPath(item.key, defaultLocale)} class="card px-4 py-2 text-sm">
-              <span class="inline-flex items-center gap-1.5">
-                <Icon name={item.icon} class="h-4 w-4 text-nav" />
-                {nav[item.key] ?? item.key}
-              </span>
-            </a>
-          ))
-        }
-      </div>
+      <a href={gamesPath(defaultLocale)} class="btn-primary inline-flex items-center gap-2">
+        <Icon name="lucide:gamepad-2" class="h-4 w-4" />
+        Browse Games
+      </a>
     </div>
   </div>
 </BaseLayout>
