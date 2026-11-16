@@ -1,7 +1,7 @@
 {
   "name": "Drink the Ocean",
   "slug": "drink-the-ocean",
-  "description": "Drink the Ocean (Mana) player guide: straw upgrades, bladder and flush, treasure tools, co-op and the route from the starting island to Midnight Sea.",
+  "description": "Drink the Ocean game guide for the Mana version — straw upgrades, bladder and flush, treasure tools, co-op, and the route from Starting Island to Midnight Sea.",
   "officialUrl": "https://mana.gs/drink-the-ocean",
   "platforms": [
     "Desktop browser"
@@ -14,8 +14,8 @@
   "presentation": "single-page",
   "faq": [
     {
-      "question": "Where can I play Drink the Ocean for free?",
-      "answer": "Open the Mana version at https://mana.gs/drink-the-ocean in a desktop browser and select Play Now. You can play as a guest without downloading or installing anything."
+      "question": "Where can I play Drink the Ocean online for free?",
+      "answer": "Play the Mana version online for free at https://mana.gs/drink-the-ocean in a desktop browser and select Play Now. You can play as a guest without downloading or installing anything."
     },
     {
       "question": "Why does my Drink the Ocean game look different from other guides?",
