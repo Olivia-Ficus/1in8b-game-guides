@@ -29,19 +29,28 @@ for (const [file, canonical] of [
   assert.ok(!isNoindex(html), 'Public page is marked noindex: ' + file);
 }
 const robots = requireFile('robots.txt');
-assert.ok(robots.includes('Sitemap: ' + origin + '/sitemap-index.xml'));
+assert.ok(robots.includes('Sitemap: ' + origin + '/sitemap.xml'));
 const headers = requireFile('_headers');
 assert.ok(!/^\s*X-Robots-Tag:\s*noindex/im.test(headers), 'Global noindex would block the production domain');
 const redirects = requireFile('_redirects');
 assert.match(redirects, /^\/en\/games\/dirtbound\/\s+\/games\/dirtbound\/\s+301\s*$/m);
-assert.match(redirects, /^\/sitemap\.xml\s+\/sitemap-index\.xml\s+301\s*$/m);
+assert.doesNotMatch(redirects, /^\/sitemap\.xml\s+/m, 'Do not redirect the public sitemap');
+const vercel = JSON.parse(readFileSync(resolve('vercel.json'), 'utf8'));
+assert.ok(
+  !vercel.redirects?.some((rule) => rule.source === '/sitemap.xml'),
+  'Vercel must serve the sitemap as a direct static file',
+);
 assert.ok(!/^\/games\/dirtbound\/\s+\/\s+301\s*$/m.test(redirects), 'Reverse legacy redirect remains');
 
 const sitemapIndex = requireFile('sitemap-index.xml');
 const sitemapFiles = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
-assert.ok(sitemapFiles.length && sitemapIndex.includes('sitemap-0.xml'), 'Missing sitemap child');
-const locs = sitemapFiles.flatMap((file) =>
-  [...read(file).matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replace(/&amp;/g, '&')),
+assert.equal(sitemapFiles.length, 1, 'Flat sitemap publisher only supports one sitemap child');
+assert.ok(sitemapIndex.includes('sitemap-0.xml'), 'Missing sitemap child');
+const sitemap = requireFile('sitemap.xml');
+assert.match(sitemap, /<urlset(?:\s|>)/, 'Public sitemap must be a URL set, not an index');
+assert.equal(sitemap, read('sitemap-0.xml'), 'Public sitemap is out of sync with Astro output');
+const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
+  match[1].replace(/&amp;/g, '&'),
 );
 assert.ok(locs.length > 0, 'Sitemap has no URLs');
 const paths = new Set();

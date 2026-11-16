@@ -5,11 +5,6 @@
       "source": "/en/games/dirtbound/",
       "destination": "/games/dirtbound/",
       "statusCode": 301
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap-index.xml",
-      "statusCode": 301
     }
   ],
   "headers": [
