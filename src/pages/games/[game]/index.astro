@@ -41,7 +41,8 @@ const jsonLd = [
 
 <LocaleLayout
   locale={defaultLocale}
-  title={game.data.name}
+  title={game.data.slug === 'drink-the-ocean' ? 'Drink the Ocean Game (Mana) — How to Play, Controls & Upgrade Guide' : game.data.name}
+  titleSuffix={game.data.slug === 'drink-the-ocean' ? '' : undefined}
   description={game.data.description}
   noindex={game.data.noindex}
   jsonLd={jsonLd}
