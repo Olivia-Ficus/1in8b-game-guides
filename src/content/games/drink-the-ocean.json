@@ -1,0 +1,57 @@
+{
+  "name": "Drink the Ocean",
+  "slug": "drink-the-ocean",
+  "description": "Drink the Ocean (Mana) player guide: straw upgrades, bladder and flush, treasure tools, co-op and the route from the starting island to Midnight Sea.",
+  "officialUrl": "https://mana.gs/drink-the-ocean",
+  "platforms": [
+    "Desktop browser"
+  ],
+  "genre": "Incremental",
+  "cover": "https://games.mana.gs/media/drink-the-ocean/ab35024c8903e42c53832f2e49b2e318.png",
+  "updatedAt": "2026-11-16",
+  "status": "published",
+  "featured": false,
+  "presentation": "single-page",
+  "faq": [
+    {
+      "question": "Where can I play Drink the Ocean for free?",
+      "answer": "Open the Mana version at https://mana.gs/drink-the-ocean in a desktop browser and select Play Now. You can play as a guest without downloading or installing anything."
+    },
+    {
+      "question": "Why does my Drink the Ocean game look different from other guides?",
+      "answer": "There are different games called Drink the Ocean. The Mana version lets you drain the sea, collect treasure, sell it to a merchant, upgrade straws, and play co-op. The Playgama version uses different mechanics, including salt presses and Sky Duck bonuses. This guide covers the Mana version at https://mana.gs/drink-the-ocean."
+    },
+    {
+      "question": "How do you play Drink the Ocean with friends in multiplayer?",
+      "answer": "From the game menu, select MULTIPLAYER. In the recorded co-op build, joining involves a room name and number; follow the current on-screen prompts to create or join a room. Mana supports one to four players. Treasure-sale earnings appear to be shared, but each player buys upgrades separately."
+    },
+    {
+      "question": "Can you play Drink the Ocean on mobile, and what are the controls?",
+      "answer": "Mana lists keyboard and mouse on desktop, not mobile touch support. Follow the controls shown in your current build; there is no complete official key list for the Mana version. For example, the Sponge Bomb displays an F-key prompt in a recorded build."
+    },
+    {
+      "question": "Does Drink the Ocean save your progress across devices?",
+      "answer": "Progress is stored in the browser on the device where you play. Signing into Mana does not currently synchronize saves to other browsers or computers. Avoid clearing the game's site data if you want to keep your current save."
+    },
+    {
+      "question": "Why is Drink the Ocean loading slowly or lagging?",
+      "answer": "A first launch may take longer because the browser needs to load the game. Try a current desktop browser with hardware acceleration, close demanding tabs and reduce in-game graphics quality if that option is available. Running a screen recorder alongside the game can also reduce frame rate on some computers."
+    },
+    {
+      "question": "Should I save for the next straw or upgrade suction power first?",
+      "answer": "There is no verified fastest purchase order. If the next straw is close to affordable, compare its stated power increase with the cost of smaller suction, diameter or range upgrades. If you still need money, collect newly exposed treasure and sell it to unlock the next purchase. The best choice depends on your current shop prices, equipment and progress."
+    },
+    {
+      "question": "Why does my bladder fill so fast, and how do I empty it faster?",
+      "answer": "The bladder meter rises as you drink; when it fills, go to an outhouse and empty it before continuing. Iron Bladder increases how much you can hold, and Quick Flush reduces the time spent emptying. Movement upgrades can shorten the return journey. Combine outhouse, merchant and upgrade visits to avoid unnecessary travel."
+    },
+    {
+      "question": "How do I unlock the next ocean, Lost Lagoon and Midnight Sea?",
+      "answer": "Drain the Starting Island until its portal appears, then enter when ready to reach Lost Lagoon. Explore the lagoon and continue lowering its waterline to open the next route into Midnight Sea. Some transitions warn that you cannot go back, so collect any treasure you still want before crossing. Exact water-depth requirements have not been confirmed across builds."
+    },
+    {
+      "question": "What happens at 100%? Why haven't I bought every upgrade, and can I enter the last gate?",
+      "answer": "Reaching 100% means you have finished draining the game's three main seas, not necessarily bought every straw and tool. Upgrades can still be available at the end. A final-looking structure was not accessible in one completed run, so it should not be treated as a confirmed extra level. If you want to try more equipment, do so before finishing the final area."
+    }
+  ]
+}
