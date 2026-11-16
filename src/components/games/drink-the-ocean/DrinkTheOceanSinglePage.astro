@@ -16,7 +16,7 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
           <a href="/games/">Games</a><span>/</span><span>Drink the Ocean</span>
         </nav>
         <p class="ocean-kicker">BROWSER GAME / MANA VERSION</p>
-        <h1>Drink the<br />Ocean</h1>
+        <h1>Drink the<br />Ocean <span class="ocean-guide-label">Game: Player Guide</span></h1>
         <p class="ocean-deck">One small straw. A whole ocean to empty.</p>
         <p class="ocean-intro">
           Sip away the sea, explore the seabed it leaves behind, sell discovered treasure,
@@ -41,6 +41,7 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
   <div class="ocean-shell">
     <nav class="ocean-nav" aria-label="On this page">
       <span>ON THIS PAGE</span>
+      <a href="#versions">Which Version?</a>
       <a href="#start">Get Started</a>
       <a href="#loop">Game Loop</a>
       <a href="#bladder">Bladder &amp; Flush</a>
@@ -52,6 +53,21 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
       <a href="#faq">FAQ</a>
     </nav>
   </div>
+
+  <section id="versions" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>WHICH GAME ARE YOU PLAYING?</p>
+      <h2>Mana version or Playgama version? Two different games</h2>
+    </header>
+    <p class="ocean-callout">
+      <strong>Mana's Drink the Ocean</strong> is the game covered here: collect seabed treasure,
+      sell it to a merchant, upgrade straws, empty your bladder at an outhouse, and play solo
+      or with friends in co-op. The different <strong>Playgama game</strong>, by Pinidi Studio,
+      uses a salt press, a shop pad and Sky Duck gifts instead.
+      If your game shows a salt press rather than an island merchant, these Mana instructions
+      will not match the version you are playing.
+    </p>
+  </section>
 
   <section id="start" class="ocean-shell ocean-section">
     <header class="ocean-heading">
@@ -225,6 +241,7 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
   .ocean-crumbs a{color:inherit}
   .ocean-kicker,.ocean-heading>p,.ocean-small{color:var(--o-accent);font-size:10px;font-weight:850;letter-spacing:.16em;margin:0 0 10px}
   .ocean-hero h1{font-family:Arial Black,Arial,sans-serif;font-size:clamp(49px,6.2vw,87px);line-height:.93;letter-spacing:-.073em;text-transform:uppercase;margin:0}
+  .ocean-guide-label{display:block;margin-top:12px;font-size:clamp(23px,2.5vw,34px);line-height:1.12;letter-spacing:-.04em}
   .ocean-deck{font-size:clamp(19px,2vw,28px);line-height:1.2;font-weight:850;letter-spacing:-.035em;margin:17px 0 15px}
   .ocean-intro{max-width:510px;color:var(--o-muted);line-height:1.8}
   .ocean-facts{display:flex;flex-wrap:wrap;gap:10px 19px;list-style:none;padding:0;margin:26px 0;font-size:13px;font-weight:750}

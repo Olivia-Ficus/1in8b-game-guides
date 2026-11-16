@@ -28,6 +28,7 @@ const updates = [...games]
 // requiring a manually maintained featured flag or order.
 const featuredGame = updates[0];
 const noindex = games.length === 0;
+const drinkGuide = games.find((game) => game.data.slug === 'drink-the-ocean');
 const jsonLd = [
   websiteJsonLd(locale),
   ...(games.length
@@ -125,6 +126,11 @@ const jsonLd = [
         >View all games <span aria-hidden="true">→</span></a
       >
     </div>
+    {drinkGuide && (
+      <p class="mt-3 text-sm text-muted-foreground">
+        Playing the Mana version? <a class="font-semibold text-nav underline" href={gamePath(drinkGuide.data.slug, locale)}>Drink the Ocean game guide</a>
+      </p>
+    )}
     {
       games.length ? (
         <div class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
