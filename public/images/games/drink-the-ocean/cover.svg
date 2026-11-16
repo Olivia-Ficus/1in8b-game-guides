@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Drink the Ocean — island and receding sea</title>
+<desc id="desc">Original editorial illustration: a small island, a straw, receding water, exposed seabed and a shipwreck below.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#a8ced0"/><stop offset="1" stop-color="#f0e2c1"/></linearGradient>
+  <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#329da4"/><stop offset="1" stop-color="#124d64"/></linearGradient>
+  <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#e9c793"/><stop offset="1" stop-color="#a87d55"/></linearGradient>
+  <pattern id="lines" width="64" height="32" patternUnits="userSpaceOnUse"><path d="M0 16H64" stroke="#c5f0e6" stroke-opacity=".12" stroke-width="2"/></pattern>
+</defs>
+<rect width="1200" height="800" fill="url(#sky)"/>
+<circle cx="960" cy="140" r="85" fill="#f9e4ab" opacity=".75"/>
+<path d="M0 332 Q140 306 280 328T560 326T840 330T1200 320V800H0Z" fill="url(#sea)"/>
+<path d="M0 332 Q140 306 280 328T560 326T840 330T1200 320V800H0Z" fill="url(#lines)"/>
+<path d="M0 475 Q240 420 490 498T950 488T1200 450V800H0Z" fill="#0a5263" opacity=".6"/>
+<path d="M0 610 Q200 570 400 610T800 594T1200 590V800H0Z" fill="#114456"/>
+<path d="M245 352 Q342 279 452 320 Q522 341 563 391 L552 448Q427 475 280 439Z" fill="url(#sand)" stroke="#9b754c" stroke-width="8"/>
+<path d="M280 350 Q360 302 458 340" fill="none" stroke="#fff1c9" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+<path d="M376 339 L347 197" stroke="#624e3e" stroke-width="23" stroke-linecap="round"/>
+<path d="M343 204 Q272 155 245 215 Q302 224 343 204 M343 203 Q380 147 436 161 Q407 208 343 203 M343 200 Q384 200 418 246 Q370 248 343 200" fill="#39745b" stroke="#214d40" stroke-width="5"/>
+<path d="M574 329 L666 135" stroke="#eee5da" stroke-width="29" stroke-linecap="round"/>
+<path d="M576 333 L667 134" stroke="#bd4837" stroke-width="15" stroke-linecap="round" stroke-dasharray="42 43"/>
+<path d="M574 333 Q575 370 556 392" fill="none" stroke="#b8f3e9" stroke-width="8" stroke-linecap="round" opacity=".7"/>
+<path d="M827 585 L1043 568 998 636 868 641Z" fill="#6a4235" stroke="#f0c58a" stroke-width="6"/>
+<path d="M934 573 L927 484" stroke="#d8b486" stroke-width="10"/>
+<path d="M929 490 L993 542 930 547Z" fill="#dbc7a6" opacity=".65"/>
+<path d="M905 577 L1001 566" stroke="#d7ac77" stroke-width="4"/>
+<rect x="750" y="438" width="66" height="49" rx="6" fill="#a27b49" stroke="#e7c995" stroke-width="7" transform="rotate(-9 750 438)"/>
+<path d="M750 457 L816 445" stroke="#e7c995" stroke-width="5"/>
+<circle cx="782" cy="459" r="8" fill="#f5cf6c"/>
+<path d="M78 663 Q160 632 235 672" fill="none" stroke="#b6e6d8" stroke-opacity=".25" stroke-width="7" stroke-linecap="round"/>
+<path d="M532 680 Q650 642 736 677" fill="none" stroke="#b6e6d8" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/>
+</svg>
