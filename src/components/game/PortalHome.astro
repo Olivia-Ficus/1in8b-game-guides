@@ -16,13 +16,16 @@ const allGames = await getPublishedGames();
 // Fixtures remain buildable for route regression tests, but discovery pages
 // only present games intended for players.
 const games = allGames.filter((game) => !game.data.noindex);
-const featured = [...games]
-  .filter((game) => game.data.featured)
-  .sort((a, b) => (a.data.featuredOrder ?? 999) - (b.data.featuredOrder ?? 999));
-const featuredGame = featured[0];
 const updates = [...games]
-  .sort((a, b) => b.data.updatedAt.getTime() - a.data.updatedAt.getTime())
+  .sort(
+    (a, b) =>
+      b.data.updatedAt.getTime() - a.data.updatedAt.getTime() ||
+      a.data.name.localeCompare(b.data.name),
+  )
   .slice(0, 4);
+// The Featured Game follows the latest published game content, rather than
+// requiring a manually maintained featured flag or order.
+const featuredGame = updates[0];
 const noindex = games.length === 0;
 const jsonLd = [
   websiteJsonLd(locale),
