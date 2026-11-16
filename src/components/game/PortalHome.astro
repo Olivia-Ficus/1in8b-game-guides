@@ -2,6 +2,8 @@
 import { Icon } from 'astro-icon/components';
 import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import GameCard from './GameCard.astro';
+import AdsterraSlot from '~/components/ads/AdsterraSlot.astro';
+import MobileAnchorAd from '~/components/ads/MobileAnchorAd.astro';
 import { type Locale } from '~/i18n/routing';
 import { getPublishedGames } from '~/lib/games';
 import { gamePath, gamesPath } from '~/lib/url';
@@ -137,6 +139,13 @@ const jsonLd = [
       )
     }
   </section>
+
+  {/* Ad units follow the game discovery content; never interrupt the first screen. */}
+  <aside aria-label="Advertisements" class="archive-rule flex flex-wrap items-center justify-center gap-x-12 py-6">
+    <AdsterraSlot name="sidebar-300x250" width={300} height={250} />
+    <AdsterraSlot name="sidebar-160x300" width={160} height={300} hideOnMobile />
+  </aside>
+  <MobileAnchorAd />
 
   <section class="archive-rule py-10 md:py-12">
     <div class="archive-section-head">

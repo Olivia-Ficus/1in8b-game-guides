@@ -34,6 +34,8 @@ interface Props {
 }
 const { locale, availableLocales, ...rest } = Astro.props;
 const currentPath = Astro.url.pathname;
+// Limit the third-party Social Bar to game discovery and guide routes.
+const showGameAds = currentPath === '/' || currentPath === '/games/' || currentPath.startsWith('/games/');
 const shared = getUi(locale).shared;
 ---
 
@@ -51,4 +53,7 @@ const shared = getUi(locale).shared;
     <slot />
   </main>
   <SiteFooter locale={locale} />
+  {showGameAds && (
+    <script is:inline data-cfasync="false" src="https://bauval.org/14/e8a2bed591d11773693086f2ea71ba5e"></script>
+  )}
 </BaseLayout>
