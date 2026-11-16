@@ -7,35 +7,47 @@
     "Desktop browser"
   ],
   "genre": "Incremental",
-  "cover": "/images/games/drink-the-ocean/cover.svg",
+  "cover": "https://games.mana.gs/media/drink-the-ocean/ab35024c8903e42c53832f2e49b2e318.png",
   "updatedAt": "2026-11-16",
   "status": "published",
   "featured": false,
   "presentation": "single-page",
   "faq": [
     {
-      "question": "Where can I play the Mana version of Drink the Ocean?",
-      "answer": "Open mana.gs/drink-the-ocean and select Play Now. Mana runs the game in a desktop browser without requiring a download."
+      "question": "Why do other Drink the Ocean guides mention a salt press or a Sky Duck?",
+      "answer": "You may be looking at a different game with the same name. The Pinidi Studio / Playgama version uses salt presses and Sky Duck bonuses. This page covers Mana's desktop game, where you sell treasure from the exposed seabed to a merchant and upgrade straws."
     },
     {
-      "question": "Can I play Drink the Ocean with friends?",
-      "answer": "Yes. The Mana version supports solo play or co-op with 1–4 players. Look for the Multiplayer option on the game menu."
+      "question": "How do I reach the shipwreck in the Mana version?",
+      "answer": "Keep lowering the sea level and explore the newly exposed seabed. Mana lists the shipwreck as a deeper exploration milestone. The exact water level and upgrade requirements have not been independently verified."
     },
     {
-      "question": "Do I need a Mana account to play?",
-      "answer": "No. Mana allows guest play. Registering an account is optional."
+      "question": "What is the best first straw upgrade?",
+      "answer": "Mana confirms that selling seabed treasure lets you buy stronger straws, but it does not publish an upgrade-price table or an optimal order. Look for newly exposed treasure, return to the island merchant, and compare available upgrades. A fastest-upgrade route still needs gameplay testing."
     },
     {
-      "question": "Does Drink the Ocean work on phones?",
-      "answer": "Mana currently lists the game for desktop browsers with keyboard and mouse, not mobile touch controls."
+      "question": "Why is Drink the Ocean loading slowly or showing 'Running slowly?'?",
+      "answer": "Mana says the first download of a full browser game may be large. Use a recent desktop browser, enable graphics acceleration, and check chrome://gpu for hardware-accelerated graphics. If the game opens but runs poorly, try lowering its quality setting and closing other heavy tabs."
     },
     {
-      "question": "How do I get better straws?",
-      "answer": "As the sea level falls, explore the exposed seabed for treasure. Sell your finds to the island merchant to buy more powerful straws."
+      "question": "Will my save transfer if I sign in or change computers?",
+      "answer": "No automatic cross-device save sync is currently offered by Mana. Saves live in the browser on that device. Clearing site data can erase them, and signing in does not sync them to another browser or computer."
     },
     {
-      "question": "Why does another Drink the Ocean guide mention salt presses or a Sky Duck?",
-      "answer": "That guide describes a different game distributed through Playgama. This page covers the Mana version with treasure, a merchant, and solo or co-op play."
+      "question": "How can I play Drink the Ocean with friends?",
+      "answer": "Mana lists a co-op mode for 1–4 players, and the game menu includes MULTIPLAYER. Open the official game and choose that option. Exact room creation, invitations, and reconnect behavior have not yet been independently tested here."
+    },
+    {
+      "question": "Why can't I start Drink the Ocean on my phone?",
+      "answer": "Mana lists this version for desktop browsers using a keyboard and mouse. Its support page says current games require a computer; mobile touch controls described by other sites may belong to the separate Playgama title."
+    },
+    {
+      "question": "Are the WASD, Tab, and Sky Duck controls from other guides correct for Mana?",
+      "answer": "Do not assume they are. Many online control tables describe the separate Playgama game. Mana confirms keyboard-and-mouse input but does not publish an exact game-specific hotkey list on the official listing. Follow the prompts shown inside the Mana game."
+    },
+    {
+      "question": "Do I need a Mana account or a Steam download?",
+      "answer": "You can launch Mana games as a guest in a desktop browser with no game installation. The verified official entry point is mana.gs/drink-the-ocean; a separate Steam release has not been confirmed in the sources checked."
     }
   ]
 }
