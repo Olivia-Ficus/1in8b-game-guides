@@ -1,7 +1,7 @@
 {
   "name": "Drink the Ocean",
   "slug": "drink-the-ocean",
-  "description": "Drink down the sea, uncover seabed treasure, upgrade your straw, and explore an island alone or with friends in this browser incremental game.",
+  "description": "Drink the Ocean (Mana) player guide: straw upgrades, bladder and flush, treasure tools, co-op and the route from the starting island to Midnight Sea.",
   "officialUrl": "https://mana.gs/drink-the-ocean",
   "platforms": [
     "Desktop browser"
@@ -14,40 +14,44 @@
   "presentation": "single-page",
   "faq": [
     {
-      "question": "Why do other Drink the Ocean guides mention a salt press or a Sky Duck?",
-      "answer": "You may be looking at a different game with the same name. The Pinidi Studio / Playgama version uses salt presses and Sky Duck bonuses. This page covers Mana's desktop game, where you sell treasure from the exposed seabed to a merchant and upgrade straws."
+      "question": "Where can I play Drink the Ocean for free?",
+      "answer": "Play the Mana version at https://mana.gs/drink-the-ocean on a desktop browser. Select Play Now; it does not require a download or account. This guide is independent and links to the official game rather than hosting it."
     },
     {
-      "question": "How do I reach the shipwreck in the Mana version?",
-      "answer": "Keep lowering the sea level and explore the newly exposed seabed. Mana lists the shipwreck as a deeper exploration milestone. The exact water level and upgrade requirements have not been independently verified."
+      "question": "Is Drink the Ocean on Steam, or do I need to download it?",
+      "answer": "The verified Mana edition runs in a desktop browser. Mana does not list a Steam release or installer for this version. Beware of similarly named games on other platforms with different mechanics."
     },
     {
-      "question": "What is the best first straw upgrade?",
-      "answer": "Mana confirms that selling seabed treasure lets you buy stronger straws, but it does not publish an upgrade-price table or an optimal order. Look for newly exposed treasure, return to the island merchant, and compare available upgrades. A fastest-upgrade route still needs gameplay testing."
+      "question": "How do you play Drink the Ocean with friends in multiplayer?",
+      "answer": "The main menu has MULTIPLAYER and Mana lists 1–4 player co-op. In Dr_Horse's co-op recording, a joining player discusses entering the session name and room number. Follow the current prompts in your game; lobby labels can change."
     },
     {
-      "question": "Why is Drink the Ocean loading slowly or showing 'Running slowly?'?",
-      "answer": "Mana says the first download of a full browser game may be large. Use a recent desktop browser, enable graphics acceleration, and check chrome://gpu for hardware-accelerated graphics. If the game opens but runs poorly, try lowering its quality setting and closing other heavy tabs."
+      "question": "Can you play Drink the Ocean on mobile, and what are the controls?",
+      "answer": "Mana lists desktop browsers with keyboard and mouse. The official listing does not provide a complete hotkey chart; check the in-game prompts. In Malakye G's Mana gameplay the Sponge Bomb tool displays the F key after purchase. This does not establish every key or mobile support."
     },
     {
-      "question": "Will my save transfer if I sign in or change computers?",
-      "answer": "No automatic cross-device save sync is currently offered by Mana. Saves live in the browser on that device. Clearing site data can erase them, and signing in does not sync them to another browser or computer."
+      "question": "Does Drink the Ocean save your progress across devices?",
+      "answer": "Mana says game progress is stored locally in the current browser, and signing in does not currently sync saves across devices. Avoid clearing the browser's site data if you want to keep that local progress."
     },
     {
-      "question": "How can I play Drink the Ocean with friends?",
-      "answer": "Mana lists a co-op mode for 1–4 players, and the game menu includes MULTIPLAYER. Open the official game and choose that option. Exact room creation, invitations, and reconnect behavior have not yet been independently tested here."
+      "question": "Why is Drink the Ocean loading slowly or lagging?",
+      "answer": "The first load can take time because it runs a large browser game. Use a current desktop browser with hardware acceleration, and try reducing graphics settings or closing heavy tabs. In his full playthrough, Juste une run reports FPS drops when recording and playing at the same time; performance will vary by computer."
     },
     {
-      "question": "Why can't I start Drink the Ocean on my phone?",
-      "answer": "Mana lists this version for desktop browsers using a keyboard and mouse. Its support page says current games require a computer; mobile touch controls described by other sites may belong to the separate Playgama title."
+      "question": "Should I save for the next straw or upgrade suction power first?",
+      "answer": "There is no verified fastest upgrade order. Jayify and Dr_Horse each debate saving money for a higher-tier straw versus buying immediate suction, diameter or range improvements. If the next straw is affordable soon, compare its displayed multiplier to your available smaller upgrades; otherwise keep selling newly exposed treasure."
     },
     {
-      "question": "Are the WASD, Tab, and Sky Duck controls from other guides correct for Mana?",
-      "answer": "Do not assume they are. Many online control tables describe the separate Playgama game. Mana confirms keyboard-and-mouse input but does not publish an exact game-specific hotkey list on the official listing. Follow the prompts shown inside the Mana game."
+      "question": "Why does my bladder fill so fast, and how do I empty it faster?",
+      "answer": "The bladder gauge fills while you drink; when full, head to an outhouse to empty it. Iron Bladder increases capacity and Quick Flush reduces time spent emptying. Both were visible in Mana-version playthroughs. Plan merchant and outhouse visits together to cut extra walking."
     },
     {
-      "question": "Do I need a Mana account or a Steam download?",
-      "answer": "You can launch Mana games as a guest in a desktop browser with no game installation. The verified official entry point is mana.gs/drink-the-ocean; a separate Steam release has not been confirmed in the sources checked."
+      "question": "How do I unlock the next ocean, Lost Lagoon and Midnight Sea?",
+      "answer": "Keep draining and exploring until a gate/portal appears. Jayify enters the first portal into Lost Lagoon, then a later portal into Midnight Sea. The game warns about not returning when entering certain gates, so collect wanted items before proceeding. Exact universal water-level thresholds are not verified."
+    },
+    {
+      "question": "What happens at 100%? Why haven't I bought every upgrade, and can I enter the last gate?",
+      "answer": "Jayify's 100% run ends with a completion message for the island, lagoon and Midnight Sea, while upgrades remain unpurchased; he cannot enter the final structure he tries. Dr_Horse also notes that reaching 100% before trying every upgrade feels unsatisfying. Don't assume that 100% means maxing every item or that an additional playable zone is available."
     }
   ]
 }
