@@ -1,0 +1,41 @@
+{
+  "name": "Drink the Ocean",
+  "slug": "drink-the-ocean",
+  "description": "Drink down the sea, uncover seabed treasure, upgrade your straw, and explore an island alone or with friends in this browser incremental game.",
+  "officialUrl": "https://mana.gs/drink-the-ocean",
+  "platforms": [
+    "Desktop browser"
+  ],
+  "genre": "Incremental",
+  "cover": "/images/games/drink-the-ocean/cover.svg",
+  "updatedAt": "2026-11-16",
+  "status": "published",
+  "featured": false,
+  "presentation": "single-page",
+  "faq": [
+    {
+      "question": "Where can I play the Mana version of Drink the Ocean?",
+      "answer": "Open mana.gs/drink-the-ocean and select Play Now. Mana runs the game in a desktop browser without requiring a download."
+    },
+    {
+      "question": "Can I play Drink the Ocean with friends?",
+      "answer": "Yes. The Mana version supports solo play or co-op with 1–4 players. Look for the Multiplayer option on the game menu."
+    },
+    {
+      "question": "Do I need a Mana account to play?",
+      "answer": "No. Mana allows guest play. Registering an account is optional."
+    },
+    {
+      "question": "Does Drink the Ocean work on phones?",
+      "answer": "Mana currently lists the game for desktop browsers with keyboard and mouse, not mobile touch controls."
+    },
+    {
+      "question": "How do I get better straws?",
+      "answer": "As the sea level falls, explore the exposed seabed for treasure. Sell your finds to the island merchant to buy more powerful straws."
+    },
+    {
+      "question": "Why does another Drink the Ocean guide mention salt presses or a Sky Duck?",
+      "answer": "That guide describes a different game distributed through Playgama. This page covers the Mana version with treasure, a merchant, and solo or co-op play."
+    }
+  ]
+}
