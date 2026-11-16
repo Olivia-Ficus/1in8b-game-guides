@@ -1,6 +1,7 @@
 ---
 import LocaleLayout from '~/components/layout/LocaleLayout.astro';
 import DirtBoundSinglePage from '~/components/games/dirtbound/DirtBoundSinglePage.astro';
+import DrinkTheOceanSinglePage from '~/components/games/drink-the-ocean/DrinkTheOceanSinglePage.astro';
 import { defaultLocale } from '~/i18n/routing';
 import { getPublishedGames, getGameGuides } from '~/lib/games';
 import { gameGuidePath, gamesPath, homeUrl } from '~/lib/url';
@@ -45,7 +46,11 @@ const jsonLd = [
 >
   {
     game.data.presentation === 'single-page' ? (
-      <DirtBoundSinglePage game={game} />
+      game.data.slug === 'drink-the-ocean' ? (
+        <DrinkTheOceanSinglePage game={game} />
+      ) : (
+        <DirtBoundSinglePage game={game} />
+      )
     ) : (
       <>
         <nav class="text-sm text-muted-foreground">
