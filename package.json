@@ -33,7 +33,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && node scripts/check-seo-migration.mjs",
+    "postbuild": "pagefind --site dist && node scripts/transpile-pagefind.mjs && node scripts/publish-sitemap.mjs && node scripts/check-seo-migration.mjs",
     "preview": "astro preview",
     "check": "astro check",
     "typecheck": "astro check",
