@@ -32,8 +32,8 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
         <p class="ocean-disclaimer">Opens the official Mana game in a new tab. 1in8b is an independent player guide.</p>
       </div>
       <figure class="ocean-cover">
-        <img src="/images/games/drink-the-ocean/cover.svg" width="1200" height="800" alt="Original editorial illustration of an island, a straw, receding ocean water and a shipwreck beneath the surface" fetchpriority="high" />
-        <figcaption>Editorial illustration · not an in-game screenshot</figcaption>
+        <img src={game.data.cover} width="1200" height="675" alt="Official Mana Drink the Ocean image: a character draws water into a whirlpool using a striped straw near a wooden ship" fetchpriority="high" />
+        <figcaption>Official game image © Mana · <a href={officialUrl} target="_blank" rel="noopener noreferrer">View source</a></figcaption>
       </figure>
     </div>
   </section>
@@ -185,7 +185,7 @@ const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
   .ocean-disclaimer{font-size:11px;color:var(--o-muted);margin-top:16px}
   .ocean-cover{margin:0;position:relative;border:1px solid var(--o-line);background:var(--o-soft)}
   .ocean-cover img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block}
-  .ocean-cover figcaption{position:absolute;left:15px;bottom:15px;padding:5px 9px;background:#123944dc;color:#fff;font-size:10px}
+  .ocean-cover figcaption{position:absolute;left:15px;bottom:15px;padding:5px 9px;background:#123944dc;color:#fff;font-size:10px}.ocean-cover figcaption a{color:inherit;text-decoration:underline}
   .ocean-nav{display:flex;overflow-x:auto;white-space:nowrap;background:var(--o-card);border:1px solid var(--o-line);border-top:0}
   .ocean-nav>*{flex:0 0 auto;border-right:1px solid var(--o-line);padding:15px 21px;text-decoration:none;color:var(--o-ink);font-size:12px}
   .ocean-nav span{font-size:10px;letter-spacing:.12em;font-weight:850;color:var(--o-accent)}
