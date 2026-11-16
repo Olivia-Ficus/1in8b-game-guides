@@ -1,0 +1,234 @@
+---
+import { type GameEntry } from '~/lib/games';
+
+interface Props {
+  game: GameEntry;
+}
+const { game } = Astro.props;
+const officialUrl = game.data.officialUrl ?? 'https://mana.gs/drink-the-ocean';
+---
+
+<div class="ocean-page -mx-4 -my-8">
+  <section class="ocean-hero">
+    <div class="ocean-shell ocean-hero-grid">
+      <div class="ocean-hero-copy">
+        <nav class="ocean-crumbs" aria-label="Breadcrumb">
+          <a href="/games/">Games</a><span>/</span><span>Drink the Ocean</span>
+        </nav>
+        <p class="ocean-kicker">BROWSER GAME / MANA VERSION</p>
+        <h1>Drink the<br />Ocean</h1>
+        <p class="ocean-deck">One small straw. A whole ocean to empty.</p>
+        <p class="ocean-intro">
+          Sip away the sea, explore the seabed it leaves behind, sell discovered treasure,
+          and buy better straws. Play on your own or bring up to three friends.
+        </p>
+        <ul class="ocean-facts" aria-label="Game details">
+          <li>Desktop browser</li><li>1–4 players</li><li>No download</li>
+        </ul>
+        <div class="ocean-actions">
+          <a class="ocean-primary" href={officialUrl} target="_blank" rel="noopener noreferrer">Play on Mana <span aria-hidden="true">↗</span></a>
+          <a class="ocean-secondary" href="#start">How to Play ↓</a>
+        </div>
+        <p class="ocean-disclaimer">Opens the official Mana game in a new tab. 1in8b is an independent player guide.</p>
+      </div>
+      <figure class="ocean-cover">
+        <img src="/images/games/drink-the-ocean/cover.svg" width="1200" height="800" alt="Original editorial illustration of an island, a straw, receding ocean water and a shipwreck beneath the surface" fetchpriority="high" />
+        <figcaption>Editorial illustration · not an in-game screenshot</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="ocean-shell">
+    <nav class="ocean-nav" aria-label="On this page">
+      <span>ON THIS PAGE</span>
+      <a href="#start">Get Started</a>
+      <a href="#loop">Progression</a>
+      <a href="#coop">Solo &amp; Co-op</a>
+      <a href="#tips">Tips</a>
+      <a href="#controls">Controls</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+
+  <section id="start" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>FIRST FIVE MINUTES</p>
+      <h2>How to Start Drinking the Ocean</h2>
+      <span>Start with the official Mana version, then let the changing shoreline guide you.</span>
+    </header>
+    <div class="ocean-steps">
+      <article><b>01</b><h3>Open the game</h3><p>Go to Mana and select <strong>Play Now</strong>. Let the desktop browser game finish loading.</p></article>
+      <article><b>02</b><h3>Choose your session</h3><p>Start a solo game, or choose the multiplayer option to play together.</p></article>
+      <article><b>03</b><h3>Lower the water</h3><p>Use your starting straw. Every sip drops the sea level and exposes more ground.</p></article>
+      <article><b>04</b><h3>Turn finds into upgrades</h3><p>Search the newly exposed seabed, sell treasure to the merchant, and get a stronger straw.</p></article>
+    </div>
+  </section>
+
+  <section id="loop" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>THE GAME LOOP</p>
+      <h2>Drink. Discover. Upgrade. Repeat.</h2>
+      <span>The reward is not just a larger straw: the island itself keeps changing.</span>
+    </header>
+    <div class="ocean-loop">
+      <article>
+        <div class="ocean-symbol">01<span>WATERLINE ↓</span></div>
+        <h3>Drink the sea</h3><p>Begin with a tiny straw and gradually lower the water around the island.</p>
+      </article>
+      <article>
+        <div class="ocean-symbol">02<span>SEABED ↗</span></div>
+        <h3>Explore what appears</h3><p>Walk across dried seabed, check newly revealed paths, and collect hidden valuables.</p>
+      </article>
+      <article>
+        <div class="ocean-symbol">03<span>STRAW ↑</span></div>
+        <h3>Sell &amp; upgrade</h3><p>Exchange your finds with the merchant for stronger straws, then drain further.</p>
+      </article>
+    </div>
+    <p class="ocean-callout"><strong>Keep an eye on the shipwreck.</strong> Reaching it is a clear exploration milestone as the water recedes; don't treat the whole game as a static clicking screen.</p>
+  </section>
+
+  <section id="coop" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>PLAY YOUR WAY</p>
+      <h2>Solo or With Friends?</h2>
+      <span>Mana lists co-op support for one to four players.</span>
+    </header>
+    <div class="ocean-pair">
+      <article>
+        <p class="ocean-small">ONE PLAYER</p><h3>Take the island at your own pace.</h3>
+        <p>Explore each newly exposed stretch of land, gather treasure, and decide when to return to the merchant.</p>
+        <span>START WITH: NEW GAME</span>
+      </article>
+      <article>
+        <p class="ocean-small">UP TO FOUR PLAYERS</p><h3>Bring friends to drain it together.</h3>
+        <p>Choose the multiplayer option from the Mana game's main menu and follow its room prompts. Exact lobby steps may change.</p>
+        <span>START WITH: MULTIPLAYER</span>
+      </article>
+    </div>
+  </section>
+
+  <section id="tips" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>PRACTICAL TIPS</p>
+      <h2>Not Seeing Much Progress?</h2>
+      <span>Three things worth checking before simply repeating the same action.</span>
+    </header>
+    <div class="ocean-tips">
+      <article><div class="ocean-tip-number">01</div><div><h3>Look where the water was.</h3><p>As the water falls, revisit the shoreline. Newly exposed seabed is where you can find more treasure.</p></div></article>
+      <article><div class="ocean-tip-number">02</div><div><h3>Don't overlook the merchant.</h3><p>Selling finds and upgrading your straw is the core path from slow sips toward much faster drainage.</p></div></article>
+      <article><div class="ocean-tip-number">03</div><div><h3>Explore between upgrades.</h3><p>The game reveals rocks, chests, new paths and eventually a shipwreck. Check what has changed instead of staying in one spot.</p></div></article>
+    </div>
+    <p class="ocean-fine">These are general tips based on Mana's published gameplay description, not measured upgrade-efficiency claims.</p>
+  </section>
+
+  <section id="controls" class="ocean-shell ocean-section">
+    <header class="ocean-heading">
+      <p>DEVICE &amp; INPUT</p>
+      <h2>Controls and Browser Support</h2>
+      <span>What Mana confirms, without borrowing keybindings from the similarly named Playgama game.</span>
+    </header>
+    <div class="ocean-control">
+      <div>
+        <p class="ocean-small">OFFICIALLY LISTED INPUT</p>
+        <h3>Keyboard + Mouse</h3>
+        <p>Drink the Ocean on Mana is designed for a desktop browser. Use the in-game control prompts for the current key mapping; Mana's listing does not publish individual hotkeys.</p>
+        <a href="https://mana.gs/support" target="_blank" rel="noopener noreferrer">Mana browser troubleshooting ↗</a>
+      </div>
+      <aside>
+        <strong>Mobile?</strong>
+        <p>Mana currently recommends playing its games on a computer. Do not use touch-control instructions written for other Drink the Ocean versions.</p>
+        <strong>Game slow to load?</strong>
+        <p>Try a current desktop browser and enable graphics acceleration. Mana's support page covers common browser issues.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="faq" class="ocean-shell ocean-section ocean-faq">
+    <header class="ocean-heading">
+      <p>QUESTIONS &amp; ANSWERS</p>
+      <h2>Drink the Ocean FAQ</h2>
+      <span>Including the important difference between Mana and other games with the same title.</span>
+    </header>
+    <div class="ocean-faq-list">
+      {game.data.faq?.map((item) => (
+        <details>
+          <summary>{item.question}<span aria-hidden="true">+</span></summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <aside class="ocean-shell ocean-source">
+    <p><strong>Source &amp; version:</strong> <a href={officialUrl} target="_blank" rel="noopener noreferrer">Drink the Ocean on Mana</a> · <a href="https://mana.gs/about" target="_blank" rel="noopener noreferrer">Mana About</a> · <a href="https://mana.gs/support" target="_blank" rel="noopener noreferrer">Mana Support</a>. Listing checked November 16, 2026. Page details are based on official descriptions; in-round controls and multiplayer room flow have not been independently playtested by 1in8b.</p>
+  </aside>
+</div>
+
+<style>
+  .ocean-page{--o-ink:hsl(var(--foreground));--o-muted:hsl(var(--muted-foreground));--o-line:hsl(var(--border));--o-card:hsl(var(--card));--o-soft:hsl(var(--muted));--o-accent:hsl(var(--brand-text));background:hsl(var(--background));color:var(--o-ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,sans-serif;padding-bottom:5rem}
+  .ocean-page *{box-sizing:border-box}
+  .ocean-shell{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+  .ocean-hero{border-bottom:1px solid var(--o-line)}
+  .ocean-hero-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:42px;align-items:center;min-height:520px;padding-block:42px 48px}
+  .ocean-crumbs{display:flex;gap:12px;margin-bottom:30px;color:var(--o-muted);font-size:12px}
+  .ocean-crumbs a{color:inherit}
+  .ocean-kicker,.ocean-heading>p,.ocean-small{color:var(--o-accent);font-size:10px;font-weight:850;letter-spacing:.16em;margin:0 0 10px}
+  .ocean-hero h1{font-family:Arial Black,Arial,sans-serif;font-size:clamp(49px,6.2vw,87px);line-height:.93;letter-spacing:-.073em;text-transform:uppercase;margin:0}
+  .ocean-deck{font-size:clamp(19px,2vw,28px);line-height:1.2;font-weight:850;letter-spacing:-.035em;margin:17px 0 15px}
+  .ocean-intro{max-width:510px;color:var(--o-muted);line-height:1.8}
+  .ocean-facts{display:flex;flex-wrap:wrap;gap:10px 19px;list-style:none;padding:0;margin:26px 0;font-size:13px;font-weight:750}
+  .ocean-facts li:before{content:'✓';color:var(--o-accent);margin-right:8px}
+  .ocean-actions{display:flex;align-items:center;gap:25px;flex-wrap:wrap}
+  .ocean-primary{display:inline-flex;align-items:center;gap:18px;padding:12px 22px;background:var(--o-accent);color:#fff;text-decoration:none;font-size:14px;font-weight:850;border-radius:2px}
+  .ocean-primary:hover{filter:brightness(.88)}
+  .ocean-secondary{font-size:13px;font-weight:800;color:var(--o-ink)}
+  .ocean-disclaimer{font-size:11px;color:var(--o-muted);margin-top:16px}
+  .ocean-cover{margin:0;position:relative;border:1px solid var(--o-line);background:var(--o-soft)}
+  .ocean-cover img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block}
+  .ocean-cover figcaption{position:absolute;left:15px;bottom:15px;padding:5px 9px;background:#123944dc;color:#fff;font-size:10px}
+  .ocean-nav{display:flex;overflow-x:auto;white-space:nowrap;background:var(--o-card);border:1px solid var(--o-line);border-top:0}
+  .ocean-nav>*{flex:0 0 auto;border-right:1px solid var(--o-line);padding:15px 21px;text-decoration:none;color:var(--o-ink);font-size:12px}
+  .ocean-nav span{font-size:10px;letter-spacing:.12em;font-weight:850;color:var(--o-accent)}
+  .ocean-section{padding-top:74px;scroll-margin-top:40px}
+  .ocean-heading{margin-bottom:26px}
+  .ocean-heading h2{font-family:Arial Black,Arial,sans-serif;font-size:clamp(28px,3.1vw,43px);line-height:1.13;letter-spacing:-.053em;margin:0 0 8px}
+  .ocean-heading>span{color:var(--o-muted);font-size:14px}
+  .ocean-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+  .ocean-steps article,.ocean-loop article,.ocean-pair article,.ocean-tips article,.ocean-control>div,.ocean-control aside,.ocean-faq-list details{background:var(--o-card);border:1px solid var(--o-line);border-radius:2px}
+  .ocean-steps article{padding:22px;min-height:205px}
+  .ocean-steps b{font-family:Arial Black,Arial,sans-serif;font-size:35px;letter-spacing:-.06em;color:var(--o-accent)}
+  .ocean-steps h3,.ocean-loop h3,.ocean-tips h3,.ocean-control h3{font-size:18px;font-weight:850;letter-spacing:-.035em;margin:12px 0 8px}
+  .ocean-steps p,.ocean-loop p,.ocean-tips p,.ocean-control p,.ocean-pair p{color:var(--o-muted);font-size:13px;line-height:1.8;margin:0}
+  .ocean-loop{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ocean-loop article{padding:24px}
+  .ocean-symbol{height:118px;background:var(--o-soft);border-bottom:3px solid var(--o-accent);display:flex;align-items:center;justify-content:space-between;padding:20px;color:var(--o-accent);font:850 54px/1 Arial Black,Arial,sans-serif}
+  .ocean-symbol span{font:800 10px/1.4 Inter,Arial,sans-serif;letter-spacing:.11em;max-width:70px;text-align:right}
+  .ocean-callout{padding:15px 20px;border:1px solid var(--o-line);background:var(--o-soft);font-size:13px;margin-top:18px;color:var(--o-muted)}
+  .ocean-callout strong{color:var(--o-ink)}
+  .ocean-pair{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .ocean-pair article{padding:30px;display:flex;flex-direction:column;min-height:250px}
+  .ocean-pair h3{font-size:26px;line-height:1.24;letter-spacing:-.045em;font-weight:850;margin:0 0 14px;max-width:400px}
+  .ocean-pair article>span{display:block;margin-top:auto;padding-top:24px;color:var(--o-accent);font-size:11px;font-weight:850;letter-spacing:.12em}
+  .ocean-tips{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .ocean-tips article{padding:24px}
+  .ocean-tip-number{font:850 36px/1 Arial Black,Arial,sans-serif;color:var(--o-accent)}
+  .ocean-fine{font-size:11px;margin-top:15px;color:var(--o-muted)}
+  .ocean-control{display:grid;grid-template-columns:1.15fr .85fr;gap:18px}
+  .ocean-control>div,.ocean-control aside{padding:30px}
+  .ocean-control h3{font-size:29px;margin:12px 0}
+  .ocean-control a{display:inline-block;color:var(--o-accent);font-size:13px;font-weight:800;margin-top:20px}
+  .ocean-control aside{background:var(--o-soft)}
+  .ocean-control aside strong{font-size:14px;display:block;margin-bottom:6px}
+  .ocean-control aside p{margin-bottom:20px}
+  .ocean-faq-list{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:10px}
+  .ocean-faq-list details{padding:17px 20px}
+  .ocean-faq-list summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;font-weight:800;font-size:14px}
+  .ocean-faq-list summary::-webkit-details-marker{display:none}
+  .ocean-faq-list summary span{font-weight:600;color:var(--o-accent)}
+  .ocean-faq-list details p{font-size:13px;color:var(--o-muted);line-height:1.8;margin:14px 0 0}
+  .ocean-source{margin-top:65px;padding-top:20px;border-top:1px solid var(--o-line)}
+  .ocean-source p{font-size:11px;color:var(--o-muted);line-height:1.75}
+  .ocean-source a{color:inherit;text-decoration:underline}
+  @media(max-width:900px){.ocean-hero-grid{grid-template-columns:1fr;gap:28px;padding-block:32px}.ocean-cover{max-width:740px}.ocean-steps{grid-template-columns:repeat(2,1fr)}.ocean-loop,.ocean-tips{grid-template-columns:1fr 1fr}.ocean-loop article:last-child,.ocean-tips article:last-child{grid-column:1/-1}}
+  @media(max-width:600px){.ocean-shell{width:calc(100% - 32px)}.ocean-section{padding-top:50px}.ocean-hero h1{font-size:clamp(44px,13vw,63px)}.ocean-steps,.ocean-loop,.ocean-tips,.ocean-pair,.ocean-control,.ocean-faq-list{grid-template-columns:1fr}.ocean-loop article:last-child,.ocean-tips article:last-child{grid-column:auto}.ocean-steps article,.ocean-pair article{min-height:auto}.ocean-cover figcaption{position:static;background:#123944;color:#fff}.ocean-nav>*{padding:13px 15px}.ocean-hero-grid{padding-bottom:30px}}
+</style>
