@@ -1,0 +1,58 @@
+{
+  "name": "Slotbound",
+  "slug": "slotbound",
+  "description": "Slotbound Steam 1.0 guide: learn 3×3 spins, unit absorption, promotions, permanent upgrades, Rare unlocks, controls, and common fixes.",
+  "officialUrl": "https://store.steampowered.com/app/4459590/Slotbound/",
+  "platforms": [
+    "Windows",
+    "macOS"
+  ],
+  "genre": "Roguelite auto-battler",
+  "cover": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4459590/778498d4e1269d64658d3250d76e075486d51bff/ss_778498d4e1269d64658d3250d76e075486d51bff.1920x1080.jpg",
+  "updatedAt": "2026-11-17",
+  "status": "published",
+  "featured": false,
+  "presentation": "single-page",
+  "faq": [
+    {
+      "question": "Where can I play Slotbound, and is there a demo?",
+      "answer": "Slotbound is available on Steam for Windows and macOS. Open its official Steam store page to access the full game or select the separate demo download. The full game and demo are different Steam applications, so do not assume that their builds or saved progress are interchangeable. Slotbound is a single-player game, not a free browser game."
+    },
+    {
+      "question": "How do you summon units in Slotbound?",
+      "answer": "Spin the 3×3 slot machine during the preparation phase. Matching symbols on winning lines summon units for your army. After summoning, decide which fighters to keep and develop before the next automatic battle. Items and Cores can influence how the slot-machine system behaves. Not every spin produces a summon, and no guaranteed winning sequence has been verified."
+    },
+    {
+      "question": "How do you absorb units and get class promotions?",
+      "answer": "Enable Absorb Mode between battles, then drag the unit you want to sacrifice onto the unit you want to strengthen. The receiving unit gains Absorb LV while the donor disappears. Reaching development milestones can grant stars and class promotion choices. Review the donor, recipient, and available Imprints before absorbing, because the sacrificed unit will no longer be available as a separate fighter."
+    },
+    {
+      "question": "How do you unlock Rare units in Slotbound?",
+      "answer": "In Steam update v1.0.0 (9), the developer changed the requirement to clearing Stage 2, Deep Cave, on Normal difficulty. The previous requirement was Stage 3 on Easy. If Rare units remain locked after meeting the new condition, check your installed version and current unlock status. Some players have reported that the revised condition did not activate as expected; a universal workaround has not been confirmed."
+    },
+    {
+      "question": "How do you unlock Core Rate-Up?",
+      "answer": "Under the v1.0.0 (9) requirements, clear Stage 1 on Normal, unlock five Cores, and purchase Core Rate-Up for 20 permanent-upgrade currency. If you cannot access the purchase, check both the completed-stage requirement and your number of unlocked Cores before assuming something is broken."
+    },
+    {
+      "question": "How do you open the Collection during a run?",
+      "answer": "Press C on your keyboard, use the View button on a controller, or select the Collection tab on the right side of the battlefield. These shortcuts were officially added in update v1.0.0 (8), and the Collection is also available while selecting a Class Promotion. You no longer need to end the run just to check its information."
+    },
+    {
+      "question": "Does Slotbound Demo progress carry over to the full game?",
+      "answer": "No. The developer confirmed that progress from the Steam demo does not transfer to the full release. If you have spent time unlocking upgrades in the demo, expect to start the full game with separate progression. Your demo save is not the same as an imported full-game save."
+    },
+    {
+      "question": "Why can't I absorb a unit or spin after reaching my army limit?",
+      "answer": "For failed absorption, first check that Absorb Mode is active and that the donor unit is not locked. The developer identified an accidentally enabled absorption lock as a possible explanation in a real player report. Some traits also exempt units from the normal army-slot count, so a higher-than-expected number of units is not automatically a bug. If spinning remains disabled, inspect the current roster and on-screen restrictions; no single fix has been verified for every case."
+    },
+    {
+      "question": "Why can't I see faction synergies or faction promotion choices?",
+      "answer": "The faction system can depend on permanent Meta Upgrades. In an earlier player discussion, the developer pointed to the meta-upgrade system when a player could not find faction options. Check the faction-related upgrade in your current tree, confirm that it is purchased, and inspect your next available promotion. The original answer came from a demo build, so do not assume the full game's tree has identical node positions."
+    },
+    {
+      "question": "Why are permanent upgrades taking so long to earn?",
+      "answer": "Early progression depends partly on how many waves you clear and how far your runs advance. Recent updates have made it less punishing: v1.0.0 (7) increased upgrade currency from the first two stages, and v1.0.0 (9) added partial currency rewards for defeated runs based on waves won. You can therefore continue accumulating permanent progress without winning every attempt. Spend your next upgrade on a problem you can identify, such as insufficient army capacity, rather than following an unverified universal purchase order."
+    }
+  ]
+}
