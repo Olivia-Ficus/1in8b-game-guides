@@ -4,6 +4,7 @@ import AdsterraSlot from '~/components/ads/AdsterraSlot.astro';
 import MobileAnchorAd from '~/components/ads/MobileAnchorAd.astro';
 import DirtBoundSinglePage from '~/components/games/dirtbound/DirtBoundSinglePage.astro';
 import DrinkTheOceanSinglePage from '~/components/games/drink-the-ocean/DrinkTheOceanSinglePage.astro';
+import SlotboundSinglePage from '~/components/games/slotbound/SlotboundSinglePage.astro';
 import { defaultLocale } from '~/i18n/routing';
 import { getPublishedGames, getGameGuides } from '~/lib/games';
 import { gameGuidePath, gamesPath, homeUrl } from '~/lib/url';
@@ -41,15 +42,17 @@ const jsonLd = [
 
 <LocaleLayout
   locale={defaultLocale}
-  title={game.data.slug === 'drink-the-ocean' ? 'Drink the Ocean Game (Mana) — How to Play, Controls & Upgrade Guide' : game.data.name}
-  titleSuffix={game.data.slug === 'drink-the-ocean' ? '' : undefined}
+  title={game.data.slug === 'slotbound' ? 'Slotbound Guide: How to Play, Units & Upgrades | 1in8b' : game.data.slug === 'drink-the-ocean' ? 'Drink the Ocean Game (Mana) — How to Play, Controls & Upgrade Guide' : game.data.name}
+  titleSuffix={game.data.slug === 'drink-the-ocean' || game.data.slug === 'slotbound' ? '' : undefined}
   description={game.data.description}
   noindex={game.data.noindex}
   jsonLd={jsonLd}
 >
   {
     game.data.presentation === 'single-page' ? (
-      game.data.slug === 'drink-the-ocean' ? (
+      game.data.slug === 'slotbound' ? (
+        <SlotboundSinglePage game={game} />
+      ) : game.data.slug === 'drink-the-ocean' ? (
         <DrinkTheOceanSinglePage game={game} />
       ) : (
         <DirtBoundSinglePage game={game} />
