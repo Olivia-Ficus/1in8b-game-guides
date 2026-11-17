@@ -1,0 +1,227 @@
+---
+import { type GameEntry } from '~/lib/games';
+
+interface Props {
+  game: GameEntry;
+}
+const { game } = Astro.props;
+const steamUrl = game.data.officialUrl ?? 'https://store.steampowered.com/app/4459590/Slotbound/';
+const stages = [
+  ['01', 'Open Forest'], ['02', 'Deep Cave'], ['03', 'Wasteland'],
+  ['04', 'Lost Ruins'], ['05', 'Crimson Hell'], ['06', 'Split Space'],
+];
+const controls = [
+  ['Open Collection', 'C'],
+  ['Open Collection on gamepad', 'View button'],
+  ['Open Collection during promotion', 'C, View, or the Collection tab'],
+  ['Spin the slot machine', 'Space — community-documented default'],
+  ['Toggle Absorb Mode', 'A — community-documented default'],
+];
+---
+
+<div class="slotbound-page -mx-4 -my-8">
+  <section class="sb-hero">
+    <div class="sb-shell sb-hero-grid">
+      <div>
+        <nav class="sb-crumbs" aria-label="Breadcrumb"><a href="/games/">Games</a><span>/</span><span>Slotbound</span></nav>
+        <p class="sb-kicker">ROGUELITE AUTO-BATTLER / STEAM 1.0</p>
+        <h1>Slotbound: <span>Player Guide</span></h1>
+        <p class="sb-deck">Spin for your army. Build it to survive.</p>
+        <p class="sb-lead">Slotbound combines a 3×3 slot machine with roguelite army building and automatic battles. Match symbols to summon units, absorb weaker fighters to develop stronger ones, and combine promotions, Items, and Cores to survive enemy waves and bosses.</p>
+        <p class="sb-lead">This guide covers the Steam game by Optima Arch, including its main mechanics, permanent upgrades, controls, and common player questions.</p>
+        <ul class="sb-facts"><li>Steam · Windows and macOS</li><li>Single-player</li><li>Optima Arch</li></ul>
+        <div class="sb-actions"><a class="sb-primary" href={steamUrl} target="_blank" rel="noopener noreferrer">View Slotbound on Steam <span aria-hidden="true">↗</span></a><a class="sb-secondary" href="#how-to-play">How to Play ↓</a></div>
+        <p class="sb-fine">The Steam page offers the full game and a separate demo. 1in8b is an independent player guide, not the game's developer or publisher.</p>
+      </div>
+      <figure class="sb-cover">
+        <img src={game.data.cover} width="1920" height="1080" alt="Official Slotbound gameplay screenshot showing its army-battling interface" fetchpriority="high" />
+        <figcaption>Official Slotbound game screenshot · <a href={steamUrl} target="_blank" rel="noopener noreferrer">Steam source</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="sb-shell">
+    <nav class="sb-nav" aria-label="On this page">
+      <span>ON THIS PAGE</span>
+      <a href="#version">Version</a><a href="#how-to-play">How to Play</a><a href="#game-loop">Game Loop</a>
+      <a href="#units">Units &amp; Promotions</a><a href="#upgrades">Upgrades</a><a href="#stages">Stages</a>
+      <a href="#controls">Controls &amp; Fixes</a><a href="#faq">FAQ</a>
+    </nav>
+  </div>
+
+  <section class="sb-shell sb-section" id="version">
+    <header class="sb-heading"><p>WHICH VERSION?</p><h2>Full Game or Demo? Check Your Version First</h2></header>
+    <div class="sb-callout">
+      <p>This guide focuses on the released Steam game, App ID <strong>4459590</strong>. The separate Slotbound Demo, App ID <strong>4906570</strong>, uses an earlier build of the game.</p>
+      <p>Some older tutorials describe the October demo, when several systems were still being introduced or reworked. The released game has since received changes to stage difficulty, permanent progression, Rare-unit unlocks, Fate Stone quests, and controls.</p>
+      <p>In particular, update <strong>v1.0.0 (9) on November 16, 2026</strong> moved the Rare-unit unlock to Stage 2 on Normal and changed how much progress you can earn from a defeated run.</p>
+      <p>If a guide gives you a different unlock requirement, check which version it covers before spending time following it.</p>
+    </div>
+  </section>
+
+  <section class="sb-shell sb-section" id="how-to-play">
+    <header class="sb-heading"><p>YOUR FIRST RUN</p><h2>How to Play Slotbound</h2><span>You prepare an army using the slot machine, improve its units between battles, and then watch that army fight automatically. Winning depends on more than getting lucky with a single spin.</span></header>
+    <div class="sb-steps">
+      <article><b>01</b><h3>Start a run</h3><p>Launch Slotbound through Steam and select an available stage and difficulty.</p><p>If you are new, begin with the starting stage, Open Forest. It gives you a place to learn the slot machine, unit management, and combat cycle before moving through the campaign.</p></article>
+      <article><b>02</b><h3>Spin to summon units</h3><p>Use the 3×3 slot machine to roll unit symbols. Winning symbol combinations form lines that summon units for your army.</p><p>A spin can produce useful matches or no summon at all. Pay attention to your available resources and the units you already have rather than assuming every roll will strengthen your team.</p></article>
+      <article><b>03</b><h3>Build your army before battle</h3><p>Choose which summoned units to keep. You can position units, absorb expendable fighters into others, and make class promotion decisions as your army develops.</p><p>Check each unit's role and available Imprints before absorbing it. Absorption removes the donor unit, so it should be a deliberate choice.</p></article>
+      <article><b>04</b><h3>Fight, review, and improve</h3><p>Your assembled army fights automatically. Watch how it performs against regular enemies, Judgment Waves, and bosses.</p><p>Between encounters, use the systems available to improve your build. After a run ends, review your progress and spend earned permanent-upgrade currency on improvements for future attempts.</p></article>
+    </div>
+    <p class="sb-callout"><strong>Key idea:</strong> A lucky summon gives you an opportunity. Your decisions about which units to keep, combine, and improve determine how much value you get from it.</p>
+  </section>
+
+  <section class="sb-shell sb-section" id="game-loop">
+    <header class="sb-heading"><p>FROM SPIN TO BATTLE</p><h2>Spin. Build. Fight. Upgrade.</h2><span>Slotbound combines decisions made during a run with permanent improvements that carry into later attempts.</span></header>
+    <div class="sb-three">
+      <article><span class="sb-num">01 / RECRUIT</span><h3>Recruit through the slot machine</h3><p>The 3×3 slot machine determines which units you can summon. Items and Cores can change how the system behaves, so your recruitment options develop as a run progresses.</p><p>A good decision is not always to chase the rarest possible summon. Consider what your current army needs and whether you can afford to keep gambling for a better result.</p></article>
+      <article><span class="sb-num">02 / DEVELOP</span><h3>Turn your units into an effective army</h3><p>Absorption increases the strength and development of surviving units. Class promotions provide different directions for a unit's growth, while traits and Imprints can change its role.</p><p>This creates a trade-off: keep more separate fighters for army coverage, or combine units to strengthen those you intend to rely on.</p></article>
+      <article><span class="sb-num">03 / SURVIVE</span><h3>Survive and build permanent progress</h3><p>The army you have prepared faces automatic battles, including more demanding encounters and bosses.</p><p>Completing stages opens further progression. Defeated runs can also contribute to permanent growth: since v1.0.0 (9), runs that end in defeat award some upgrade currency based on the waves you successfully cleared.</p><p>A lost run is therefore not necessarily a run without progress.</p></article>
+    </div>
+  </section>
+
+  <section class="sb-shell sb-section" id="units">
+    <header class="sb-heading"><p>GROW YOUR ARMY</p><h2>How Absorption and Class Promotions Work</h2></header>
+    <h3>Absorbing one unit into another</h3><p>Absorption combines the development of two units by sacrificing one to strengthen another.</p>
+    <ol class="sb-ordered"><li>Wait until you are in a unit-management phase rather than an active battle.</li><li>Enable Absorb Mode using the on-screen control.</li><li>Select the unit you want to sacrifice.</li><li>Drag that unit onto the fighter you want to strengthen.</li><li>Check the surviving unit's updated development and any Imprint choices.</li></ol>
+    <p>The absorbed unit is removed. The receiving unit gains Absorb LV, which contributes to its development.</p>
+    <p class="sb-callout"><strong>Important:</strong> The unit you drag is the donor. The unit you drop it onto is the recipient. Check the direction before making the move.</p>
+    <div class="sb-pair">
+      <article><h3>When should you absorb a unit?</h3><p>Absorb a unit when keeping it provides less value than strengthening another fighter.</p><p>For example, if you already have a reliable frontline unit but several less useful fighters, absorption can help concentrate resources in the unit you intend to keep.</p><p>However, do not sacrifice a useful unit solely to increase a number. You may still need separate fighters for battlefield coverage, different combat roles, or faction combinations.</p><p>There is no verified universal absorption order for every build.</p></article>
+      <article><h3>Stars and class promotions</h3><p>As a unit gains enough Absorb LV, it can reach new development milestones, gain stars, and receive class promotion choices.</p><p>Promotion branches can change how a unit contributes to combat. Compare the effects of the available classes with your existing army before selecting one.</p><p>Different grades have different development thresholds. Do not assume a level requirement observed on a Normal unit is also the requirement for a Legendary, Prism, or Special unit.</p></article>
+    </div>
+    <h3>Traits, Imprints, and faction synergies</h3><p>Units can have Random Stats and Imprints that affect their development. Faction Synergy adds another consideration when choosing which classes and units to keep together.</p>
+    <p>The faction system was introduced during the demo and has continued to receive changes.</p><p>If faction-related options are missing, inspect the relevant permanent upgrades before treating the absence as a game installation problem.</p>
+    <p class="sb-callout"><strong>Practical choice:</strong> Judge a promotion by the role it gives your current army, not only by whether it appears to complete a faction bonus.</p>
+  </section>
+
+  <section class="sb-shell sb-section" id="upgrades">
+    <header class="sb-heading"><p>WHERE TO INVEST</p><h2>Upgrades, Items &amp; Cores: What Changes Your Run?</h2><span>Slotbound has different systems for improving your current army and developing your future runs. They should not be treated as interchangeable upgrades.</span></header>
+    <h3>Permanent upgrades</h3><p>Permanent upgrades change what is available to you in later attempts. These can include additional army capacity, improved access to particular systems, and new unlocks.</p><p>When deciding what to buy, identify the problem limiting your current runs.</p>
+    <div class="sb-three">
+      <article><h3>Not enough useful units?</h3><p>Inspect the upgrades affecting recruitment or unit availability. Read the current description before buying; improved access to one type of unit does not necessarily increase army capacity.</p></article>
+      <article><h3>Enough units, but nowhere to put them?</h3><p>Inspect Command Limit or the corresponding capacity upgrades. Increasing the number of units you can field solves a different problem from improving summon availability.</p></article>
+      <article><h3>Not sure which upgrade comes first?</h3><p>Compare the next purchase with the obstacle that caused your last defeat. A capacity upgrade is not automatically the best choice if your existing units cannot survive, and improving summon availability is less useful if your army is already full.</p></article>
+    </div>
+    <p class="sb-fine">These are decision guidelines, not a tested fastest upgrade route.</p>
+    <h3>Items and Cores</h3><p>Items and Cores influence the way a run develops. Some can alter the effectiveness or results of your slot-machine rolls, while others contribute to unit or army synergies.</p><p>Before choosing one, ask:</p>
+    <ul class="sb-bullets"><li>Does it improve something my current army already does?</li><li>Does it help address the reason I lost the previous battle?</li><li>Does it require another effect or unit combination that I do not have yet?</li></ul>
+    <p>A combination that works well for one army may offer little value to another.</p>
+    <div class="sb-pair">
+      <article><p class="sb-num">RARE UNITS</p><h3>How to unlock Rare units</h3><p>According to update v1.0.0 (9), Rare units unlock after clearing <strong>Stage 2 on Normal difficulty</strong>.</p><p>Earlier versions used Stage 3 on Easy as the requirement. Use the current requirement rather than following an outdated demo or launch-day guide.</p><p>This is the officially announced condition. If you have already completed the required stage but Rare units remain locked, confirm your installed version and inspect the unlock state. Players have reported problems with the changed requirement, and a reliable fix for every affected save has not been established.</p></article>
+      <article><p class="sb-num">CORE RATE-UP</p><h3>How to unlock Core Rate-Up</h3><p>Update v1.0.0 (9) also made Core Rate-Up available earlier.</p><p>The announced requirements are:</p><ul class="sb-bullets"><li>Clear Stage 1 on Normal.</li><li>Unlock five Cores.</li><li>Spend 20 permanent-upgrade currency on Core Rate-Up.</li></ul><p>Check these separately. Clearing the stage alone does not mean the purchase is automatically available if the other requirements have not been met.</p></article>
+    </div>
+    <h3>Fate Stone quests</h3><p>Fate Stone quests are another part of Slotbound's progression choices. Their objectives can change between versions.</p>
+    <p>Update v1.0.0 (8) replaced the Gauntlet quest with Four Lines at Once, which requires four winning lines in one wave.</p>
+    <p>Update v1.0.0 (9) reworked more quests, including removing several that forced restrictive playstyles, and added eight new quest types.</p><p>If a quest mentioned in an older video is no longer available, check the current quest selection before trying to reproduce the old instructions.</p>
+  </section>
+
+  <section class="sb-shell sb-section" id="stages">
+    <header class="sb-heading"><p>THE CAMPAIGN</p><h2>Slotbound Stages and Difficulty Progression</h2><span>Slotbound's campaign contains six stages, with Easy, Normal, and Hard difficulty choices. Each stage introduces different enemies and combat challenges.</span></header>
+    <h3>Campaign stage order</h3>
+    <div class="sb-stage-grid">
+      {stages.map(([number, name]) => (<article><span>{number}</span><strong>{name}</strong></article>))}
+    </div>
+    <p>The documented campaign route unlocks the next stage by clearing the preceding stage on Normal difficulty.</p><p>Hard difficulty offers a longer and more demanding stage challenge. The full campaign is not equivalent to clearing only the opening map.</p>
+    <div class="sb-pair">
+      <article><h3>What should I aim for first?</h3><p>Start by learning the recruitment and absorption systems in Open Forest.</p><p>Progress through Normal difficulty as new stages become available. This also matters for permanent unlocks: Stage 1 Normal contributes to the Core Rate-Up requirements, while Stage 2 Normal is the updated Rare-unit unlock milestone.</p><p>You can return to harder difficulties after developing your army and permanent upgrades.</p></article>
+      <article><h3>What happens when you lose?</h3><p>A defeated run ends the current attempt, but it does not necessarily erase all progress.</p><p>As of v1.0.0 (9), you receive some permanent-upgrade currency for waves already won, even when the run ends in defeat.</p><p>Use the result to decide what to improve next: unit availability, available army space, or the effectiveness of your current units.</p></article>
+    </div>
+    <p class="sb-callout"><strong>Progression note:</strong> Stage order is documented in existing campaign references. Exact wave counts, detailed reward formulas, and every difficulty unlock condition have not been independently tested for this guide's reference build.</p>
+  </section>
+
+  <section class="sb-shell sb-section" id="controls">
+    <header class="sb-heading"><p>INPUT &amp; COMMON PROBLEMS</p><h2>Slotbound Controls and Common Fixes</h2></header>
+    <h3>Keyboard and controller controls</h3><p>The game supports keyboard and controller input. Controls may differ between the older demo and the released game.</p>
+    <div class="sb-table-wrap"><table><thead><tr><th>Action</th><th>Input</th></tr></thead><tbody>{controls.map(([action, input]) => (<tr><th scope="row">{action}</th><td>{input}</td></tr>))}</tbody></table></div>
+    <p class="sb-fine">The Collection shortcuts are confirmed in the v1.0.0 (8) official update. Space and A are documented in gameplay references; check the Controls menu in your installed build if these keys behave differently.</p>
+    <div class="sb-pair">
+      <article><h3>Why won't a unit absorb?</h3><p>First, make sure you are outside active combat and that Absorb Mode is enabled.</p><p>Then inspect the unit you intend to sacrifice. A lock setting can protect a unit from being absorbed. If it is locked, turn off that protection before trying again.</p><p>Be careful not to confuse the donor with the receiving unit. Drag the unit you want to remove onto the unit you want to keep.</p></article>
+      <article><h3>Why doesn't the unit count match the limit?</h3><p>A displayed army limit does not always explain every unit on the battlefield.</p><p>The developer has confirmed that some traits can exclude units from the normal maximum-unit-slot count.</p><p>If your total appears higher than expected, inspect the traits of your current units before assuming the number itself proves a bug.</p><p>If the slot machine also refuses to spin, check the current management phase and any roster-limit messages. The earlier developer report did not establish one universal fix for every spin problem.</p></article>
+      <article><h3>Why can't I see faction choices?</h3><p>Check the permanent upgrade tree for the faction-related unlock.</p><p>In the documented demo discussion, the developer confirmed that the missing options were tied to a Meta Upgrade. A player further identified the lower part of the upgrade tree and explained that the choices should appear at promotion after purchase.</p><p>That discussion concerns the demo, so exact node position and prerequisites must be checked against your current full-game upgrade tree.</p><p>Reinstalling the game is not a substitute for checking whether the required upgrade has been purchased.</p></article>
+      <article><h3>Game crashing or freezing?</h3><p>First, check that Slotbound is updated through Steam.</p><p>The developer added an experimental CPU Stability Mode in v1.0.0 (9). It is disabled by default and appears only on certain systems using 13th- or 14th-generation Intel CPUs.</p><p>If this option is available and you are experiencing unexplained crashes, try enabling it in Settings.</p><p>The developer also improved the game's error log for investigating freezes. If the problem continues, report the error and your game version through the official Steam Community.</p></article>
+    </div>
+  </section>
+
+  <section class="sb-shell sb-section" id="faq">
+    <header class="sb-heading"><p>QUESTIONS &amp; ANSWERS</p><h2>Slotbound FAQ</h2><span>Text answers to common playing, progression, and troubleshooting questions.</span></header>
+    <h3 class="sb-faq-label">Playing &amp; Progression</h3>
+    <div class="sb-faq-grid">{game.data.faq?.slice(0, 6).map((item) => (<details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>))}</div>
+    <h3 class="sb-faq-label">Player Problems &amp; Version Questions</h3>
+    <div class="sb-faq-grid">{game.data.faq?.slice(6).map((item) => (<details><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>))}</div>
+  </section>
+
+</div>
+
+<style>
+  .slotbound-page{--sb-ink:hsl(var(--foreground));--sb-muted:hsl(var(--muted-foreground));--sb-line:hsl(var(--border));--sb-card:hsl(var(--card));--sb-soft:hsl(var(--muted));--sb-accent:hsl(var(--brand-text));color:var(--sb-ink);background:hsl(var(--background));font:16px/1.75 Inter,ui-sans-serif,system-ui,sans-serif;padding-bottom:5rem}
+  .slotbound-page *{box-sizing:border-box}
+  .sb-shell{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+  .sb-hero{border-bottom:1px solid var(--sb-line)}
+  .sb-hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:42px;align-items:center;padding-block:50px;min-height:510px}
+  .sb-crumbs{display:flex;gap:12px;margin-bottom:26px;color:var(--sb-muted);font-size:12px}
+  .sb-crumbs a{color:inherit;text-decoration:underline}
+  .sb-kicker,.sb-heading>p,.sb-num{font-size:11px;letter-spacing:.13em;font-weight:850;color:var(--sb-accent);margin:0 0 12px}
+  .sb-hero h1{font-family:Arial Black,Arial,sans-serif;font-size:clamp(54px,6vw,85px);line-height:.97;letter-spacing:-.07em;text-transform:uppercase;margin:0 0 20px}
+  .sb-hero h1 span{display:block;font-size:clamp(25px,3vw,35px);letter-spacing:-.045em;margin-top:10px}
+  .sb-deck{font-size:clamp(19px,2vw,27px);font-weight:850;line-height:1.3;letter-spacing:-.035em;margin:0 0 18px}
+  .sb-lead{color:var(--sb-muted);font-size:14px;margin:0 0 12px}
+  .sb-facts{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:20px 0 26px;padding:0;font-size:12px;font-weight:800}
+  .sb-facts li:before{content:'✓';color:var(--sb-accent);margin-right:7px}
+  .sb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+  .sb-primary{display:inline-flex;gap:18px;padding:13px 22px;background:var(--sb-accent);color:hsl(var(--background));text-decoration:none;border-radius:2px;font-size:13px;font-weight:850}
+  .sb-primary:hover{filter:brightness(.88)}
+  .sb-secondary{font-size:13px;color:var(--sb-ink);font-weight:800;text-decoration:underline}
+  .sb-fine{font-size:11px!important;color:var(--sb-muted)!important;margin-top:15px}
+  .sb-cover{margin:0;border:1px solid var(--sb-line);background:var(--sb-soft)}
+  .sb-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .sb-cover figcaption{border-top:1px solid var(--sb-line);padding:10px 13px;font-size:11px;color:var(--sb-muted)}
+  .sb-cover a{color:inherit;text-decoration:underline}
+  .sb-nav{display:flex;overflow-x:auto;white-space:nowrap;border:1px solid var(--sb-line);border-top:0;background:var(--sb-card)}
+  .sb-nav>*{padding:13px 16px;border-right:1px solid var(--sb-line);color:var(--sb-ink);text-decoration:none;font-size:12px;flex:0 0 auto}
+  .sb-nav>span{color:var(--sb-accent);font-size:10px;font-weight:850;letter-spacing:.12em}
+  .sb-nav a:hover{background:var(--sb-soft)}
+  .sb-section{padding-top:68px;scroll-margin-top:35px}
+  .sb-heading{margin-bottom:26px}
+  .sb-heading h2{font:850 clamp(28px,3.4vw,43px)/1.12 Arial Black,Arial,sans-serif;letter-spacing:-.05em;margin:0 0 12px}
+  .sb-heading span{color:var(--sb-muted);font-size:14px;max-width:820px;display:block}
+  .sb-section>h3{font-size:23px;font-weight:850;letter-spacing:-.035em;margin:32px 0 10px}
+  .sb-section>p{font-size:14px;line-height:1.85;max-width:1000px;margin:12px 0;color:var(--sb-muted)}
+  .sb-callout{padding:19px 23px;border:1px solid var(--sb-line);border-left:4px solid var(--sb-accent);background:var(--sb-soft);margin:20px 0!important;color:var(--sb-muted);font-size:14px;max-width:none!important}
+  .sb-callout p{margin:0 0 12px}
+  .sb-callout p:last-child{margin-bottom:0}
+  .sb-callout strong{color:var(--sb-ink)}
+  .sb-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .sb-steps article,.sb-three article,.sb-pair article{min-width:0;border:1px solid var(--sb-line);border-radius:2px;background:var(--sb-card);padding:22px}
+  .sb-steps b{font:850 36px/1 Arial Black,Arial,sans-serif;color:var(--sb-accent)}
+  .sb-steps h3,.sb-three h3,.sb-pair h3{font-size:18px;line-height:1.3;letter-spacing:-.025em;font-weight:850;margin:16px 0 10px}
+  .sb-steps p,.sb-three p,.sb-pair p{font-size:13px;line-height:1.8;color:var(--sb-muted);margin:10px 0}
+  .sb-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:17px 0}
+  .sb-three h3{margin-top:7px}
+  .sb-num{display:block}
+  .sb-ordered{counter-reset:step;list-style:decimal;margin:14px 0 24px;padding-left:26px;font-size:14px;color:var(--sb-muted)}
+  .sb-ordered li{margin:7px 0;padding-left:5px}
+  .sb-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:18px 0 26px}
+  .sb-pair h3{font-size:22px;margin-top:0}
+  .sb-bullets{list-style:disc;padding-left:23px;margin:12px 0 18px;font-size:14px;color:var(--sb-muted)}
+  .sb-bullets li{margin:6px 0}
+  .sb-stage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:15px 0 25px}
+  .sb-stage-grid article{border:1px solid var(--sb-line);background:var(--sb-card);padding:17px 20px;display:flex;align-items:center;gap:15px}
+  .sb-stage-grid span{font:850 28px/1 Arial Black,Arial,sans-serif;color:var(--sb-accent)}
+  .sb-stage-grid strong{font-size:16px}
+  .sb-table-wrap{max-width:960px;overflow-x:auto;border:1px solid var(--sb-line);background:var(--sb-card);margin:15px 0}
+  .sb-table-wrap table{width:100%;border-collapse:collapse;min-width:450px;text-align:left;font-size:13px}
+  .sb-table-wrap th,.sb-table-wrap td{padding:13px 18px;border-bottom:1px solid var(--sb-line)}
+  .sb-table-wrap thead{background:var(--sb-soft);font-size:12px;text-transform:uppercase}
+  .sb-table-wrap tbody th{font-weight:800}
+  .sb-faq-label{font-size:13px!important;text-transform:uppercase;letter-spacing:.1em;color:var(--sb-accent);margin:22px 0 13px!important}
+  .sb-faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:12px;margin:12px 0 30px}
+  .sb-faq-grid details{border:1px solid var(--sb-line);border-radius:2px;background:var(--sb-card);padding:19px}
+  .sb-faq-grid summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-size:14px;line-height:1.5;font-weight:800}
+  .sb-faq-grid summary::-webkit-details-marker{display:none}
+  .sb-faq-grid summary span{color:var(--sb-accent);font-size:20px;line-height:1}
+  .sb-faq-grid details[open] summary span{transform:rotate(45deg)}
+  .sb-faq-grid details p{font-size:13px;line-height:1.85;color:var(--sb-muted);margin:14px 0 0}
+
+  @media(max-width:970px){.sb-hero-grid{grid-template-columns:1fr;gap:26px;padding-block:35px}.sb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-three{grid-template-columns:1fr 1fr}.sb-three article:last-child{grid-column:1/-1}}
+  @media(max-width:640px){.sb-shell{width:calc(100% - 32px)}.sb-section{padding-top:48px}.sb-hero h1{font-size:clamp(42px,12vw,65px)}.sb-steps,.sb-three,.sb-pair,.sb-faq-grid{grid-template-columns:1fr}.sb-three article:last-child{grid-column:auto}.sb-stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-stage-grid article{padding:14px;gap:10px}.sb-stage-grid span{font-size:23px}.sb-stage-grid strong{font-size:13px}.sb-nav>*{padding:12px}.sb-cover figcaption{font-size:10px}}
+</style>
