@@ -6,6 +6,8 @@
   "platforms": ["Web browser", "Desktop", "Mobile"],
   "genre": "Rally racing",
   "cover": "/images/games/dirtbound/rally-stage.jpg",
+  "listedAt": "2026-11-06",
+  "indie": true,
   "updatedAt": "2026-11-08",
   "status": "published",
   "featured": true,
