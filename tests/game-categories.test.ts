@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { gamesInCategory, gamesListedThisWeek, isBrowserGame } from '../src/lib/game-categories';
-import { type GameEntry } from '../src/lib/games';
+import type { GameEntry } from '../src/lib/games';
 
 function fixture(name: string, platforms: string[], listedAt: string, indie = true): GameEntry {
   return {
