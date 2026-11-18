@@ -1,4 +1,4 @@
-import { type GameEntry } from '~/lib/games';
+import type { GameEntry } from '~/lib/games';
 import { type Locale } from '~/i18n/routing';
 import { localizePath } from '~/lib/url';
 
