@@ -183,6 +183,9 @@ const games = defineCollection({
     genre: z.string().max(80).optional(),
     cover: z.string().min(1).optional(),
     updatedAt: z.coerce.date(),
+    /** First date this entry appeared in the site's public game catalog (not a game release date). */
+    listedAt: z.coerce.date().optional(),
+    indie: z.boolean().default(false),
     status: z.enum(['draft', 'published']),
     featured: z.boolean().default(false),
     featuredOrder: z.number().int().nonnegative().optional(),
