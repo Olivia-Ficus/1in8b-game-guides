@@ -4,7 +4,6 @@ import { defaultLocale } from '~/i18n/routing';
 import { getPublishedGames } from '~/lib/games';
 import { gamesPath, gamePath } from '~/lib/url';
 import { siteUrl } from '~/config/site';
-import { GAME_CATEGORIES, gameCategoryPath } from '~/lib/game-categories';
 import { simpleBreadcrumbJsonLd, urlListJsonLd } from '~/lib/seo';
 import GameCard from '~/components/game/GameCard.astro';
 import GameSearch from '~/components/game/GameSearch.astro';
@@ -14,8 +13,8 @@ const noindex = games.length === 0;
 
 <LocaleLayout
   locale={defaultLocale}
-  title="All Games"
-  description="Browse games and find official places to play, controls, tips, and practical player help."
+  title="Game Guides Directory"
+  description="Browse individual game guides with controls, how to play, common questions, and official game links."
   noindex={noindex}
   jsonLd={[
     simpleBreadcrumbJsonLd({
@@ -38,7 +37,7 @@ const noindex = games.length === 0;
     <p class="archive-kicker">Games</p><h1
       class="mt-4 text-5xl font-black uppercase leading-none tracking-[-.06em] sm:text-6xl lg:text-7xl"
     >
-      All Games
+      All Game Guides
     </h1><p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
       Browse the current collection and open a game to find where to play, how it works, and help
       for common questions.
@@ -52,16 +51,7 @@ const noindex = games.length === 0;
             <div class="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
               <>
                 <GameSearch games={games} locale={defaultLocale} />
-                <div class="flex flex-wrap gap-2 text-xs font-bold text-muted-foreground">
-                  {GAME_CATEGORIES.map((category) => (
-                    <a
-                      href={gameCategoryPath(category.slug, defaultLocale)}
-                      class="rounded-sm border border-border bg-card px-3 py-1.5 text-foreground hover:border-nav hover:text-nav"
-                    >
-                      {category.label}
-                    </a>
-                  ))}
-                </div>
+                
               </>
             </div>
           </section>

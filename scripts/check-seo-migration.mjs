@@ -69,6 +69,9 @@ for (const loc of locs) {
     assert.ok(!isNoindex(read(file)), 'Sitemap contains a noindex page: ' + pathname);
   }
 }
+for (const retired of ['/games/new/', '/games/browser/', '/games/indie/', '/games/mobile/']) {
+  assert.ok(!paths.has(retired), 'Retired category leaked into sitemap: ' + retired);
+}
 for (const pathname of ['/', '/games/', '/games/dirtbound/']) {
   assert.ok(paths.has(pathname), 'Missing public URL in sitemap: ' + pathname);
 }

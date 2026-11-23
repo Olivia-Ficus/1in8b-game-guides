@@ -42,8 +42,14 @@ const jsonLd = [
 
 <LocaleLayout
   locale={defaultLocale}
-  title={game.data.slug === 'slotbound' ? 'Slotbound Guide: How to Play, Units & Upgrades | 1in8b' : game.data.slug === 'drink-the-ocean' ? 'Drink the Ocean Game (Mana) — How to Play, Controls & Upgrade Guide' : game.data.name}
-  titleSuffix={game.data.slug === 'drink-the-ocean' || game.data.slug === 'slotbound' ? '' : undefined}
+  title={game.data.slug === 'slotbound'
+    ? 'Slotbound — How to Play, Controls & Upgrade Guide'
+    : game.data.slug === 'drink-the-ocean'
+      ? 'Drink the Ocean (Mana) — How to Play, Controls & Upgrade Guide'
+      : game.data.slug === 'dirtbound'
+        ? 'DirtBound — How to Play, Controls & Racing Guide'
+        : `${game.data.name} — How to Play & Controls`}
+  titleSuffix=""
   description={game.data.description}
   noindex={game.data.noindex}
   jsonLd={jsonLd}
