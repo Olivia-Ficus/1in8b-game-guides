@@ -2,6 +2,36 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/en/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/th/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/games/new/",
+      "destination": "/games/",
+      "statusCode": 301
+    },
+    {
+      "source": "/games/browser/",
+      "destination": "/games/",
+      "statusCode": 301
+    },
+    {
+      "source": "/games/indie/",
+      "destination": "/games/",
+      "statusCode": 301
+    },
+    {
+      "source": "/games/mobile/",
+      "destination": "/games/",
+      "statusCode": 301
+    },
+    {
       "source": "/en/games/dirtbound/",
       "destination": "/games/dirtbound/",
       "statusCode": 301

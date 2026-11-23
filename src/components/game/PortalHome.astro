@@ -9,7 +9,7 @@ import { getPublishedGames } from '~/lib/games';
 import { gamePath, gamesPath } from '~/lib/url';
 import { websiteJsonLd, urlListJsonLd } from '~/lib/seo';
 import { siteUrl } from '~/config/site';
-import { GAME_CATEGORIES, isBrowserGame, gamesListedThisWeek, gameCategoryPath } from '~/lib/game-categories';
+import { isBrowserGame, gamesListedThisWeek } from '~/lib/game-categories';
 
 interface Props {
   locale: Locale;
@@ -50,9 +50,9 @@ const jsonLd = [
 
 <LocaleLayout
   locale={locale}
-  title="Browser Games: New & Trending to Play Free | 1in8b"
+  title="1in8b — Independent Guides for Trending Games"
   titleSuffix=""
-  description="Explore free browser games with no download needed. Discover new games every week, official play links, and player guides for handpicked indie titles."
+  description="Independent guides for trending games, with how to play, controls, answers to common questions, and official play links."
   noindex={noindex}
   jsonLd={jsonLd}
 >
@@ -60,7 +60,7 @@ const jsonLd = [
     <div class="archive-section-head">
       <div>
         <p class="archive-kicker">Featured this week</p><h1 class="mt-1 text-3xl font-black uppercase">
-          Browser Games: New &amp; Trending
+          1in8b: Guides for Trending Games
         </h1>
       </div><a
         href={gamesPath(locale)}
@@ -123,22 +123,11 @@ const jsonLd = [
   </section>
 
 
-  <section class="archive-rule py-10 md:py-12" aria-label="About our browser games directory">
+  <section class="archive-rule py-10 md:py-12" aria-label="About this guide site">
     <div class="max-w-3xl space-y-4 text-base leading-relaxed text-muted-foreground">
-      <p>1in8b is a small, handpicked directory for players who want to find browser games they can actually open and play, without downloading a client first. We focus on recent releases, surprising independent projects, and games people are actively sharing. Every listing links to the game's official play page rather than asking you to sign up here.</p>
-      <p>Start with our <a href={gameCategoryPath('browser', locale)} class="font-semibold text-nav underline">browser games</a> if you want something you can launch right away. A game card tells you which devices it supports, while the linked player guide explains basic controls, game modes, progression, and the questions that come up during play. We check potential new additions every week and update a guide when its instructions or game version change. The New this week section shows games first added to this directory in the past seven days, not every game receiving a patch.</p>
-      <p>This is not an unfiltered collection of every game on the internet, and a Steam-only release is not a browser game. We occasionally keep downloadable indie titles in the wider games catalog for their guides, but never feature them as instant browser play.</p>
+      <p>1in8b publishes independent guides to individual games. Find how to start, controls, progression, common questions, and verified official play links. We do not host games.</p>
+      <p>Browse the <a href={gamesPath(locale)} class="font-semibold text-nav underline">game guide directory</a> for all current guides.</p>
     </div>
-    <nav class="mt-8 flex flex-wrap gap-2" aria-label="Browse game categories">
-      {GAME_CATEGORIES.map((category) => (
-        <a
-          href={gameCategoryPath(category.slug, locale)}
-          class="rounded-sm border border-border bg-card px-4 py-2 text-sm font-bold text-foreground transition hover:border-nav hover:text-nav"
-        >
-          {category.label}
-        </a>
-      ))}
-    </nav>
   </section>
 
   <section class="archive-rule py-10 md:py-12">
@@ -172,8 +161,8 @@ const jsonLd = [
   <section class="archive-rule py-10 md:py-12">
     <div class="archive-section-head">
       <h2 class="text-3xl font-black uppercase">New this week</h2>
-      <a href={gameCategoryPath('new', locale)} class="text-xs font-extrabold uppercase tracking-[.1em] text-nav hover:underline">
-        All new games <span aria-hidden="true">→</span>
+      <a href={gamesPath(locale)} class="text-xs font-extrabold uppercase tracking-[.1em] text-nav hover:underline">
+        All game guides <span aria-hidden="true">→</span>
       </a>
     </div>
     {
