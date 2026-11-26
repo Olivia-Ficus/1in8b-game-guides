@@ -22,7 +22,7 @@ const fixtures = [
 ];
 
 describe('browser game directory classification', () => {
-  test('Steam-only games cannot occupy the browser featured slot', () => {
+  test('Steam-only games are excluded from the browser category', () => {
     expect(fixtures.filter(isBrowserGame).map((game) => game.data.name))
       .toEqual(['DirtBound', 'Drink the Ocean']);
   });
@@ -39,6 +39,14 @@ describe('browser game directory classification', () => {
     expect(newGames.map((game) => game.data.name)).toEqual(['Slotbound', 'Drink the Ocean']);
     expect(gamesInCategory(fixtures, 'new').map((game) => game.data.name))
       .toEqual(['Slotbound', 'Drink the Ocean', 'DirtBound']);
+  });
+
+  test('latest catalog addition takes precedence over manual featured flags and guide updates', () => {
+    const older = fixture('Older', ['Web browser'], '2026-11-06');
+    older.data.featured = true;
+    older.data.updatedAt = new Date('2026-11-30');
+    const newest = fixture('Newest', ['Windows'], '2026-11-26');
+    expect(gamesInCategory([older, newest], 'new')[0]).toBe(newest);
   });
 
   test('no listing remains new after its first week', () => {
