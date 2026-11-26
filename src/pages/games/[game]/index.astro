@@ -4,6 +4,7 @@ import AdsterraSlot from '~/components/ads/AdsterraSlot.astro';
 import MobileAnchorAd from '~/components/ads/MobileAnchorAd.astro';
 import DirtBoundSinglePage from '~/components/games/dirtbound/DirtBoundSinglePage.astro';
 import DrinkTheOceanSinglePage from '~/components/games/drink-the-ocean/DrinkTheOceanSinglePage.astro';
+import BoreenSinglePage from '~/components/games/boreen/BoreenSinglePage.astro';
 import SlotboundSinglePage from '~/components/games/slotbound/SlotboundSinglePage.astro';
 import { defaultLocale } from '~/i18n/routing';
 import { getPublishedGames, getGameGuides } from '~/lib/games';
@@ -42,7 +43,9 @@ const jsonLd = [
 
 <LocaleLayout
   locale={defaultLocale}
-  title={game.data.slug === 'slotbound'
+  title={game.data.slug === 'boreen'
+    ? 'Boreen Game Guide: Play, Rules, Animal Scores & Tips | 1in8b'
+    : game.data.slug === 'slotbound'
     ? 'Slotbound — How to Play, Controls & Upgrade Guide'
     : game.data.slug === 'drink-the-ocean'
       ? 'Drink the Ocean (Mana) — How to Play, Controls & Upgrade Guide'
@@ -56,7 +59,9 @@ const jsonLd = [
 >
   {
     game.data.presentation === 'single-page' ? (
-      game.data.slug === 'slotbound' ? (
+      game.data.slug === 'boreen' ? (
+        <BoreenSinglePage game={game} />
+      ) : game.data.slug === 'slotbound' ? (
         <SlotboundSinglePage game={game} />
       ) : game.data.slug === 'drink-the-ocean' ? (
         <DrinkTheOceanSinglePage game={game} />
