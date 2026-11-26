@@ -1,0 +1,217 @@
+---
+import type { GameEntry } from '~/lib/games';
+interface Props { game: GameEntry; }
+const { game } = Astro.props;
+---
+<div class="boreen-page -mx-4 -my-8">
+<section class="sb-hero"><div class="sb-shell sb-hero-grid"><div>
+<nav class="sb-crumbs" aria-label="Breadcrumb"><a href="/games/">Games</a><span>/</span><span>Boreen</span></nav>
+<p class="sb-kicker">DAILY TRIVIA / BROWSER GAME</p>
+<h1>Boreen: <span>Player Guide</span></h1>
+<p class="sb-deck">Think beyond the obvious. Travel further.</p>
+<p class="sb-lead">Boreen is a free daily trivia game where knowing the right answer is only half the challenge. The goal is to find correct answers that other players are less likely to think of, earning animal sightings and travelling further along a daily route.</p>
+<p class="sb-lead">Originally created as an Irish knowledge quiz, Boreen now has separate editions for Ireland, England and Scotland, each with its own questions, animals and landmarks.</p>
+<p class="sb-lead">This guide explains how to play, how the scoring system works, how to improve your daily results and what to do when an answer doesn't count.</p>
+<ul class="sb-facts"><li>Daily Trivia · Browser Game</li><li>Desktop · Mobile · Tablet</li><li>Free to Play</li><li>Oisín McKnight</li></ul>
+<div class="sb-actions"><a class="sb-primary" href="https://boreen.ie/" target="_blank" rel="noopener noreferrer">Play Boreen Ireland <span aria-hidden="true">↗</span></a><a class="sb-primary" href="https://boreen.co.uk/" target="_blank" rel="noopener noreferrer">Play Boreen England <span aria-hidden="true">↗</span></a><a class="sb-primary" href="https://boreen.scot/" target="_blank" rel="noopener noreferrer">Play Boreen Scotland <span aria-hidden="true">↗</span></a></div>
+</div></div></section>
+<div class="sb-shell"><nav class="sb-nav" aria-label="On this page"><span>ON THIS PAGE</span><a href="#versions">Versions</a><a href="#how-to-play">How to Play</a><a href="#scoring">Scoring</a><a href="#strategy">Strategy</a><a href="#answers">Answers</a><a href="#leagues">Leagues</a><a href="#fixes">Fixes</a><a href="#faq">FAQ</a></nav></div>
+<section class="sb-shell sb-section" id="versions"><header class="sb-heading"><p>WHICH VERSION?</p><h2>Choose Your Boreen Game</h2></header>
+<p>There are three official editions of Boreen. They follow the same rules but feature different regional knowledge, daily questions and journeys.</p>
+<div class="sb-three"><article><h3>Boreen Ireland</h3><p>The original Boreen, launched on October 13, 2026. Questions cover Irish history, geography, sport, entertainment, language and everyday life. Your progress is measured in kilometres.</p><p><a href="https://boreen.ie/" target="_blank" rel="noopener noreferrer">Play Boreen Ireland</a></p></article><article><h3>Boreen England</h3><p>Launched on November 9, 2026, the English edition features its own questions about England, from local towns and historical events to television, football and everyday culture. Your progress is measured in miles.</p><p><a href="https://boreen.co.uk/" target="_blank" rel="noopener noreferrer">Play Boreen England</a></p></article><article><h3>Boreen Scotland</h3><p>Launched on November 16, 2026, the Scottish edition challenges your knowledge of Scottish geography, history, culture, entertainment and sport. It features Scottish wildlife and its own daily routes.</p><p><a href="https://boreen.scot/" target="_blank" rel="noopener noreferrer">Play Boreen Scotland</a></p></article></div>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Feature comparison"><table><thead><tr><th scope="col">Feature</th><th scope="col">Ireland</th><th scope="col">England</th><th scope="col">Scotland</th></tr></thead><tbody><tr><th scope="row">Official website</th><td>boreen.ie</td><td>boreen.co.uk</td><td>boreen.scot</td></tr><tr><th scope="row">Daily questions</th><td>7</td><td>7</td><td>7</td></tr><tr><th scope="row">Time per question</th><td>25 seconds</td><td>25 seconds</td><td>25 seconds</td></tr><tr><th scope="row">Maximum distance</th><td>700 km</td><td>700 miles</td><td>700 miles</td></tr><tr><th scope="row">Highest-scoring animal</th><td>Golden Eagle</td><td>White-tailed Eagle</td><td>Sea Eagle</td></tr><tr><th scope="row">Question pool</th><td>Irish knowledge</td><td>English knowledge</td><td>Scottish knowledge</td></tr></tbody></table></div>
+<p><strong>Looking for Boreen UK?</strong> The official boreen.co.uk website is the England edition, rather than a combined quiz covering the whole United Kingdom. Scotland has its own edition at boreen.scot.</p>
+<p>This guide covers these three official games. Other websites using the Boreen name may have different questions, scoring systems and game rules.</p>
+</section>
+
+<section class="sb-shell sb-section" id="how-to-play"><header class="sb-heading"><p>YOUR FIRST JOURNEY</p><h2>How to Play Boreen</h2></header>
+<p>Each daily journey contains seven open-ended trivia questions. You don't select an answer from a list. Instead, you type your own response, aiming for a correct but uncommon answer.</p><div class="sb-steps"><article><b>01</b><h3>Start today's journey</h3><p>Open your preferred regional edition and select <strong>Start today's journey</strong>.</p><p>You can play without creating an account. Everyone playing the same edition receives the same daily set of questions.</p></article><article><b>02</b><h3>Read the question and its conditions</h3><p>Each question asks you to name something from a category, such as a town, historical figure, sports personality or television character.</p><p>Pay attention to the smaller text beneath the question. It may specify a geographical boundary, time period or other eligibility requirement.</p><p>A factually correct answer can still be rejected if it falls outside those conditions.</p></article><article><b>03</b><h3>Enter an uncommon answer</h3><p>You normally have 25 seconds to think of an answer and submit it.</p><p>If your answer is rejected, you can make another attempt while time remains. Incorrect guesses do not deduct points.</p><p>However, once an answer is accepted, the game records its score and moves on. You cannot replace it with a better answer afterwards.</p></article><article><b>04</b><h3>Collect animals and travel further</h3><p>Each accepted answer earns an animal associated with its rarity. More unusual answers generally earn higher-value animals and move you further along the road.</p><p>If time expires without an accepted answer, you earn no distance for that question.</p></article><article><b>05</b><h3>Finish and review your results</h3><p>After seven questions, your final result shows your total distance and the animals you collected.</p><p>You can review the accepted answers, see how popular your responses were among other players and share a spoiler-free summary of your journey.</p><p>Use the answer lists to discover alternatives you might have overlooked.</p></article></div>
+</section>
+
+<section class="sb-shell sb-section" id="scoring"><header class="sb-heading"><p>THE SCORING SYSTEM</p><h2>Boreen Animal Scores and Rarity</h2></header>
+<p>Boreen rewards the rarity of your answer rather than simply counting how many questions you get right.</p><p>All three official editions use six scoring tiers.</p><h3>Animal scoring chart</h3>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Answer rarity comparison"><table><thead><tr><th scope="col">Answer rarity</th><th scope="col">Distance</th><th scope="col">Ireland</th><th scope="col">England</th><th scope="col">Scotland</th></tr></thead><tbody><tr><th scope="row">Very common</th><td>10</td><td>Robin</td><td>Robin</td><td>Puffin</td></tr><tr><th scope="row">Common</th><td>25</td><td>Hedgehog</td><td>Hedgehog</td><td>Highland Cow</td></tr><tr><th scope="row">Less common</th><td>40</td><td>Red Fox</td><td>Red Fox</td><td>Otter</td></tr><tr><th scope="row">Uncommon</th><td>55</td><td>Irish Hare</td><td>Brown Hare</td><td>Red Deer</td></tr><tr><th scope="row">Rare</th><td>75</td><td>Red Squirrel</td><td>Red Squirrel</td><td>Scottish Wildcat</td></tr><tr><th scope="row">Very rare</th><td>100</td><td>Golden Eagle</td><td>White-tailed Eagle</td><td>Sea Eagle</td></tr></tbody></table></div>
+<p>Distances are measured in kilometres in Boreen Ireland and miles in Boreen England and Scotland.</p><p>A question without an accepted answer contributes zero distance.</p>
+<h3>How is answer rarity calculated?</h3>
+<p>An answer's scoring tier is assigned before the daily journey begins. The game estimates how frequently players are likely to give each valid answer.</p>
+<p>This means two players who submit the same accepted answer receive the same score, regardless of when they play that day.</p>
+<p>Playing early does not give you an automatic scoring advantage, and being the only person to submit an answer does not necessarily make it worth 100.</p>
+<p>Actual response frequencies are reviewed afterwards to improve future rarity estimates.</p>
+<h3>What is the maximum Boreen score?</h3>
+<p>The maximum possible score is 700, achieved by earning 100 on all seven questions.</p>
+<p>Getting every question right does not necessarily produce a high score.</p>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Example result comparison"><table><thead><tr><th scope="col">Example result</th><th scope="col">Total distance</th></tr></thead><tbody><tr><th scope="row">Seven 10-point answers</th><td>70</td></tr><tr><th scope="row">Seven 25-point answers</th><td>175</td></tr><tr><th scope="row">Seven 40-point answers</th><td>280</td></tr><tr><th scope="row">Seven 55-point answers</th><td>385</td></tr><tr><th scope="row">Seven 75-point answers</th><td>525</td></tr><tr><th scope="row">Seven 100-point answers</th><td>700</td></tr></tbody></table></div>
+<p>These are theoretical scoring combinations, not average player results or performance rankings.</p>
+</section>
+
+<section class="sb-shell sb-section" id="strategy"><header class="sb-heading"><p>PLAYER STRATEGY</p><h2>How to Get a Higher Score in Boreen</h2></header>
+<p>The most effective way to improve is to balance answer rarity, accuracy and the remaining time.</p>
+<h3>Think beyond the first answer</h3>
+<p>Your immediate response is often the same one that many other players will think of.</p>
+<p>For geography questions, consider smaller towns or lesser-known places. For history questions, think about earlier figures and less widely remembered events. For entertainment or everyday-life questions, consider older names, discontinued brands or regional alternatives, where the question permits them.</p>
+<p>The important distinction is that an answer must be both uncommon and valid.</p>
+<h3>Use a safe answer as a backup</h3>
+<p>Before attempting a risky response, try to identify an answer that you are reasonably certain will count.</p>
+<p>Keep that answer in reserve while considering less obvious alternatives.</p>
+<p>If your uncommon answer fails, submit another attempt or use your backup before the timer expires. A common answer worth 10 is still better than receiving nothing.</p>
+<h3>Don't submit a common answer too early</h3>
+<p>The first accepted answer determines your score for that question.</p>
+<p>If you already know an obvious answer and still have time, consider whether you can recall a valid alternative that fewer players are likely to choose.</p>
+<p>Once the game accepts your response, you cannot return to the question to improve it.</p>
+<h3>Read the eligibility rules carefully</h3>
+<p>Choosing an obscure answer is useless if it does not belong to the requested category.</p>
+<p>For example, naming a mountain is not the same as naming a mountain range. A historical question may exclude people outside a specific period, while a geography question may restrict answers to a particular region.</p>
+<p>Check these conditions before spending valuable time searching your memory.</p>
+<h3>Learn from a real scoring example</h3>
+<p>In Boreen Ireland Journey #038, the game asked players to name a brand of crisps sold in Ireland, including historical brands.</p>
+<p>Several accepted answers received very different scores:</p>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Accepted answer comparison"><table><thead><tr><th scope="col">Accepted answer</th><th scope="col">Distance</th></tr></thead><tbody><tr><th scope="row">Tayto</th><td>10 km</td></tr><tr><th scope="row">Hunky Dorys</th><td>25 km</td></tr><tr><th scope="row">Pringles</th><td>40 km</td></tr><tr><th scope="row">Kettle Chips</th><td>55 km</td></tr><tr><th scope="row">Golden Wonder</th><td>75 km</td></tr><tr><th scope="row">Brannigans</th><td>100 km</td></tr></tbody></table></div>
+<p>Every answer in this example was valid, but choosing a less obvious brand could earn considerably more distance.</p><p>The question and scores are from the historical journey on November 19, 2026, not today's puzzle.</p><p><a href="https://boreen.ie/answers/38" target="_blank" rel="noopener noreferrer">View the original Journey #038 answers</a></p>
+<h3>Review the answers after each journey</h3>
+<p>Look through the answers you could have given, especially for questions where you received a low score or ran out of time.</p>
+<p>This helps you recognise the types of responses the game considers uncommon and reveals alternative ways to approach familiar subjects.</p>
+<p>You don't need to memorise every answer. The aim is to become better at recalling several valid possibilities within the time limit.</p>
+</section>
+
+<section class="sb-shell sb-section" id="answers"><header class="sb-heading"><p>DAILY JOURNEYS</p><h2>Today's Answers and Past Journeys</h2></header>
+<p>Boreen releases a new journey every day. Each regional edition has its own daily questions and archive.</p>
+<h3>Where to find today's Boreen answers</h3>
+<p>Complete today's journey to unlock its accepted-answer lists on your results screen.</p>
+<p>You can then review the answers for each question and see which scoring tiers they belong to.</p>
+<p>Today's answer lists are deliberately unavailable before you finish playing. This keeps the daily challenge fair for other players.</p>
+<h3>Official Boreen answer archives</h3>
+<p>Previous journeys have dedicated answer pages organised by question and rarity.</p>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Edition comparison"><table><thead><tr><th scope="col">Edition</th><th scope="col">Official archive</th></tr></thead><tbody><tr><th scope="row">Ireland</th><td><a href="https://boreen.ie/archive" target="_blank" rel="noopener noreferrer">Boreen Ireland Past Journeys</a></td></tr><tr><th scope="row">England</th><td><a href="https://boreen.co.uk/archive" target="_blank" rel="noopener noreferrer">Boreen England Past Journeys</a></td></tr><tr><th scope="row">Scotland</th><td><a href="https://boreen.scot/archive" target="_blank" rel="noopener noreferrer">Boreen Scotland Past Journeys</a></td></tr></tbody></table></div>
+<p>Historical answer pages become publicly accessible at 12:30 a.m. local time following the day of the journey.</p><p>You can browse the published answer lists without an account. To play a previous journey yourself, sign in and select it from the archive.</p><p>Archived games do not contribute to your current daily streak or league scores.</p>
+<h3>Daily routes and landmarks</h3>
+<p>Your score moves you along a road featuring regional landmarks. The standard routes rotate through the week.</p>
+<div class="sb-table-wrap" tabindex="0" role="region" aria-label="Day comparison"><table><thead><tr><th scope="col">Day</th><th scope="col">Ireland</th><th scope="col">England</th><th scope="col">Scotland</th></tr></thead><tbody><tr><th scope="row">Monday</th><td>End to End</td><td>End to End</td><td>End to End</td></tr><tr><th scope="row">Tuesday</th><td>Wild Atlantic Way</td><td>South Coast</td><td>West Highlands</td></tr><tr><th scope="row">Wednesday</th><td>The Shannon</td><td>The Thames</td><td>Isle of Skye</td></tr><tr><th scope="row">Thursday</th><td>Coast to Coast</td><td>Coast to Coast</td><td>Coast to Coast</td></tr><tr><th scope="row">Friday</th><td>Ancient East</td><td>West Country</td><td>East Coast</td></tr><tr><th scope="row">Saturday</th><td>Causeway Coast</td><td>The East</td><td>Far North</td></tr><tr><th scope="row">Sunday</th><td>Kingdom and Rebel</td><td>Heart of England</td><td>Royal Deeside</td></tr></tbody></table></div>
+<p>Special themed journeys can replace the standard route.</p><p>The five landmark positions correspond to cumulative scores of 0, 120, 280, 450 and 700.</p><p>You do not need to reach the final landmark to complete the daily game. Finishing all seven questions completes your journey, regardless of the distance travelled.</p>
+</section>
+
+<section class="sb-shell sb-section" id="leagues"><header class="sb-heading"><p>PLAY WITH FRIENDS</p><h2>Boreen Streaks and Leagues</h2></header>
+<p>Boreen is designed around short daily challenges, but you can also track your progress and compete with friends over time.</p>
+<h3>Daily streaks and rest days</h3>
+<p>Your streak records consecutive daily journeys you have completed. A high score is not required to maintain it.</p>
+<p>Signed-in players can earn a rest day after seven consecutive days of play. After fourteen consecutive days, you can hold two rest days, which is the maximum.</p>
+<p>If you miss a day while you have a rest day available, it is used to preserve your streak. The missed day does not add to your streak total.</p>
+<h3>Create or join a friends league</h3>
+<p>You can create a league using a nickname and share its invitation link with friends, family or colleagues.</p>
+<p>Members complete their daily games independently and compare their results through league tables covering the day, week, month and all-time performance.</p>
+<p>To avoid revealing results too early, today's league scores become available after you complete your own daily journey.</p>
+<h3>Public competition</h3>
+<p>The Players' League is an optional public leaderboard where participating players appear under their chosen nicknames.</p>
+<p>Playing without the timer still counts towards your personal streak, and private leagues can include untimed results with a label indicating that the timer was disabled.</p>
+<p>Untimed journeys are excluded from public competitive score rankings and the League of Leagues.</p>
+<h3>Keep your progress across devices</h3>
+<p>Daily play does not require registration, but signing in lets you carry your completed games, streak and leagues between devices.</p>
+<p>Use the same account when switching between your phone, tablet and computer.</p>
+</section>
+
+<section class="sb-shell sb-section" id="fixes"><header class="sb-heading"><p>COMMON PROBLEMS</p><h2>Why Your Boreen Answer Didn't Count</h2></header>
+<p>An answer can fail for several different reasons. Some are caused by the question's conditions, while others involve spelling recognition or gaps in the accepted-answer list.</p>
+<h3>Your answer is outside the question's scope</h3>
+<p>Check the qualification beneath the question.</p>
+<p>A related place, person or event may not count if it falls outside the required region, period or category.</p>
+<p>Submit an alternative that clearly meets the conditions.</p>
+<h3>Boreen didn't recognise your spelling</h3>
+<p>The game tolerates several common spelling variations, including differences in capitalisation, accents, apostrophes and some abbreviations.</p>
+<p>If the game displays a <strong>Did you mean…?</strong> suggestion, check that it actually matches the answer you intended before selecting it.</p>
+<p>For questions about people, a surname may be sufficient if it identifies only one eligible person. If several answers share that surname, you may need to enter a first name.</p>
+<p>Spelling tolerance is not unlimited. Some misspellings can still cause an answer to be rejected or matched incorrectly.</p>
+<h3>Your valid answer may be missing</h3>
+<p>If you believe an answer meets all the question's conditions, use the <strong>That should count</strong> option associated with the rejected answer.</p>
+<p>This sends it to the game's team for review.</p>
+<p>If the answer is approved and added to the accepted list, your original daily score can be corrected for up to a week after the journey.</p>
+<p>The correction applies if you submitted that answer during its original daily challenge and its newly assigned value exceeds the score you received for the question.</p>
+<p>Your existing score will not be reduced through this correction process.</p>
+<h3>You ran out of time while typing</h3>
+<p>An answer needs to be submitted before the countdown ends.</p>
+<p>Do not wait until the final instant to enter your backup answer. Allow time to type it and deal with any spelling confirmation.</p>
+<p>If you cannot think of an uncommon answer quickly enough, use a familiar answer rather than risking a zero.</p>
+</section>
+
+<section class="sb-shell sb-section" id="faq"><header class="sb-heading"><p>PLAYER QUESTIONS</p><h2>Boreen FAQ</h2></header>
+<div class="sb-faq-grid">{game.data.faq?.map((item) => (<details><summary>{item.question}<span aria-hidden="true">+</span></summary>{item.answer.split('\n\n').map((paragraph) => <p>{paragraph.split(/(https:\/\/boreen\.(?:ie|co\.uk|scot)\/archive|boreen\.(?:ie|co\.uk|scot))/g).map(part => /^(https:\/\/)?boreen\.(ie|co\.uk|scot)(\/archive)?$/.test(part) ? <a href={part.startsWith('https://') ? part : 'https://' + part + '/'} target="_blank" rel="noopener noreferrer">{part}</a> : part)}</p>)}</details>))}</div>
+</section>
+</div>
+<style>
+  .boreen-page{--sb-ink:hsl(var(--foreground));--sb-muted:hsl(var(--muted-foreground));--sb-line:hsl(var(--border));--sb-card:hsl(var(--card));--sb-soft:hsl(var(--muted));--sb-accent:hsl(var(--brand-text));color:var(--sb-ink);background:hsl(var(--background));font:16px/1.75 Inter,ui-sans-serif,system-ui,sans-serif;padding-bottom:5rem}
+  .boreen-page *{box-sizing:border-box}
+  .sb-shell{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+  .sb-hero{border-bottom:1px solid var(--sb-line)}
+  .sb-hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:42px;align-items:center;padding-block:50px;min-height:510px}
+  .sb-crumbs{display:flex;gap:12px;margin-bottom:26px;color:var(--sb-muted);font-size:12px}
+  .sb-crumbs a{color:inherit;text-decoration:underline}
+  .sb-kicker,.sb-heading>p,.sb-num{font-size:11px;letter-spacing:.13em;font-weight:850;color:var(--sb-accent);margin:0 0 12px}
+  .sb-hero h1{font-family:Arial Black,Arial,sans-serif;font-size:clamp(54px,6vw,85px);line-height:.97;letter-spacing:-.07em;text-transform:uppercase;margin:0 0 20px}
+  .sb-hero h1 span{display:block;font-size:clamp(25px,3vw,35px);letter-spacing:-.045em;margin-top:10px}
+  .sb-deck{font-size:clamp(19px,2vw,27px);font-weight:850;line-height:1.3;letter-spacing:-.035em;margin:0 0 18px}
+  .sb-lead{color:var(--sb-muted);font-size:14px;margin:0 0 12px}
+  .sb-facts{display:flex;flex-wrap:wrap;gap:8px 20px;list-style:none;margin:20px 0 26px;padding:0;font-size:12px;font-weight:800}
+  .sb-facts li:before{content:'✓';color:var(--sb-accent);margin-right:7px}
+  .sb-actions{display:flex;flex-wrap:wrap;align-items:center;gap:20px}
+  .sb-primary{display:inline-flex;gap:18px;padding:13px 22px;background:var(--sb-accent);color:hsl(var(--background));text-decoration:none;border-radius:2px;font-size:13px;font-weight:850}
+  .sb-primary:hover{filter:brightness(.88)}
+  .sb-secondary{font-size:13px;color:var(--sb-ink);font-weight:800;text-decoration:underline}
+  .sb-fine{font-size:11px!important;color:var(--sb-muted)!important;margin-top:15px}
+  .sb-cover{margin:0;border:1px solid var(--sb-line);background:var(--sb-soft)}
+  .sb-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .sb-cover figcaption{border-top:1px solid var(--sb-line);padding:10px 13px;font-size:11px;color:var(--sb-muted)}
+  .sb-cover a{color:inherit;text-decoration:underline}
+  .sb-nav{display:flex;overflow-x:auto;white-space:nowrap;border:1px solid var(--sb-line);border-top:0;background:var(--sb-card)}
+  .sb-nav>*{padding:13px 16px;border-right:1px solid var(--sb-line);color:var(--sb-ink);text-decoration:none;font-size:12px;flex:0 0 auto}
+  .sb-nav>span{color:var(--sb-accent);font-size:10px;font-weight:850;letter-spacing:.12em}
+  .sb-nav a:hover{background:var(--sb-soft)}
+  .sb-section{padding-top:68px;scroll-margin-top:35px}
+  .sb-heading{margin-bottom:26px}
+  .sb-heading h2{font:850 clamp(28px,3.4vw,43px)/1.12 Arial Black,Arial,sans-serif;letter-spacing:-.05em;margin:0 0 12px}
+  .sb-heading span{color:var(--sb-muted);font-size:14px;max-width:820px;display:block}
+  .sb-section>h3{font-size:23px;font-weight:850;letter-spacing:-.035em;margin:32px 0 10px}
+  .sb-section>p{font-size:14px;line-height:1.85;max-width:1000px;margin:12px 0;color:var(--sb-muted)}
+  .sb-callout{padding:19px 23px;border:1px solid var(--sb-line);border-left:4px solid var(--sb-accent);background:var(--sb-soft);margin:20px 0!important;color:var(--sb-muted);font-size:14px;max-width:none!important}
+  .sb-callout p{margin:0 0 12px}
+  .sb-callout p:last-child{margin-bottom:0}
+  .sb-callout strong{color:var(--sb-ink)}
+  .sb-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+  .sb-steps article,.sb-three article,.sb-pair article{min-width:0;border:1px solid var(--sb-line);border-radius:2px;background:var(--sb-card);padding:22px}
+  .sb-steps b{font:850 36px/1 Arial Black,Arial,sans-serif;color:var(--sb-accent)}
+  .sb-steps h3,.sb-three h3,.sb-pair h3{font-size:18px;line-height:1.3;letter-spacing:-.025em;font-weight:850;margin:16px 0 10px}
+  .sb-steps p,.sb-three p,.sb-pair p{font-size:13px;line-height:1.8;color:var(--sb-muted);margin:10px 0}
+  .sb-three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:17px 0}
+  .sb-three h3{margin-top:7px}
+  .sb-num{display:block}
+  .sb-ordered{counter-reset:step;list-style:decimal;margin:14px 0 24px;padding-left:26px;font-size:14px;color:var(--sb-muted)}
+  .sb-ordered li{margin:7px 0;padding-left:5px}
+  .sb-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin:18px 0 26px}
+  .sb-pair h3{font-size:22px;margin-top:0}
+  .sb-bullets{list-style:disc;padding-left:23px;margin:12px 0 18px;font-size:14px;color:var(--sb-muted)}
+  .sb-bullets li{margin:6px 0}
+  .sb-stage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:15px 0 25px}
+  .sb-stage-grid article{border:1px solid var(--sb-line);background:var(--sb-card);padding:17px 20px;display:flex;align-items:center;gap:15px}
+  .sb-stage-grid span{font:850 28px/1 Arial Black,Arial,sans-serif;color:var(--sb-accent)}
+  .sb-stage-grid strong{font-size:16px}
+  .sb-table-wrap{max-width:960px;overflow-x:auto;border:1px solid var(--sb-line);background:var(--sb-card);margin:15px 0}
+  .sb-table-wrap table{width:100%;border-collapse:collapse;min-width:450px;text-align:left;font-size:13px}
+  .sb-table-wrap th,.sb-table-wrap td{padding:13px 18px;border-bottom:1px solid var(--sb-line)}
+  .sb-table-wrap thead{background:var(--sb-soft);font-size:12px;text-transform:uppercase}
+  .sb-table-wrap tbody th{font-weight:800}
+  .sb-faq-label{font-size:13px!important;text-transform:uppercase;letter-spacing:.1em;color:var(--sb-accent);margin:22px 0 13px!important}
+  .sb-faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:12px;margin:12px 0 30px}
+  .sb-faq-grid details{border:1px solid var(--sb-line);border-radius:2px;background:var(--sb-card);padding:19px}
+  .sb-faq-grid summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:12px;font-size:14px;line-height:1.5;font-weight:800}
+  .sb-faq-grid summary::-webkit-details-marker{display:none}
+  .sb-faq-grid summary span{color:var(--sb-accent);font-size:20px;line-height:1}
+  .sb-faq-grid details[open] summary span{transform:rotate(45deg)}
+  .sb-faq-grid details p{font-size:13px;line-height:1.85;color:var(--sb-muted);margin:14px 0 0}
+
+  @media(max-width:970px){.sb-hero-grid{grid-template-columns:1fr;gap:26px;padding-block:35px}.sb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-three{grid-template-columns:1fr 1fr}.sb-three article:last-child{grid-column:1/-1}}
+  @media(max-width:640px){.sb-shell{width:calc(100% - 32px)}.sb-section{padding-top:48px}.sb-hero h1{font-size:clamp(42px,12vw,65px)}.sb-steps,.sb-three,.sb-pair,.sb-faq-grid{grid-template-columns:1fr}.sb-three article:last-child{grid-column:auto}.sb-stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-stage-grid article{padding:14px;gap:10px}.sb-stage-grid span{font-size:23px}.sb-stage-grid strong{font-size:13px}.sb-nav>*{padding:12px}.sb-cover figcaption{font-size:10px}}
+  .boreen-page .sb-hero-grid{grid-template-columns:1fr;min-height:0;max-width:1240px}
+  .boreen-page .sb-hero-grid>div{max-width:840px}
+  .boreen-page .sb-section a{color:var(--sb-accent);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
+  .boreen-page .sb-actions{gap:10px}
+  .boreen-page .sb-steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+  @media(max-width:970px){.boreen-page .sb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media(max-width:640px){.boreen-page .sb-steps{grid-template-columns:1fr}}
+</style>

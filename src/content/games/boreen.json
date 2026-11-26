@@ -1,0 +1,60 @@
+{
+  "name": "Boreen",
+  "slug": "boreen",
+  "description": "Play Boreen Ireland, England or Scotland. Learn how rare answers score, what each animal means, how to score higher and what to do when answers are rejected.",
+  "officialUrl": "https://boreen.ie/",
+  "platforms": [
+    "Browser",
+    "Mobile",
+    "Tablet"
+  ],
+  "genre": "Daily Trivia · Rare-Answer Quiz",
+  "listedAt": "2026-11-26",
+  "updatedAt": "2026-11-26",
+  "indie": true,
+  "status": "published",
+  "featured": false,
+  "presentation": "single-page",
+  "faq": [
+    {
+      "question": "Where can I play the original Boreen game?",
+      "answer": "The original Irish edition is available at boreen.ie. The same game also has official regional editions at boreen.co.uk for England and boreen.scot for Scotland.\n\nEach edition has different questions and regional wildlife, but all use the same rare-answer scoring concept."
+    },
+    {
+      "question": "Is Boreen free, and do I need to download an app?",
+      "answer": "Boreen is free to play in your browser on a phone, tablet or computer. There is no separate app to download.\n\nYou do not need an account for today's journey. Signing in is useful for keeping your progress across devices and is required if you want to play archived journeys."
+    },
+    {
+      "question": "What time does Boreen reset?",
+      "answer": "A new daily challenge starts at midnight in the edition's home region: Ireland, England or Scotland.\n\nIf you are playing from another country, the reset follows the game's regional time rather than midnight in your own time zone."
+    },
+    {
+      "question": "Where can I find today's and yesterday's Boreen answers?",
+      "answer": "Today's accepted answers become available on your results screen after you finish the daily journey.\n\nYesterday's and earlier answers are available through the official Ireland (https://boreen.ie/archive), England (https://boreen.co.uk/archive) and Scotland (https://boreen.scot/archive) archives. Historical answer pages become public at 12:30 a.m. local time the following day."
+    },
+    {
+      "question": "Why didn't Boreen accept my correct answer, and can I recover the points?",
+      "answer": "First, check whether your answer satisfies the exact conditions beneath the question. If it does, it may be missing from the game's accepted-answer list.\n\nSelect That should count to submit it for review.\n\nIf the answer is approved within the score-correction window, and you originally submitted it during that day's challenge, your score can increase to reflect its assigned value. Corrections are available for up to a week after the journey and never reduce your existing score."
+    },
+    {
+      "question": "Does Boreen accept spelling mistakes?",
+      "answer": "Boreen recognises some spelling variations and may suggest a likely match when your answer contains a typo.\n\nCapitalisation, accents and apostrophes generally do not affect recognition. A surname may also be accepted if it identifies only one person on the answer list.\n\nCheck any suggested match carefully. The game can still fail to recognise a valid answer or suggest something different from what you intended."
+    },
+    {
+      "question": "What is a good Boreen score?",
+      "answer": "There is no fixed score that counts as good on every journey.\n\nFor context, 280 is equivalent to earning 40 on every question, while 525 is equivalent to seven 75-point answers. The maximum is 700.\n\nThese are scoring benchmarks, not player averages. Compare your result with the performance of other players on the same daily challenge using the statistics shown on your results screen."
+    },
+    {
+      "question": "Can I play more than one Boreen game a day?",
+      "answer": "Yes. Each official regional edition offers its own daily journey, so you can complete the Ireland, England and Scotland quizzes separately on the same day.\n\nYou can also sign in and play previous journeys through the official archives.\n\nPast journeys do not increase your daily streak or contribute to league scores."
+    },
+    {
+      "question": "Can I turn off the timer in Boreen?",
+      "answer": "Yes. You can disable the countdown in the game's settings if you prefer to answer without time pressure.\n\nCompleting an untimed daily journey still maintains your streak. Private leagues can include untimed results, but these scores do not qualify for public competitive rankings or the League of Leagues."
+    },
+    {
+      "question": "Can I change my answer to get a rarer animal?",
+      "answer": "Not after your answer has been accepted. The first valid response determines your distance for that question.\n\nBefore submitting an obvious answer, consider whether you know a less common alternative.\n\nRejected guesses do not deduct points, so you can keep trying while time remains. Keep a reliable answer in reserve to avoid finishing the question with zero distance."
+    }
+  ]
+}
