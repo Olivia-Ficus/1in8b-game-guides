@@ -13,8 +13,13 @@ const { game } = Astro.props;
 <p class="sb-lead">Originally created as an Irish knowledge quiz, Boreen now has separate editions for Ireland, England and Scotland, each with its own questions, animals and landmarks.</p>
 <p class="sb-lead">This guide explains how to play, how the scoring system works, how to improve your daily results and what to do when an answer doesn't count.</p>
 <ul class="sb-facts"><li>Daily Trivia · Browser Game</li><li>Desktop · Mobile · Tablet</li><li>Free to Play</li><li>Oisín McKnight</li></ul>
-<div class="sb-actions"><a class="sb-primary" href="https://boreen.ie/" target="_blank" rel="noopener noreferrer">Play Boreen Ireland <span aria-hidden="true">↗</span></a><a class="sb-primary" href="https://boreen.co.uk/" target="_blank" rel="noopener noreferrer">Play Boreen England <span aria-hidden="true">↗</span></a><a class="sb-primary" href="https://boreen.scot/" target="_blank" rel="noopener noreferrer">Play Boreen Scotland <span aria-hidden="true">↗</span></a></div>
-</div></div></section>
+<div class="sb-actions"><a class="sb-primary" href="https://boreen.ie/" target="_blank" rel="noopener noreferrer">Play Boreen <span aria-hidden="true">↗</span></a></div>
+</div>
+<figure class="sb-cover">
+  <img src={game.data.cover} width="2048" height="970" alt="Boreen Ireland gameplay showing its illustrated journey and animal scoring system" fetchpriority="high" decoding="async" />
+  <figcaption>Boreen — The Daily Road · <a href="https://boreen.ie/" target="_blank" rel="noopener noreferrer">Ireland gameplay</a></figcaption>
+</figure>
+</div></section>
 <div class="sb-shell"><nav class="sb-nav" aria-label="On this page"><span>ON THIS PAGE</span><a href="#versions">Versions</a><a href="#how-to-play">How to Play</a><a href="#scoring">Scoring</a><a href="#strategy">Strategy</a><a href="#answers">Answers</a><a href="#leagues">Leagues</a><a href="#fixes">Fixes</a><a href="#faq">FAQ</a></nav></div>
 <section class="sb-shell sb-section" id="versions"><header class="sb-heading"><p>WHICH VERSION?</p><h2>Choose Your Boreen Game</h2></header>
 <p>There are three official editions of Boreen. They follow the same rules but feature different regional knowledge, daily questions and journeys.</p>
@@ -156,7 +161,7 @@ const { game } = Astro.props;
   .sb-secondary{font-size:13px;color:var(--sb-ink);font-weight:800;text-decoration:underline}
   .sb-fine{font-size:11px!important;color:var(--sb-muted)!important;margin-top:15px}
   .sb-cover{margin:0;border:1px solid var(--sb-line);background:var(--sb-soft)}
-  .sb-cover img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+  .sb-cover img{width:100%;height:auto;aspect-ratio:2048/970;object-fit:contain;display:block}
   .sb-cover figcaption{border-top:1px solid var(--sb-line);padding:10px 13px;font-size:11px;color:var(--sb-muted)}
   .sb-cover a{color:inherit;text-decoration:underline}
   .sb-nav{display:flex;overflow-x:auto;white-space:nowrap;border:1px solid var(--sb-line);border-top:0;background:var(--sb-card)}
@@ -207,8 +212,6 @@ const { game } = Astro.props;
 
   @media(max-width:970px){.sb-hero-grid{grid-template-columns:1fr;gap:26px;padding-block:35px}.sb-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-three{grid-template-columns:1fr 1fr}.sb-three article:last-child{grid-column:1/-1}}
   @media(max-width:640px){.sb-shell{width:calc(100% - 32px)}.sb-section{padding-top:48px}.sb-hero h1{font-size:clamp(42px,12vw,65px)}.sb-steps,.sb-three,.sb-pair,.sb-faq-grid{grid-template-columns:1fr}.sb-three article:last-child{grid-column:auto}.sb-stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sb-stage-grid article{padding:14px;gap:10px}.sb-stage-grid span{font-size:23px}.sb-stage-grid strong{font-size:13px}.sb-nav>*{padding:12px}.sb-cover figcaption{font-size:10px}}
-  .boreen-page .sb-hero-grid{grid-template-columns:1fr;min-height:0;max-width:1240px}
-  .boreen-page .sb-hero-grid>div{max-width:840px}
   .boreen-page .sb-section a{color:var(--sb-accent);text-decoration:underline;text-underline-offset:2px;overflow-wrap:anywhere}
   .boreen-page .sb-actions{gap:10px}
   .boreen-page .sb-steps{grid-template-columns:repeat(3,minmax(0,1fr))}

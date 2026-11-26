@@ -56,5 +56,6 @@
       "question": "Can I change my answer to get a rarer animal?",
       "answer": "Not after your answer has been accepted. The first valid response determines your distance for that question.\n\nBefore submitting an obvious answer, consider whether you know a less common alternative.\n\nRejected guesses do not deduct points, so you can keep trying while time remains. Keep a reliable answer in reserve to avoid finishing the question with zero distance."
     }
-  ]
+  ],
+  "cover": "/images/games/boreen/cover.webp"
 }
